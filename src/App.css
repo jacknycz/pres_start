@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@theme {
+  --font-sans: 'Inter', sans-serif;
+
+  --color-midnight: #121063;
+  --color-tahiti: #3ab7bf;
+  --color-bermuda: #78dcca;
+
+  --color-p-00: #000000;
+  --color-p-10: #170D33;
+  --color-p-20: #271759;
+  --color-p-30: #392180;
+  --color-p-40: #4B2BA6;
+  --color-p-50: #5E36CE;
+  --color-p-60: #7C55DE;
+  --color-p-70: #B6A1EC;
+  --color-p-80: #D3C7F3;
+  --color-p-90: #E1D9F6;
+  --color-p-95: #EFECFA;
+  --color-p-100: #FFFFFF;
+}
+@theme inline {
+  --button-primary: var(--color-p-50);
+  --button-primary-hover: var(--color-p-40);
+}
+
+@layer utilities {
+  .section-base {
+    @apply flex flex-col gap-2 text-gray-700 dark:text-gray-200;
+  }
+
+  .label-style {
+    @apply bg-gray-200 dark:bg-[#0B1739] px-2 rounded text-xl text-p-50 dark:text-p-70 w-fit shadow-lg dark:shadow-gray-950;
+  }
+
+  .list-style {
+    @apply list-disc list-inside space-y-1 my-2;
+  }
+
+  .hr-fade {
+    @apply border-0 h-px bg-gradient-to-r from-transparent via-p-30/75 to-transparent;
+    @apply dark:from-transparent dark:via-p-50/75 dark:to-transparent;
+  }
+}
+
+html,
+html * {
+  /* transition: background-color 0.3s ease, color 0.3s ease; */
+  box-sizing: border-box;
+}
