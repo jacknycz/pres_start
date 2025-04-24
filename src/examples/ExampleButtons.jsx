@@ -59,16 +59,7 @@ export default function ExampleButtons() {
                 <h2 className='text-4xl'>Button</h2>
             </div>
 
-            <div className='flex gap-6 my-6 flex-wrap'>
-                {/* <div className="flex flex-col">
-                    <h4>Variant</h4>
-                    <select value={variant} onChange={handleButtonVariant} className="border p-2">
-                        <option value="primary">Primary</option>
-                        <option value="secondary">Secondary</option>
-                        <option value="ghost">Ghost</option>
-                    </select>
-                </div> */}
-
+            <div className='grid grid-cols-2 md:grid-cols-3 gap-6 my-6 flex-wrap'>
                 <div className="flex flex-col">
                     <SelectInput
                         label="Variant"
@@ -229,12 +220,15 @@ export default function ExampleButtons() {
 
             <hr className='hr-fade' />
 
-            <div className="flex mt-12">
-                <h3 className='text-2xl'>Large</h3>
-            </div>
-
-            <div className='flex gap-12 my-6'>
+            {/* Begin button examples section - updated with grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                {/* Large buttons section */}
+                <div className="col-span-1 md:col-span-3">
+                    <h3 className='text-2xl mb-6'>Large</h3>
+                </div>
+                
                 <div className="flex flex-col items-start gap-4">
+                    <h4 className="text-lg font-medium mb-2">Primary</h4>
                     <Button size='large' iconLeft={<ArrowForward />} iconRight={<PlayArrow />}>Button</Button>
                     <Button size='large' iconRight={<PlayArrow />}>Button</Button>
                     <Button size='large' iconLeft={<ArrowForward />}>Button</Button>
@@ -242,6 +236,7 @@ export default function ExampleButtons() {
                 </div>
 
                 <div className="flex flex-col items-start gap-4">
+                    <h4 className="text-lg font-medium mb-2">Secondary</h4>
                     <Button variant='secondary' size='large' iconLeft={<ArrowForward />} iconRight={<PlayArrow />}>Button</Button>
                     <Button variant='secondary' size='large' iconRight={<PlayArrow />}>Button</Button>
                     <Button variant='secondary' size='large' iconLeft={<ArrowForward />}>Button</Button>
@@ -249,19 +244,20 @@ export default function ExampleButtons() {
                 </div>
 
                 <div className="flex flex-col items-start gap-4">
+                    <h4 className="text-lg font-medium mb-2">Ghost</h4>
                     <Button variant='ghost' size='large' iconLeft={<ArrowForward />} iconRight={<PlayArrow />}>Button</Button>
                     <Button variant='ghost' size='large' iconRight={<PlayArrow />}>Button</Button>
                     <Button variant='ghost' size='large' iconLeft={<ArrowForward />}>Button</Button>
                     <Button variant='ghost' size='large'>Button</Button>
                 </div>
-            </div>
 
-            <div className="flex mt-12">
-                <h3 className='text-2xl'>Default</h3>
-            </div>
-
-            <div className='flex gap-12 my-6'>
+                {/* Default buttons section */}
+                <div className="col-span-1 md:col-span-3">
+                    <h3 className='text-2xl mb-6 mt-8'>Default</h3>
+                </div>
+                
                 <div className="flex flex-col items-start gap-4">
+                    <h4 className="text-lg font-medium mb-2">Primary</h4>
                     <Button iconLeft={<ArrowForward />} iconRight={<PlayArrow />}>Button</Button>
                     <Button iconRight={<PlayArrow />}>Button</Button>
                     <Button iconLeft={<ArrowForward />}>Button</Button>
@@ -269,6 +265,7 @@ export default function ExampleButtons() {
                 </div>
 
                 <div className="flex flex-col items-start gap-4">
+                    <h4 className="text-lg font-medium mb-2">Secondary</h4>
                     <Button variant='secondary' iconLeft={<ArrowForward />} iconRight={<PlayArrow />}>Button</Button>
                     <Button variant='secondary' iconRight={<PlayArrow />}>Button</Button>
                     <Button variant='secondary' iconLeft={<ArrowForward />}>Button</Button>
@@ -276,19 +273,20 @@ export default function ExampleButtons() {
                 </div>
 
                 <div className="flex flex-col items-start gap-4">
+                    <h4 className="text-lg font-medium mb-2">Ghost</h4>
                     <Button variant='ghost' iconLeft={<ArrowForward />} iconRight={<PlayArrow />}>Button</Button>
                     <Button variant='ghost' iconRight={<PlayArrow />}>Button</Button>
                     <Button variant='ghost' iconLeft={<ArrowForward />}>Button</Button>
                     <Button variant='ghost'>Button</Button>
                 </div>
-            </div>
 
-            <div className="flex mt-12">
-                <h3 className='text-2xl'>Small</h3>
-            </div>
-
-            <div className='flex gap-12 my-6'>
+                {/* Small buttons section */}
+                <div className="col-span-1 md:col-span-3">
+                    <h3 className='text-2xl mb-6 mt-8'>Small</h3>
+                </div>
+                
                 <div className="flex flex-col items-start gap-4">
+                    <h4 className="text-lg font-medium mb-2">Primary</h4>
                     <Button size='small' iconLeft={<ArrowForward />} iconRight={<PlayArrow />}>Button</Button>
                     <Button size='small' iconRight={<PlayArrow />}>Button</Button>
                     <Button size='small' iconLeft={<ArrowForward />}>Button</Button>
@@ -296,6 +294,7 @@ export default function ExampleButtons() {
                 </div>
 
                 <div className="flex flex-col items-start gap-4">
+                    <h4 className="text-lg font-medium mb-2">Secondary</h4>
                     <Button variant='secondary' size='small' iconLeft={<ArrowForward />} iconRight={<PlayArrow />}>Button</Button>
                     <Button variant='secondary' size='small' iconRight={<PlayArrow />}>Button</Button>
                     <Button variant='secondary' size='small' iconLeft={<ArrowForward />}>Button</Button>
@@ -303,6 +302,7 @@ export default function ExampleButtons() {
                 </div>
 
                 <div className="flex flex-col items-start gap-4">
+                    <h4 className="text-lg font-medium mb-2">Ghost</h4>
                     <Button variant='ghost' size='small' iconLeft={<ArrowForward />} iconRight={<PlayArrow />}>Button</Button>
                     <Button variant='ghost' size='small' iconRight={<PlayArrow />}>Button</Button>
                     <Button variant='ghost' size='small' iconLeft={<ArrowForward />}>Button</Button>

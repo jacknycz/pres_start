@@ -47,7 +47,7 @@ export default function SelectInput({
           value={value}
           onChange={onChange}
           className={classNames(
-            "w-full bg-transparent outline-none text-sm text-gray-900 dark:text-white appearance-none",
+            "w-full bg-transparent outline-none text-sm text-gray-900 dark:text-white",
             iconRight && "pr-8",
             iconLeft && "pl-1"
           )}
