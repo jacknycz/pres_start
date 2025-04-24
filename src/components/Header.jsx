@@ -16,12 +16,7 @@ export default function Header(props) {
     const [isOpen, toggleOpen] = useToggle();
 
     return (
-        <header
-            className={classNames(
-                props.className,
-                "bg-white w-full dark:bg-[#081028] dark:text-p-80 shadow-md border-r border-p-95 dark:border-p-20",
-            )}
-        >
+        <header className={props.className}>
             <div className="flex flex-col w-full items-start">
                 <div className="text-lg font-bold mb-4 p-2 md:p-4">
                     <NavLink to="/" className="flex items-center gap-2">
