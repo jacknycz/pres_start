@@ -24,18 +24,7 @@ export default function ExampleMenus() {
                 <h2 className='text-4xl'>Menu</h2>
             </div>
 
-            <div className='flex gap-6 my-6 flex-wrap'>
-                <div className="flex flex-col">
-                    <h4>Variant</h4>
-                    <select className="border p-2">
-                        <option value="primary">Primary</option>
-                        <option value="secondary">Secondary</option>
-                        <option value="ghost">Ghost</option>
-                    </select>
-                </div>
-            </div>
-
-            <div className="flex gap-4 my-12">
+            <div className="component-wrapper">
                 <Menu>
                     <Menu.Button>Menu Button</Menu.Button>
                     <Menu.Dropdown>
@@ -47,6 +36,17 @@ export default function ExampleMenus() {
                         <Menu.Item>Menu Item 1</Menu.Item>
                     </Menu.Dropdown>
                 </Menu>
+            </div>
+
+            <div className='flex gap-6 my-6 flex-wrap'>
+                <div className="flex flex-col">
+                    <h4>Variant</h4>
+                    <select className="border p-2">
+                        <option value="primary">Primary</option>
+                        <option value="secondary">Secondary</option>
+                        <option value="ghost">Ghost</option>
+                    </select>
+                </div>
             </div>
 
             <div className="my-12 w-full">

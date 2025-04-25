@@ -4,6 +4,9 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import Badge from "../components/Badge/Badge";
 import { PlayArrow, ArrowForward, Home, Info, CheckCircle, Warning, Error, } from '@mui/icons-material';
+import SelectInput from "../components/Input/SelectInput";
+import TextInput from "../components/Input/TextInput";
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';  
 
 const iconMap = {
     arrowForward: <ArrowForward />,
@@ -54,10 +57,20 @@ export default function ExampleBadges() {
                 <h2 className="text-4xl">Badges</h2>
             </div>
 
+            <div className="component-wrapper">
+                <Badge icon={icon} variant={variant} rounded={rounded}>{text}</Badge>
+            </div>
+
             <div className="flex gap-6 my-6 flex-wrap">
                 <div className="flex flex-col">
-                    <h4>Type</h4>
-                    <select value={variantKey} onChange={(e) => setVariantKey(e.target.value)} className="border p-2">
+
+                    <SelectInput
+                        label="Type"
+                        name="type"
+                        value={variantKey}
+                        onChange={(e) => setVariantKey(e.target.value)}
+                        iconRight={<ArrowDropDownIcon fontSize="small" />}
+                    >
                         <option value="info">Default (Info)</option>
                         <option value="success">Success</option>
                         <option value="warning">Warning</option>
@@ -65,43 +78,50 @@ export default function ExampleBadges() {
                         <option value="primary">Primary</option>
                         <option value="secondary">Secondary</option>
                         <option value="ghost">Ghost</option>
-                    </select>
+                    </SelectInput>
                 </div>
 
                 <div className="flex flex-col">
-                    <h4>Icon</h4>
-                    <select value={iconKey} onChange={(e) => seticonKey(e.target.value)} className="border p-2">
+                    <SelectInput
+                        label="Icon"
+                        name="icon"
+                        value={iconKey}
+                        onChange={(e) => seticonKey(e.target.value)}
+                        iconRight={<ArrowDropDownIcon fontSize="small" />}
+                    >
                         <option value="none">None</option>
                         <option value="arrowForward">Arrow Forward</option>
                         <option value="playArrow">Play Arrow</option>
                         <option value="home">Home</option>
-                    </select>
+                    </SelectInput>
                 </div>
 
                 <div className="flex flex-col">
-                    <h4>Shape</h4>
-                    <select value={rounded} onChange={handleBadgeRounded} className="border p-2">
+                    <SelectInput
+                        label="Shape"
+                        name="shape"
+                        value={rounded}
+                        onChange={handleBadgeRounded}
+                        iconRight={<ArrowDropDownIcon fontSize="small" />}
+                    >
                         <option value="default">Default</option>
                         <option value="small">Small</option>
                         <option value="pill">Pill</option>
                         <option value="square">Square</option>
-                    </select>
+                    </SelectInput>
                 </div>
 
                 <div className="flex flex-col">
-                    <h4>Text</h4>
-                    <input
-                        type="text"
+
+                    <TextInput
+                        label="Text"
+                        name="text"
                         value={text}
                         onChange={(e) => setText(e.target.value)}
-                        className="border p-1.5 w-full"
+                        maxLength={20}
                         placeholder="Type a message"
                     />
                 </div>
-            </div>
-
-            <div className="flex gap-4 my-12">
-                <Badge icon={icon} variant={variant} rounded={rounded}>{text}</Badge>
             </div>
 
             <div className="my-12 w-full">

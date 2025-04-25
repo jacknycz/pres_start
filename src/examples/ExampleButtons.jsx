@@ -59,7 +59,7 @@ export default function ExampleButtons() {
                 <h2 className='text-4xl'>Button</h2>
             </div>
 
-            <div className="flex gap-4 my-6 justify-center border-1 border-p-90 bg-p-95 dark:border-p-80 rounded-lg p-8">
+            <div className="component-wrapper">
                 <Button variant={variant} size={size} iconLeft={iconLeft} iconRight={iconRight} rounded={rounded}>{text}</Button>
             </div>
 

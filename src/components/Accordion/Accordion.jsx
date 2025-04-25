@@ -1,8 +1,9 @@
-import React from 'react'
+// src/components/Accordion/Accordion.jsx
+import React, { useRef, useEffect, useState } from 'react';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import classNames from 'classnames'
-import useToggle from '../../hooks/useToggle'
-import { useAccordionGroupItem } from './AccordionGroup'
+import classNames from 'classnames';
+import useToggle from '../../hooks/useToggle';
+import { useAccordionGroupItem } from './AccordionGroup';
 
 export default function Accordion({
     id,
@@ -14,17 +15,28 @@ export default function Accordion({
     onDisable,
     className,
 }) {
-    const group = useAccordionGroupItem(id)
-
+    const group = useAccordionGroupItem(id);
+    const contentRef = useRef(null);
+    const [contentHeight, setContentHeight] = useState("0px");
+    
     const [isOpenLocal, toggleOpenLocal] = useToggle({
         initialValue: defaultOpen,
         onToggle,
         onEnable,
         onDisable,
-    })
+    });
 
-    const isOpen = group.isOpen ?? isOpenLocal
-    const toggle = group.toggle ?? toggleOpenLocal
+    const isOpen = group.isOpen ?? isOpenLocal;
+    const toggle = group.toggle ?? toggleOpenLocal;
+    
+    // Update content height when visibility changes
+    useEffect(() => {
+        if (isOpen && contentRef.current) {
+            setContentHeight(`${contentRef.current.scrollHeight}px`);
+        } else {
+            setContentHeight("0px");
+        }
+    }, [isOpen]);
 
     return (
         <div className={classNames("border-1 border-b-1 last:border-b-2 border-p-70 rounded shadow-sm overflow-hidden", className)}>
@@ -40,22 +52,26 @@ export default function Accordion({
                         transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
                         transition: 'transform 300ms ease-in-out',
                     }}
-
                     className="color-p-50"
                 />
-
             </button>
-            <div
-                className={classNames(
-                    'px-4 pt-2 pb-4 text-gray-600 transition-all duration-300 dark:text-white',
-                    {
-                        'max-h-96 opacity-100': isOpen,
-                        'max-h-0 opacity-0 overflow-hidden': !isOpen
-                    }
-                )}
+            
+            {/* Wrapper for animation - this div handles the height animation */}
+            <div 
+                style={{ 
+                    height: contentHeight,
+                    transition: `height 200ms ${isOpen ? 'ease-in-out' : 'cubic-bezier(0, 1, 0, 1)'}`,
+                    overflow: 'hidden'
+                }}
             >
-                {children}
+                {/* Content wrapper - this div maintains consistent padding */}
+                <div 
+                    ref={contentRef}
+                    className="px-4 pt-2 pb-4 text-gray-600 dark:text-white"
+                >
+                    {children}
+                </div>
             </div>
         </div>
-    )
+    );
 }

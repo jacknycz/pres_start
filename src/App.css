@@ -39,6 +39,10 @@
     @apply list-disc list-inside space-y-1 my-2;
   }
 
+  .component-wrapper {
+    @apply flex gap-4 my-6 justify-center border-1 border-p-90 bg-p-95 dark:bg-gray-900 dark:border-p-30 rounded-lg p-8 shadow-lg dark:shadow-gray-950;
+  }
+
   .hr-fade {
     @apply border-0 h-px bg-gradient-to-r from-transparent via-p-30/75 to-transparent;
     @apply dark:from-transparent dark:via-p-50/75 dark:to-transparent;

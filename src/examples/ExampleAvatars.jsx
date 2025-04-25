@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import Avatar from "../components/Avatar/Avatar";
+import SelectInput from "../components/Input/SelectInput";
+import TextInput from "../components/Input/TextInput";
 
 export default function ExampleAvatars() {
     const [size, setSize] = useState('default');
@@ -31,41 +33,52 @@ export default function ExampleAvatars() {
                 <h2 className="text-4xl">Avatars</h2>
             </div>
 
+            <div className="component-wrapper">
+                <Avatar size={size} src={src !== "none" ? src : null} alt="A picture of a demon dog">{text ? text : null}</Avatar>
+            </div>
+
             <div className="flex gap-6 my-6 flex-wrap">
                 <div className="flex flex-col">
-                    <h4>Size</h4>
-                    <select value={size} onChange={handleAvatarSize} className="border p-2">
+                    <SelectInput
+                        label="Size"
+                        value={size}
+                        onChange={handleAvatarSize}
+                    >
                         <option value="default">Default</option>
                         <option value="small">Small</option>
                         <option value="large">Large</option>
-                    </select>
+
+                    </SelectInput>
+                    {/* options={[
+                            { value: 'default', label: 'Default' },
+                            { value: 'small', label: 'Small' },
+                            { value: 'large', label: 'Large' },
+                        ]} */}
                 </div>
 
                 <div className="flex flex-col">
-                    <h4>Image</h4>
-                    <select value={src} onChange={handleAvatarSrc} className="border p-2">
+                    <SelectInput
+                        label="Image"
+                        value={src}
+                        onChange={handleAvatarSrc}
+                    >
                         <option value="none">None</option>
                         <option value="../src/assets/Pres.png">Presley</option>
-                    </select>
+                    </SelectInput>
                 </div>
 
                 {src === "none" && (
                     <div className="flex flex-col">
-                        <h4>Text</h4>
-                        <input
-                            type="text"
+                        <TextInput
+                            label="Initials"
+                            name="initials"
+                            placeholder="PN"
                             value={text}
                             onChange={(e) => setText(e.target.value)}
-                            className="border p-1.5 w-full"
-                            placeholder="PN"
                             maxLength={2}
                         />
                     </div>
                 )}
-            </div>
-
-            <div className="flex gap-12 my-12">
-                <Avatar size={size} src={src !== "none" ? src : null} alt="A picture of a demon dog">{text ? text : null}</Avatar>
             </div>
 
             <div className="my-12 w-full">
@@ -85,15 +98,15 @@ export default function ExampleAvatars() {
                     <p className="">The source of the image. If not provided, the Avatar will display the text.</p>
                 </div>
                 <div className="flex flex-col w-1/4 gap-2">
-                <code className="bg-gray-100 px-1 rounded text-xl w-fit">size</code>
+                    <code className="bg-gray-100 px-1 rounded text-xl w-fit">size</code>
                     <p className="">The source of the image. If not provided, the Avatar will display the text.</p>
                 </div>
                 <div className="flex flex-col w-1/4 gap-2">
-                <code className="bg-gray-100 px-1 rounded text-xl w-fit">alt</code>
+                    <code className="bg-gray-100 px-1 rounded text-xl w-fit">alt</code>
                     <p className="">The source of the image. If not provided, the Avatar will display the text.</p>
                 </div>
                 <div className="flex flex-col w-1/4 gap-2">
-                <code className="bg-gray-100 px-1 rounded text-xl w-fit">children</code>
+                    <code className="bg-gray-100 px-1 rounded text-xl w-fit">children</code>
                     <p className="">The source of the image. If not provided, the Avatar will display the text.</p>
                 </div>
             </div>
