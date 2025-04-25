@@ -1,12 +1,12 @@
-export default function Pres({ width, height, fill }) {
-    const props = {
-        wi: width || 48,
-        he: height || 48,
-        fi: fill || "#fff"
-    }
-
+export default function Pres({ size = 48, ...props }) {
     return (
-        <svg viewBox="0 0 48 48" width={props.wi} height={props.he} fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg
+        viewBox={`0 0 48 48`}
+        width={size}
+        height={size}
+        xmlns="http://www.w3.org/2000/svg"
+        {...props}
+      >
             <path
                 fillRule="evenodd"
                 clipRule="evenodd"

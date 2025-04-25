@@ -55,8 +55,12 @@ export default function ExampleButtons() {
 
     return (
         <>
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap mt">
                 <h2 className='text-4xl'>Button</h2>
+            </div>
+
+            <div className="flex gap-4 my-6 justify-center border-1 border-p-90 bg-p-95 dark:border-p-80 rounded-lg p-8">
+                <Button variant={variant} size={size} iconLeft={iconLeft} iconRight={iconRight} rounded={rounded}>{text}</Button>
             </div>
 
             <div className='grid grid-cols-2 md:grid-cols-3 gap-6 my-6 flex-wrap'>
@@ -67,7 +71,6 @@ export default function ExampleButtons() {
                         value={variant}
                         onChange={handleButtonVariant}
                         iconRight={<ArrowDropDownIcon fontSize="small" />}
-                        supportText="Button variant, or type"
                     >
                         <option value="primary">Primary</option>
                         <option value="secondary">Secondary</option>
@@ -82,7 +85,6 @@ export default function ExampleButtons() {
                         value={size}
                         onChange={handleButtonSize}
                         iconRight={<ArrowDropDownIcon fontSize="small" />}
-                        supportText="How big do ya want it?"
                     >
                         <option value="default">Default</option>
                         <option value="small">Small</option>
@@ -97,7 +99,6 @@ export default function ExampleButtons() {
                         value={rounded}
                         onChange={handleButtonRounded}
                         iconRight={<ArrowDropDownIcon fontSize="small" />}
-                        supportText="This could also be shape..."
                     >
                         <option value="default">Default</option>
                         <option value="small">Small</option>
@@ -113,7 +114,6 @@ export default function ExampleButtons() {
                         value={iconLeftKey}
                         onChange={(e) => seticonLeftKey(e.target.value)}
                         iconRight={<ArrowDropDownIcon fontSize="small" />}
-                        supportText="You can have an icon"
                     >
                         <option value="none">None</option>
                         <option value="arrowForward">Arrow Forward</option>
@@ -129,7 +129,6 @@ export default function ExampleButtons() {
                         value={iconRightKey}
                         onChange={(e) => seticonRightKey(e.target.value)}
                         iconRight={<ArrowDropDownIcon fontSize="small" />}
-                        supportText="Here too? Jeez..."
                     >
                         <option value="none">None</option>
                         <option value="arrowForward">Arrow Forward</option>
@@ -138,9 +137,6 @@ export default function ExampleButtons() {
                     </SelectInput>
                 </div>
 
-            </div>
-
-            <div className='flex gap-6 my-6'>
                 <div className="flex flex-col">
                     <TextInput
                         label="Button Text"
@@ -148,14 +144,8 @@ export default function ExampleButtons() {
                         placeholder="type a different message"
                         value={text}
                         onChange={(e) => setText(e.target.value)}
-                        supportText="Pretty much showing this to style the input"
-                        iconRight={<PlayArrow />}
                     />
                 </div>
-            </div>
-
-            <div className="flex gap-4 my-12">
-                <Button variant={variant} size={size} iconLeft={iconLeft} iconRight={iconRight} rounded={rounded}>{text}</Button>
             </div>
 
             <div className="flex flex-col gap-4 my-12 w-full">

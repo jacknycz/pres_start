@@ -2,6 +2,8 @@ import React from "react";
 import Header from "./Header";
 import { Outlet } from "react-router-dom";
 import useDarkMode from "../hooks/useDarkMode";
+import LightModeIcon from '@mui/icons-material/LightMode'; // Sun Icon
+import DarkModeIcon from '@mui/icons-material/DarkMode'; // Moon Icon
 
 export default function Layout({ children }) {
     const [isDark, toggleDark] = useDarkMode()
@@ -10,12 +12,12 @@ export default function Layout({ children }) {
         <div className="grid grid-cols-1 md:grid-cols-4 dark:text-white bg-white dark:bg-[#081028]">
             <Header className="md:col-span-1 sticky top-0 h-auto md:h-screen bg-white w-full dark:bg-[#081028] dark:text-p-80 shadow-md border-r border-p-95 dark:border-p-20" />
 
-            <main className="md:col-span-3 overflow-y-auto p-4 md:p-12 overflow-x-hidden min-h-screen">
+            <main className="md:col-span-3 overflow-y-auto px-4 py-8 md:p-12 overflow-x-hidden min-h-screen">
                 <Outlet />
             </main>
 
-            <div className="absolute bottom-0 right-0 flex items-center gap-4 p-2 shadow md:p-4 justify-center bg-white dark:bg-[#081028]">
-                <span className="text-sm font-semibold text-gray-400">Light</span>
+            <div className="fixed bottom-0 right-0 md:right-auto md:left-0 z-50 flex items-center gap-4 p-2 shadow md:p-4 justify-center bg-white dark:bg-[#081028]">
+                <span className="text-sm font-semibold text-gray-400"><LightModeIcon /></span>
                 <button
                     onClick={toggleDark}
                     className="relative inline-flex h-8 w-14 items-center rounded-full transition-colors duration-300 focus:outline-none border border-gray-600 shadow-inner shadow-black/40 bg-gradient-to-br from-gray-800 to-gray-900"
@@ -34,7 +36,7 @@ export default function Layout({ children }) {
       `}
                     />
                 </button>
-                <span className="text-sm font-semibold text-gray-400">Dark</span>
+                <span className="text-sm font-semibold text-gray-400"><DarkModeIcon /></span>
             </div>
         </div>
     );

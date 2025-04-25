@@ -27,7 +27,7 @@ export default function Accordion({
     const toggle = group.toggle ?? toggleOpenLocal
 
     return (
-        <div className={classNames("border rounded-2xl shadow-sm overflow-hidden", className)}>
+        <div className={classNames("border-1 border-b-1 last:border-b-2 border-p-70 rounded shadow-sm overflow-hidden", className)}>
             <button
                 className="w-full flex items-center justify-between px-4 py-3 text-left transition-all duration-300 ease-in-out"
                 onClick={toggle}
@@ -40,6 +40,8 @@ export default function Accordion({
                         transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)',
                         transition: 'transform 300ms ease-in-out',
                     }}
+
+                    className="color-p-50"
                 />
 
             </button>
