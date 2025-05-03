@@ -73,34 +73,28 @@ export default function ExampleAccordions() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 gap-y-12 mt-6 mb-12">
                 <div className="section-base">
-                    <code className="label-style">variant</code>
+                    <code className="label-style">single</code>
                     <ul className="list-style">
-                        <li>primary</li>
-                        <li>secondary</li>
-                        <li>ghost</li>
+                        <li><code className="bg-gray-100 px-1 dark:text-gray-800 rounded text-sm">&lt;Accordion /&gt;</code></li>
                     </ul>
-                    <p>That's it, three kinds. It's a couple of lines to add a new one, go for it.</p>
+                    <p>Single element, children are the content, title is a prop. I might change this, but for now I haven't run into any problems. Additional needs are probably more custom than this starter kit will ever allow.</p>
                 </div>
 
                 <div className="section-base">
-                    <code className="label-style">size</code>
+                    <code className="label-style">group</code>
                     <ul className="list-style">
-                        <li>default</li>
-                        <li>small</li>
-                        <li>large</li>
+                        <li><code className="bg-gray-100 px-1 dark:text-gray-800 rounded text-sm">&lt;AccordionGroup /&gt;</code></li>
                     </ul>
-                    <p>Cool, you see the theme. Even easier to add this time.</p>
+                    <p>Wrap this around an <code className="bg-gray-100 px-1 dark:text-gray-800 rounded text-sm">&lt;Accordion /&gt;</code> or two. Groups 'em. Does stuff.</p>
                 </div>
 
                 <div className="section-base">
-                    <code className="label-style">rounded</code>
+                    <code className="label-style">allowMultiple</code>
                     <ul className="list-style">
-                        <li>default</li>
-                        <li>small</li>
-                        <li>pill</li>
-                        <li>square</li>
+                        <li>true</li>
+                        <li>false</li>
                     </ul>
-                    <p>This could have been shape and I'm still on the fence.</p>
+                    <p>Sometimes you want all the things open. Sometimes just one. This does the thing.</p>
                 </div>
             </div>
 
@@ -119,43 +113,48 @@ export default function ExampleAccordions() {
 
             <hr className="hr-fade" />
 
-            <div className="flex flex-col gap-4 my-6 flex-wrap">
-                <h3 className='text-2xl mt-4'>Accordion Group</h3>
-
-                <h4 className="text-lg font-medium mb-2">Single Opened</h4>
-
-                <AccordionGroup allowMultiple={false}>
-                    <Accordion id="3" title="What is Tailwind?">
-                        Tailwind CSS is a utility-first framework...
-                    </Accordion>
-                    <Accordion id="4" title="What is Vite?">
-                        Vite is a build tool that aims to provide a faster dev experience...
-                    </Accordion>
-                    <Accordion id="5" title="What is React?">
-                        React is a JavaScript library for building UIs.
-                    </Accordion>
-                </AccordionGroup>
-
-                <div className="code mt-6 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                {/* accordions */}
+                <div className="col-span-1 md:col-span-3">
+                    <h3 className='text-2xl mb-6'>Accordion Group</h3>
+                </div>
+                
+                <div className="flex flex-col items-start gap-4">
+                    <h4 className="text-lg font-medium mb-2">Single Opened</h4>
+                    <AccordionGroup allowMultiple={false}>
+                        <Accordion id="3" title="What is Tailwind?">
+                            Tailwind CSS is a utility-first framework...
+                        </Accordion>
+                        <Accordion id="4" title="What is Vite?">
+                            Vite is a build tool that aims to provide a faster dev experience...
+                        </Accordion>
+                        <Accordion id="5" title="What is React?">
+                            React is a JavaScript library for building UIs.
+                        </Accordion>
+                    </AccordionGroup>
+                </div>
+                
+                <div className="flex code mt-6 mb-12">
                     <SyntaxHighlighter language="jsx" style={oneDark} className="bg-[#0B1739]">
                         {generateButtonCodeGroup()}
                     </SyntaxHighlighter>
                 </div>
 
-                <h4 className="text-lg font-medium mb-2 mt-4">Multiple Opened</h4>
-
-                <AccordionGroup allowMultiple={true}>
-                    <Accordion id="q1" title="What is Tailwind?">
-                        Tailwind CSS is a utility-first framework...
-                    </Accordion>
-                    <Accordion id="q2" title="What is Vite?">
-                        Vite is a build tool that aims to provide a faster dev experience...
-                    </Accordion>
-                    <Accordion id="q3" title="What is React?">
-                        React is a JavaScript library for building UIs.
-                    </Accordion>
-                </AccordionGroup>
-
+                <div className="flex flex-col items-start gap-4">
+                    <h4 className="text-lg font-medium mb-2">Multiple Opened</h4>
+                    <AccordionGroup allowMultiple={true}>
+                        <Accordion id="q1" title="What is Tailwind?">
+                            Tailwind CSS is a utility-first framework...
+                        </Accordion>
+                        <Accordion id="q2" title="What is Vite?">
+                            Vite is a build tool that aims to provide a faster dev experience...
+                        </Accordion>
+                        <Accordion id="q3" title="What is React?">
+                            React is a JavaScript library for building UIs.
+                        </Accordion>
+                    </AccordionGroup>
+                </div>
+                
                 <div className="code mt-6 mb-12">
                     <SyntaxHighlighter language="jsx" style={oneDark} className="bg-[#0B1739]">
                         {generateButtonCodeGroupMultiple()}

@@ -130,22 +130,30 @@ export default function ExampleBadges() {
                 </SyntaxHighlighter>
             </div>
 
-            <div className="flex mt-6 mb-12 gap-4">
-                <div className="flex flex-col w-1/4 gap-2">
-                    <code className="bg-gray-100 px-1 rounded text-xl w-fit">src</code>
-                    <p className="">The source of the image. If not provided, the Avatar will display the text.</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 gap-y-12 mt-6 mb-12">
+                <div className="section-base">
+                    <code className="label-style">single</code>
+                    <ul className="list-style">
+                        <li><code className="bg-gray-100 px-1 dark:text-gray-800 rounded text-sm">&lt;Accordion /&gt;</code></li>
+                    </ul>
+                    <p>Single element, children are the content, title is a prop. I might change this, but for now I haven't run into any problems. Additional needs are probably more custom than this starter kit will ever allow.</p>
                 </div>
-                <div className="flex flex-col w-1/4 gap-2">
-                <code className="bg-gray-100 px-1 rounded text-xl w-fit">size</code>
-                    <p className="">The source of the image. If not provided, the Avatar will display the text.</p>
+
+                <div className="section-base">
+                    <code className="label-style">group</code>
+                    <ul className="list-style">
+                        <li><code className="bg-gray-100 px-1 dark:text-gray-800 rounded text-sm">&lt;AccordionGroup /&gt;</code></li>
+                    </ul>
+                    <p>Wrap this around an <code className="bg-gray-100 px-1 dark:text-gray-800 rounded text-sm">&lt;Accordion /&gt;</code> or two. Groups 'em. Does stuff.</p>
                 </div>
-                <div className="flex flex-col w-1/4 gap-2">
-                <code className="bg-gray-100 px-1 rounded text-xl w-fit">alt</code>
-                    <p className="">The source of the image. If not provided, the Avatar will display the text.</p>
-                </div>
-                <div className="flex flex-col w-1/4 gap-2">
-                <code className="bg-gray-100 px-1 rounded text-xl w-fit">children</code>
-                    <p className="">The source of the image. If not provided, the Avatar will display the text.</p>
+
+                <div className="section-base">
+                    <code className="label-style">allowMultiple</code>
+                    <ul className="list-style">
+                        <li>true</li>
+                        <li>false</li>
+                    </ul>
+                    <p>Sometimes you want all the things open. Sometimes just one. This does the thing.</p>
                 </div>
             </div>
 

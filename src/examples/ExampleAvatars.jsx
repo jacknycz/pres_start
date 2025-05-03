@@ -37,7 +37,7 @@ export default function ExampleAvatars() {
                 <Avatar size={size} src={src !== "none" ? src : null} alt="A picture of a demon dog">{text ? text : null}</Avatar>
             </div>
 
-            <div className="flex gap-6 my-6 flex-wrap">
+            <div className='grid grid-cols-2 md:grid-cols-3 gap-6 my-6 flex-wrap'>
                 <div className="flex flex-col">
                     <SelectInput
                         label="Size"
@@ -89,25 +89,44 @@ export default function ExampleAvatars() {
 
             <div className="flex flex-col gap-2 my-6">
                 <h2 className="text-2xl">Options</h2>
-                <p><code className="bg-gray-100 px-1 rounded text-sm">&lt;Avatar /&gt;</code> has no required props so </p>
+                <p><code className="bg-gray-100 px-1 dark:text-gray-800 rounded text-sm">&lt;Avatar /&gt;</code> has no required props so </p>
             </div>
 
-            <div className="flex mt-6 mb-12 gap-4">
-                <div className="flex flex-col w-1/4 gap-2">
-                    <code className="bg-gray-100 px-1 rounded text-xl w-fit">src</code>
-                    <p className="">The source of the image. If not provided, the Avatar will display the text.</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 gap-y-12 mt-6 mb-12">
+                <div className="section-base">
+                    <code className="label-style">types</code>
+                    <ul className="list-style">
+                        <li>default/icon</li>
+                        <li>initials</li>
+                        <li>image</li>
+                    </ul>
+                    <p>Default for anonymous, initials for the shy, image for the Instagram motivated.</p>
                 </div>
-                <div className="flex flex-col w-1/4 gap-2">
-                    <code className="bg-gray-100 px-1 rounded text-xl w-fit">size</code>
-                    <p className="">The source of the image. If not provided, the Avatar will display the text.</p>
+
+                <div className="section-base">
+                    <code className="label-style">src</code>
+                    <ul className="list-style">
+                        <li>url</li>
+                    </ul>
+                    <p>This can be changed to it's own component, but sourcing your images is up to you</p>
                 </div>
-                <div className="flex flex-col w-1/4 gap-2">
-                    <code className="bg-gray-100 px-1 rounded text-xl w-fit">alt</code>
-                    <p className="">The source of the image. If not provided, the Avatar will display the text.</p>
+
+                <div className="section-base">
+                    <code className="label-style">size</code>
+                    <ul className="list-style">
+                        <li>default</li>
+                        <li>small</li>
+                        <li>large</li>
+                    </ul>
+                    <p>You can add more, but I promise the only person who ever enlarges your profile picture is you</p>
                 </div>
-                <div className="flex flex-col w-1/4 gap-2">
-                    <code className="bg-gray-100 px-1 rounded text-xl w-fit">children</code>
-                    <p className="">The source of the image. If not provided, the Avatar will display the text.</p>
+
+                <div className="section-base">
+                    <code className="label-style">alt</code>
+                    <ul className="list-style">
+                        <li>Takes a string, prolly will be a string yeah?</li>
+                    </ul>
+                    <p>I used to make these funny captions, but they are for blind folks. Make 'em descriptive.</p>
                 </div>
             </div>
 

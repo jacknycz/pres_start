@@ -34,10 +34,10 @@ export default function Header(props) {
             <div className="flex flex-col w-full items-start">
                 <div className="flex justify-between items-center w-full mb-4 p-2 md:p-4">
                     <Link to="/" className="flex items-center gap-2">
-                        <span className="flex p-2 bg-white rounded-full shadow drop-shadow-[0_0_4px_#fff] drop-shadow-[0_0_8px_#fff]">
+                        <span className="flex p-2 bg-white rounded-full shadow">
                             <Pres size="48" fill="#000" />
                         </span>
-                        <span className="text-3xl font-light dark:text-white dark:drop-shadow-[0_0_4px_#fff] dark:drop-shadow-[0_0_8px_#fff] dark:drop-shadow-[0_0_12px_#0ff]">
+                        <span className="text-3xl font-light dark:text-white">
                             Pres Start
                         </span>
                     </Link>
