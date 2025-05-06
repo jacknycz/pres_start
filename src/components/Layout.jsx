@@ -10,13 +10,13 @@ export default function Layout({ children }) {
     
     return (
         <div className="grid grid-cols-1 md:grid-cols-4 dark:text-white bg-white dark:bg-[#081028]">
-            <Header className="md:col-span-1 sticky top-0 h-auto md:h-screen bg-white w-full dark:bg-[#081028] dark:text-p-80 shadow-md border-r border-p-95 dark:border-p-20" />
+            <Header className="md:col-span-1 sticky top-0 h-auto md:h-dvh md:overflow-y-hidden bg-white w-full dark:bg-[#081028] dark:text-p-80 shadow-md border-r border-p-95 dark:border-p-20" />
 
             <main className="md:col-span-3 overflow-y-auto px-4 py-8 md:p-12 min-h-screen">
                 <Outlet />
             </main>
 
-            <div className="fixed bottom-0 right-0 md:right-auto md:left-0 z-50 flex items-center gap-4 p-2 shadow md:p-4 justify-center bg-white dark:bg-[#081028]">
+            <div className="fixed bottom-0 right-0 z-50 flex items-center gap-4 p-2 shadow md:p-4 justify-center bg-white dark:bg-[#081028]">
                 <span className="text-sm font-semibold text-gray-400"><LightModeIcon /></span>
                 <button
                     onClick={toggleDark}

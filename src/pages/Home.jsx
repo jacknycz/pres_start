@@ -1,6 +1,5 @@
 import React from "react";
 import Pres from "../assets/Pres";
-import PaletteGenerator from "./PaletteGenerator";
 
 export default function Home() {
     return (
@@ -12,13 +11,6 @@ export default function Home() {
             <div className="bg-white dark:bg-p-20 shadow-lg rounded-lg p-6 space-y-2 w-full">
                 <h2 className="text-xl font-semibold">A Design System</h2>
                 <p className="text-gray-600 dark:text-gray-400">...without all that crap you end up deleting and doing yourself because why in the world would you EVER need that part of that component?</p>
-            </div> 
-
-            <div className="bg-white dark:bg-p-20 shadow-lg rounded-lg p-6 space-y-2 w-full">
-                <h2 className="text-xl font-semibold">Colors!</h2>
-                <div className="my-6">
-                    <PaletteGenerator />
-                </div>
             </div> 
 
             <div className="bg-white dark:bg-p-20 shadow-lg rounded-lg p-6 space-y-2 w-full">

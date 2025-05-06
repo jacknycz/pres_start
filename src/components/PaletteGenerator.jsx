@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { generatePalette } from '../utils/generatePalette';
 import { ColorPaletteViewer } from './ColorPaletteViewer';
+import Button from './Button/Button';
+import { Add } from '@mui/icons-material';
 
 export default function PaletteGenerator() {
   const [palettes, setPalettes] = useState({
@@ -50,16 +52,16 @@ export default function PaletteGenerator() {
   );
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
-      <div className="flex justify-between w-full h-18">
+    <div className="p-6 w-full">
+      <div className="flex justify-between h-18">
         <h2 className="text-2xl font-bold mb-6">🎨 Tailwind Color Palette Generator</h2>
         {!palettes.secondary && (
-          <button
+          <Button
             onClick={handleAddSecondary}
-            className="mb-8 px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700 text-sm shadow"
+            iconLeft={<Add />}
           >
-            ➕ Add Palette
-          </button>
+            Add Palette
+          </Button>
         )}
       </div>
 
@@ -99,9 +101,9 @@ export default function PaletteGenerator() {
 
       <ColorPaletteViewer palettes={tailwindPalettes} />
 
-      <div className="mt-10">
+      <div className="mt-12 w-full">
         <h3 className="text-lg font-semibold mb-2">💾 Tailwind Config Snippet</h3>
-        <pre className="bg-gray-800 text-white p-4 rounded text-sm overflow-x-auto">
+        <pre className="bg-gray-800 text-white p-4 rounded text-sm overflow-x-auto w-full">
           {`colors: {
 ${Object.entries(tailwindPalettes)
               .map(
