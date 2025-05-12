@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Button from "../components/Button/Button";
-import TailwindLogo from "../assets/tailwind.svg";
-import FigmaLogo from "../assets/figma.svg";
-import MaterialLogo from "../assets/material.svg"
+import Tailwind2Logo from "../assets/tailwind-2.svg";
+import Figma2Logo from "../assets/figma-2.svg";
+import Material2Logo from "../assets/material-2.svg"
 import React2Logo from "../assets/react-2.svg";
 import useDarkMode from "../hooks/useDarkMode";
 
@@ -114,7 +114,7 @@ export default function Home() {
 
                 <Link to="/typography" className="card-standard">
                     <div className="flex gap-1 md:gap-2 items-center mb-3">
-                        <img src={TailwindLogo} alt="Logo" className="max-w-10 h-10" />
+                        <img src={Tailwind2Logo} alt="Logo" className="max-w-10 h-10" />
                         <h2 className="text-xl md:text-2xl font-semibold text-gray-800 dark:text-gray-100">Tailwind</h2>
                     </div>
 
@@ -127,7 +127,7 @@ export default function Home() {
 
                 <Link to="/typography" className="card-standard">
                     <div className="flex gap-1 md:gap-2 items-center mb-3">
-                        <img src={MaterialLogo} alt="Logo" className="max-w-10 h-10" />
+                        <img src={Material2Logo} alt="Logo" className="max-w-10 h-10" />
                         <h2 className="text-xl md:text-2xl font-semibold text-gray-800 dark:text-gray-100">Material Icons</h2>
                     </div>
 
@@ -139,7 +139,7 @@ export default function Home() {
 
                 <Link to="/typography" className="card-standard">
                     <div className="flex gap-1 md:gap-2 items-center mb-3">
-                        <img src={FigmaLogo} alt="Logo" className="max-w-10 h-10" />
+                        <img src={Figma2Logo} alt="Logo" className="max-w-10 h-10" />
                         <h2 className="text-xl md:text-2xl font-semibold text-gray-800 dark:text-gray-100">Figma</h2>
                     </div>
 
