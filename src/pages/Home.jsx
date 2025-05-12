@@ -41,7 +41,7 @@ export default function Home() {
                 </div>
 
                 <div className="flex justify-center items-center">
-                    <img src="/src/assets/prestronaut.png" alt="" />
+                    <img src="/src/assets/prestronaut-2.png" alt="" />
                 </div>
 
                 <h3 className="text-white text-center text-2xl font-medium neon-glow">Oh yeah, it's got dark mode</h3>
