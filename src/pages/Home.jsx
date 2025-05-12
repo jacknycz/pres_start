@@ -1,8 +1,7 @@
 import React from "react";
-import Pres from "../assets/Pres";
 import { Link } from "react-router-dom";
 import Button from "../components/Button/Button";
-import ReactLogo from "../assets/reactdev.svg";
+import ReactDevLogo from "../assets/ReactDev.svg";
 import TailwindLogo from "../assets/tailwind.svg";
 import FigmaLogo from "../assets/figma.svg";
 import MaterialLogo from "../assets/material.svg"
@@ -102,7 +101,7 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 lg:gap-12">
                 <Link to="/typography" className="card-standard">
                     <div className="flex gap-1 md:gap-2 items-center mb-3">
-                        <img src={ReactLogo} alt="Logo" className="max-w-10 h-10" />
+                        <img src={ReactDevLogo} alt="Logo" className="max-w-10 h-10" />
                         <h2 className="text-xl md:text-2xl font-semibold text-gray-800 dark:text-gray-100">React</h2>
                     </div>
 
