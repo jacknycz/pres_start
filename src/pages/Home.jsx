@@ -2,7 +2,7 @@ import React from "react";
 import Pres from "../assets/Pres";
 import { Link } from "react-router-dom";
 import Button from "../components/Button/Button";
-import ReactLogo from "../assets/react.svg";
+import ReactLogo from "../assets/reactdev.svg";
 import TailwindLogo from "../assets/tailwind.svg";
 import FigmaLogo from "../assets/figma.svg";
 import MaterialLogo from "../assets/material.svg"
