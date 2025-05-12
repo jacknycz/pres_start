@@ -39,13 +39,13 @@ export default function Accordion({
     }, [isOpen]);
 
     return (
-        <div className={classNames("border-1 border-b-1 last:border-b-2 border-p-70 rounded shadow-sm overflow-hidden", className)}>
+        <div className={classNames("bg-white dark:bg-gray-800 border border-b last:border-b-2 border-p-70 dark:border-p-50 rounded shadow-sm overflow-hidden", className)}>
             <button
                 className="w-full flex items-center justify-between px-4 py-3 text-left transition-all duration-300 ease-in-out"
                 onClick={toggle}
                 aria-expanded={isOpen}
             >
-                <span className="font-medium text-gray-800 dark:text-white">{title}</span>
+                <span className="pr-4 ont-medium text-gray-800 dark:text-white">{title}</span>
 
                 <KeyboardArrowDownIcon
                     style={{

@@ -29,7 +29,7 @@ export default function ExampleAvatars() {
 
     return (
         <>
-            <div className="flex">
+            <div className="component-header">
                 <h2 className="text-4xl">Avatars</h2>
             </div>
 
@@ -81,56 +81,60 @@ export default function ExampleAvatars() {
                 )}
             </div>
 
-            <div className="my-12 w-full">
+            <div className="component-code">
                 <SyntaxHighlighter language="jsx" style={oneDark}>
                     {generateBadgeCode()}
                 </SyntaxHighlighter>
             </div>
 
-            <div className="flex flex-col gap-2 my-6">
+            <div className="props-wrapper">
+                <h3 className='text-2xl mb-6'>Props</h3>
+                <table className="w-full border rounded-lg table-auto props">
+                    <thead className="props-header">
+                        <tr>
+                            <th className="props-cell">Name</th>
+                            <th className="props-cell">Details</th>
+                            <th className="props-cell">Default</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr className="props-row">
+                            <td className="props-cell"><code className="label-style">src</code></td>
+                            <td className="props-cell props-details">
+                                <code className="label-style">string</code>
+                                <span>With the intent of these being a starter kit - it just takes a string. Setup like you have a URL to work with.</span>
+                            </td>
+                            <td className="props-cell"><code className="label-style">NA</code></td>
+                        </tr>
+
+                        <tr className="props-row">
+                            <td className="props-cell"><code className="label-style">size</code></td>
+                            <td className="props-cell props-details">
+                                <code className="label-style">small | default | large</code>
+                                <span>Again, it's a starter, so here's the bare minimum. I think 2 lines of code to add a new one? I might add a "fit" option that fills the container.</span>
+                            </td>
+                            <td className="props-cell"><code className="label-style">NA</code></td>
+                        </tr>
+
+                        <tr className="props-row">
+                            <td className="props-cell"><code className="label-style">alt</code></td>
+                            <td className="props-cell props-details">
+                                <code className="label-style">string</code>
+                                <span>Alt text for screenreaders and easy browsing and it's good and it's helpful and you should do it.</span>
+                            </td>
+                            <td className="props-cell"><code className="label-style">NA</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div className="flex flex-col gap-2 my-12">
                 <h2 className="text-2xl">Options</h2>
                 <p><code className="bg-gray-100 px-1 dark:text-gray-800 rounded text-sm">&lt;Avatar /&gt;</code> has no required props so </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 gap-y-12 mt-6 mb-12">
-                <div className="section-base">
-                    <code className="label-style">types</code>
-                    <ul className="list-style">
-                        <li>default/icon</li>
-                        <li>initials</li>
-                        <li>image</li>
-                    </ul>
-                    <p>Default for anonymous, initials for the shy, image for the Instagram motivated.</p>
-                </div>
-
-                <div className="section-base">
-                    <code className="label-style">src</code>
-                    <ul className="list-style">
-                        <li>url</li>
-                    </ul>
-                    <p>This can be changed to it's own component, but sourcing your images is up to you</p>
-                </div>
-
-                <div className="section-base">
-                    <code className="label-style">size</code>
-                    <ul className="list-style">
-                        <li>default</li>
-                        <li>small</li>
-                        <li>large</li>
-                    </ul>
-                    <p>You can add more, but I promise the only person who ever enlarges your profile picture is you</p>
-                </div>
-
-                <div className="section-base">
-                    <code className="label-style">alt</code>
-                    <ul className="list-style">
-                        <li>Takes a string, prolly will be a string yeah?</li>
-                    </ul>
-                    <p>I used to make these funny captions, but they are for blind folks. Make 'em descriptive.</p>
-                </div>
-            </div>
-
-            <hr />
+            <hr className="hr-fade" />
 
             <div className="flex mt-12">
                 <h3 className='text-2xl'>Large</h3>

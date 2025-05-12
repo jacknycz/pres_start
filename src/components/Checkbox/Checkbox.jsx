@@ -7,8 +7,8 @@ export default function Checkbox({
   onChange,
   name,
   value,
-  children,
   disabled = false,
+  helperText = "",
 }) {
   const id = `${name}-${value}`;
 
@@ -32,7 +32,7 @@ export default function Checkbox({
       />
       <div
         className={`w-5 h-5 border-2 rounded flex items-center justify-center shrink-0
-          ${checked ? "border-blue-600 bg-blue-600" : "border-gray-400 bg-white"}
+          ${checked ? "border-p-50 bg-p-50" : "border-gray-400 bg-white"}
           ${disabled ? "bg-gray-100 dark:bg-gray-800" : ""}
           peer-focus:ring-2 ring-blue-300`}
       >
@@ -40,7 +40,12 @@ export default function Checkbox({
           <Check className="!text-white !text-sm leading-none" fontSize="inherit" />
         )}
       </div>
-      <span className="text-gray-800 dark:text-gray-200">{children}</span>
+      <div>
+        <span className="text-gray-800 dark:text-gray-200">{label}</span>
+        {helperText && (
+          <p className="text-xs text-gray-500 dark:text-gray-400">{helperText}</p>
+        )}
+      </div>
     </label>
   );
 }

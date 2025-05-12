@@ -2,7 +2,7 @@ import React from "react";
 import Button from "../Button/Button";
 import { useEffect, useRef } from "react";
 
-export default function Modal({ isOpen, onClose, title, children }) {
+export default function Modal({ isOpen, onClose, header, children }) {
     const overlayRef = useRef(null);
     const dialogRef = useRef(null);
 
@@ -35,8 +35,8 @@ export default function Modal({ isOpen, onClose, title, children }) {
                 ref={dialogRef}
                 className="relative w-full max-w-lg mx-4 sm:mx-auto rounded-xl bg-white dark:bg-gray-900 shadow-xl p-6 transition-all duration-300 transform scale-100 opacity-100"
             >
-                {title && (
-                    <h2 className="text-xl font-semibold mb-4 text-gray-800 dark:text-white">{title}</h2>
+                {header && (
+                    <h2 className="text-xl font-semibold mb-4 text-gray-800 dark:text-white">{header}</h2>
                 )}
                 <button
                     onClick={onClose}

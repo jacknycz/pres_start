@@ -52,7 +52,7 @@ export default function PaletteGenerator() {
   );
 
   return (
-    <div className="p-6 w-full">
+    <div className="w-full">
       <div className="flex justify-between h-18">
         <h2 className="text-2xl font-bold mb-6">🎨 Tailwind Color Palette Generator</h2>
         {!palettes.secondary && (

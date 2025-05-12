@@ -9,12 +9,12 @@ const typeStyles = {
     success: 'bg-green-500 text-white',
     warning: 'bg-yellow-500 text-white',
     error: 'bg-red-500 text-white',
-    primary: 'bg-blue-500 text-white',
+    primary: 'bg-p-50 text-white',
     secondary: 'bg-gray-500 text-white',
-    ghost: 'bg-transparent text-gray-500',
+    ghost: 'bg-transparent text-p-50 dark:text-white border border-p-50',
 }
 
-const roundedStyles = {
+const shapeStyles = {
     default: 'rounded',
     pill: 'rounded-full',
     square: 'rounded-none',
@@ -23,7 +23,7 @@ const roundedStyles = {
 function Badge({
     icon,
     variant = 'info',
-    rounded = 'default',
+    shape = 'default',
     className,
     children,
     ...rest
@@ -33,7 +33,7 @@ function Badge({
             className={classNames(
                 baseStyles,
                 typeStyles[variant],
-                roundedStyles[rounded],
+                shapeStyles[shape],
                 className
             )}
             {...rest}

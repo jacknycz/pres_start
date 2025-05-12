@@ -1,11 +1,12 @@
 import React from "react";
 import { useId } from "react";
 
-export default function RadioGroup({ name, value, onChange, children, className = "" }) {
+export default function RadioGroup({ name, value, onChange, children, className = "", legend }) {
   const groupId = useId();
 
   return (
-    <div role="radiogroup" aria-labelledby={groupId} className={`flex flex-col gap-2 ${className}`}>
+    <fieldset role="radiogroup" aria-labelledby={groupId} className={`flex flex-col gap-2 ${className}`}>
+      {legend && <legend id={groupId} className="text-sm font-medium">{legend}</legend>}
       {children.map((child, index) =>
         child.type.displayName === "Radio"
           ? React.cloneElement(child, {
@@ -16,6 +17,6 @@ export default function RadioGroup({ name, value, onChange, children, className 
             })
           : null
       )}
-    </div>
+    </fieldset>
   );
 }

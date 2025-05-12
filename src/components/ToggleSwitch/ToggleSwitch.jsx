@@ -34,9 +34,9 @@ export default function ToggleSwitch({
             {/* Switch */}
             <div
                 className={`w-10 h-6 rounded-full relative shrink-0 transition-colors
-          ${checked ? "bg-blue-600" : "bg-gray-300"}
+          ${checked ? "bg-p-50" : "bg-gray-300"}
           ${disabled ? "bg-gray-200 dark:bg-gray-700" : ""}
-          peer-focus:ring-2 ring-blue-300`}
+          peer-focus:ring-2 ring-p-70`}
             >
                 <div
                     className={`absolute top-0.5 left-0.5 w-5 h-5 rounded-full bg-white shadow-md transition-transform

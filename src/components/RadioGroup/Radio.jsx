@@ -5,11 +5,10 @@ export default function Radio({
   checked,
   onChange,
   name,
+  id,
   children,
   disabled = false,
 }) {
-  const id = `${name}-${value}`;
-
   return (
     <label
       htmlFor={id}
@@ -30,11 +29,11 @@ export default function Radio({
       />
       <div
         className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0
-          ${checked ? "border-blue-600" : "border-gray-400"}
+          ${checked ? "border-white" : "border-gray-400"}
           ${disabled ? "bg-gray-100 dark:bg-gray-800" : "bg-white dark:bg-gray-900"}
           peer-focus:ring-2 ring-blue-300`}
       >
-        {checked && !disabled && <div className="w-2.5 h-2.5 bg-blue-600 rounded-full" />}
+        {checked && !disabled && <div className="w-2.5 h-2.5 bg-p-50 rounded-full" />}
       </div>
       <span className="text-gray-800 dark:text-gray-200">{children}</span>
     </label>

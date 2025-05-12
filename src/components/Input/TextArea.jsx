@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import classNames from "classnames";
 
-export default function TextInput({
+export default function TextArea({
   label,
   name,
-  type = "text",
   value,
   onChange,
   placeholder,
@@ -14,6 +13,7 @@ export default function TextInput({
   iconLeft,
   iconRight,
   className,
+  rows = 4,
   maxLength,
   ...props
 }) {
@@ -36,7 +36,7 @@ export default function TextInput({
 
       <div
         className={classNames(
-          "relative flex items-center rounded-lg border px-3 py-2 transition",
+          "relative rounded-lg border transition",
           "bg-white dark:bg-gray-800",
           isFocused && "ring-2",
           error
@@ -45,22 +45,24 @@ export default function TextInput({
         )}
       >
         {iconLeft && (
-          <span className="mr-2 text-gray-500 dark:text-gray-400">{iconLeft}</span>
+          <span className="absolute left-3 top-3 text-gray-500 dark:text-gray-400">
+            {iconLeft}
+          </span>
         )}
-        <input
-          type={type}
+        <textarea
           id={id}
           name={name}
           value={value}
           onChange={onChange}
           placeholder={placeholder}
+          rows={rows}
           maxLength={maxLength}
           aria-invalid={error ? "true" : "false"}
           aria-describedby={hasErrorMessage ? errorId : undefined}
           className={classNames(
-            "w-full bg-transparent outline-none text-sm text-gray-900 dark:text-white",
-            iconRight && "pr-8",
-            iconLeft && "pl-1"
+            "w-full bg-transparent outline-none text-sm text-gray-900 dark:text-white p-3 resize-y rounded-lg",
+            iconRight && "pr-10",
+            iconLeft && "pl-10"
           )}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
@@ -68,7 +70,7 @@ export default function TextInput({
           {...props}
         />
         {iconRight && (
-          <span className="absolute right-3 text-gray-500 dark:text-gray-400">
+          <span className="absolute right-3 top-3 text-gray-500 dark:text-gray-400">
             {iconRight}
           </span>
         )}
@@ -87,9 +89,9 @@ export default function TextInput({
           </p>
         )}
         
-        {maxLength && value !== undefined && (
+        {maxLength && (
           <p className="text-xs text-gray-500 dark:text-gray-400 ml-auto">
-            {value.length}/{maxLength}
+            {value ? value.length : 0}/{maxLength}
           </p>
         )}
       </div>
@@ -101,39 +103,26 @@ export default function TextInput({
 // Usage example:
 //
 // import React, { useState } from "react";
-// import TextInput from "./components/TextInput";
-// import EmailIcon from "@mui/icons-material/Email";
-// import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+// import TextArea from "./components/TextArea";
+// import CommentIcon from "@mui/icons-material/Comment";
+// import EditIcon from "@mui/icons-material/Edit";
 
 // function DemoForm() {
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-  
+//   const [feedback, setFeedback] = useState("");
+//   
 //   return (
 //     <div className="max-w-md mx-auto p-4 space-y-6">
-//       <TextInput
-//         label="Email"
-//         name="email"
-//         placeholder="you@example.com"
-//         value={email}
-//         onChange={(e) => setEmail(e.target.value)}
-//         iconLeft={<EmailIcon fontSize="small" />}
-//         supportText="We'll never share your email."
-//         required
-//       />
-
-//       <TextInput
-//         label="Password"
-//         name="password"
-//         type="password"
-//         placeholder="••••••••"
-//         value={password}
-//         onChange={(e) => setPassword(e.target.value)}
-//         iconRight={<VisibilityOffIcon fontSize="small" />}
-//         error={!password}
-//         supportText={!password ? "Password is required" : ""}
-//         required
-//         maxLength={20}
+//       <TextArea
+//         label="Your Feedback"
+//         name="feedback"
+//         placeholder="Tell us what you think..."
+//         value={feedback}
+//         onChange={(e) => setFeedback(e.target.value)}
+//         iconLeft={<CommentIcon fontSize="small" />}
+//         iconRight={<EditIcon fontSize="small" />}
+//         supportText="Your feedback helps us improve."
+//         rows={5}
+//         maxLength={500}
 //       />
 //     </div>
 //   );

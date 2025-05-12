@@ -17,7 +17,7 @@ const iconMap = {
 
 export default function ExampleBadges() {
     const [iconKey, seticonKey] = useState('none')
-    const [rounded, setRounded] = useState('default');
+    const [shape, setShape] = useState('default');
     const [text, setText] = useState('Hello world!');
     const icon = iconMap[iconKey];
 
@@ -39,13 +39,13 @@ export default function ExampleBadges() {
     };
 
     // const handleBadgeType = handleChange(setType);
-    const handleBadgeRounded = handleChange(setRounded);
+    const handleBadgeShape = handleChange(setShape);
 
     const generateBadgeCode = () => {
         return `<Badge 
     icon="${iconKey}" 
     variant="${variant}" 
-    rounded="${rounded}"
+    shape="${shape}"
 >
     ${text}
 </Button>`;
@@ -53,15 +53,15 @@ export default function ExampleBadges() {
 
     return (
         <>
-            <div className="flex">
+            <div className="component-header">
                 <h2 className="text-4xl">Badges</h2>
             </div>
 
             <div className="component-wrapper">
-                <Badge icon={icon} variant={variant} rounded={rounded}>{text}</Badge>
+                <Badge icon={icon} variant={variant} shape={shape}>{text}</Badge>
             </div>
 
-            <div className="flex gap-6 my-6 flex-wrap">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 <div className="flex flex-col">
 
                     <SelectInput
@@ -69,7 +69,6 @@ export default function ExampleBadges() {
                         name="type"
                         value={variantKey}
                         onChange={(e) => setVariantKey(e.target.value)}
-                        iconRight={<ArrowDropDownIcon fontSize="small" />}
                     >
                         <option value="info">Default (Info)</option>
                         <option value="success">Success</option>
@@ -87,7 +86,6 @@ export default function ExampleBadges() {
                         name="icon"
                         value={iconKey}
                         onChange={(e) => seticonKey(e.target.value)}
-                        iconRight={<ArrowDropDownIcon fontSize="small" />}
                     >
                         <option value="none">None</option>
                         <option value="arrowForward">Arrow Forward</option>
@@ -100,12 +98,10 @@ export default function ExampleBadges() {
                     <SelectInput
                         label="Shape"
                         name="shape"
-                        value={rounded}
-                        onChange={handleBadgeRounded}
-                        iconRight={<ArrowDropDownIcon fontSize="small" />}
+                        value={shape}
+                        onChange={handleBadgeShape}
                     >
                         <option value="default">Default</option>
-                        <option value="small">Small</option>
                         <option value="pill">Pill</option>
                         <option value="square">Square</option>
                     </SelectInput>
@@ -124,40 +120,53 @@ export default function ExampleBadges() {
                 </div>
             </div>
 
-            <div className="my-12 w-full">
+            <div className="component-code">
                 <SyntaxHighlighter language="jsx" style={oneDark}>
                     {generateBadgeCode()}
                 </SyntaxHighlighter>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 gap-y-12 mt-6 mb-12">
-                <div className="section-base">
-                    <code className="label-style">single</code>
-                    <ul className="list-style">
-                        <li><code className="bg-gray-100 px-1 dark:text-gray-800 rounded text-sm">&lt;Accordion /&gt;</code></li>
-                    </ul>
-                    <p>Single element, children are the content, title is a prop. I might change this, but for now I haven't run into any problems. Additional needs are probably more custom than this starter kit will ever allow.</p>
-                </div>
+            <div className="props-wrapper">
+                <h3 className='text-2xl mb-6'>Props</h3>
+                <table className="w-full border rounded-lg table-auto props">
+                    <thead className="props-header">
+                        <tr>
+                            <th className="props-cell">Name</th>
+                            <th className="props-cell">Details</th>
+                            <th className="props-cell">Default</th>
+                        </tr>
+                    </thead>
 
-                <div className="section-base">
-                    <code className="label-style">group</code>
-                    <ul className="list-style">
-                        <li><code className="bg-gray-100 px-1 dark:text-gray-800 rounded text-sm">&lt;AccordionGroup /&gt;</code></li>
-                    </ul>
-                    <p>Wrap this around an <code className="bg-gray-100 px-1 dark:text-gray-800 rounded text-sm">&lt;Accordion /&gt;</code> or two. Groups 'em. Does stuff.</p>
-                </div>
+                    <tbody>
+                        <tr className="props-row">
+                            <td className="props-cell"><code className="label-style">icon</code></td>
+                            <td className="props-cell props-details">
+                                <code className="label-style">MaterialIconName</code>
+                                <span>Right now it's setup to just take the name of the Material Icon you want to use. Can be updated to use whatever icons you want.</span>
+                            </td>
+                            <td className="props-cell"><code className="label-style">NA</code></td>
+                        </tr>
 
-                <div className="section-base">
-                    <code className="label-style">allowMultiple</code>
-                    <ul className="list-style">
-                        <li>true</li>
-                        <li>false</li>
-                    </ul>
-                    <p>Sometimes you want all the things open. Sometimes just one. This does the thing.</p>
-                </div>
+                        <tr className="props-row">
+                            <td className="props-cell"><code className="label-style">variant</code></td>
+                            <td className="props-cell props-details">
+                                <code className="label-style">info | success | warning | error | primary | secondary | ghost</code>
+                                <span>Controls the color and default icon of the badge.</span>
+                            </td>
+                            <td className="props-cell"><code className="label-style">info</code></td>
+                        </tr>
+
+                        <tr className="props-row">
+                            <td className="props-cell"><code className="label-style">shape</code></td>
+                            <td className="props-cell props-details">
+                                <code className="label-style">default | pill | square</code>
+                                <span>Select your shape - normally a tightly rounded corner.</span>
+                            </td>
+                            <td className="props-cell"><code className="label-style">default</code></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
-
-            <hr />
 
             <div className="flex mt-12">
                 <h3 className='text-2xl'>Badge Variants</h3>

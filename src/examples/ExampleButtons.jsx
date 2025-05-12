@@ -55,7 +55,7 @@ export default function ExampleButtons() {
 
     return (
         <>
-            <div className="flex flex-wrap mt">
+            <div className="component-header">
                 <h2 className='text-4xl'>Button</h2>
             </div>
 
@@ -70,11 +70,11 @@ export default function ExampleButtons() {
                         name="variant"
                         value={variant}
                         onChange={handleButtonVariant}
-                        iconRight={<ArrowDropDownIcon fontSize="small" />}
                     >
                         <option value="primary">Primary</option>
                         <option value="secondary">Secondary</option>
                         <option value="ghost">Ghost</option>
+                        <option value="destructive">Destructive</option>
                     </SelectInput>
                 </div>
 
@@ -84,7 +84,6 @@ export default function ExampleButtons() {
                         name="size"
                         value={size}
                         onChange={handleButtonSize}
-                        iconRight={<ArrowDropDownIcon fontSize="small" />}
                     >
                         <option value="default">Default</option>
                         <option value="small">Small</option>
@@ -98,7 +97,6 @@ export default function ExampleButtons() {
                         name="rounded"
                         value={rounded}
                         onChange={handleButtonRounded}
-                        iconRight={<ArrowDropDownIcon fontSize="small" />}
                     >
                         <option value="default">Default</option>
                         <option value="small">Small</option>
@@ -113,7 +111,6 @@ export default function ExampleButtons() {
                         name="iconLeft"
                         value={iconLeftKey}
                         onChange={(e) => seticonLeftKey(e.target.value)}
-                        iconRight={<ArrowDropDownIcon fontSize="small" />}
                     >
                         <option value="none">None</option>
                         <option value="arrowForward">Arrow Forward</option>
@@ -128,7 +125,6 @@ export default function ExampleButtons() {
                         name="iconRight"
                         value={iconRightKey}
                         onChange={(e) => seticonRightKey(e.target.value)}
-                        iconRight={<ArrowDropDownIcon fontSize="small" />}
                     >
                         <option value="none">None</option>
                         <option value="arrowForward">Arrow Forward</option>
@@ -154,6 +150,57 @@ export default function ExampleButtons() {
                 <SyntaxHighlighter language="jsx" style={oneDark} className="bg-[#0B1739]">
                     {generateButtonCode()}
                 </SyntaxHighlighter>
+            </div>
+
+            <div className="props-wrapper">
+                <h3 className='text-2xl mb-6'>Props</h3>
+                <table className="w-full border rounded-lg table-auto props">
+                    <thead className="props-header">
+                        <tr>
+                            <th className="props-cell">Name</th>
+                            <th className="props-cell">Details</th>
+                            <th className="props-cell">Default</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr className="props-row">
+                            <td className="props-cell"><code className="label-style">variant</code></td>
+                            <td className="props-cell props-details">
+                                <code className="label-style">primary | secondary | ghost | destructive</code>
+                                <span>Controls the color, no affect on operation.</span>
+                            </td>
+                            <td className="props-cell"><code className="label-style">primary</code></td>
+                        </tr>
+
+                        <tr className="props-row">
+                            <td className="props-cell"><code className="label-style">size</code></td>
+                            <td className="props-cell props-details">
+                                <code className="label-style">small | default | large</code>
+                                <span>Probably not the first time you'll see "basic options, add more" and it's easy.</span>
+                            </td>
+                            <td className="props-cell"><code className="label-style">default</code></td>
+                        </tr>
+
+                        <tr className="props-row">
+                            <td className="props-cell"><code className="label-style">rounded</code></td>
+                            <td className="props-cell props-details">
+                                <code className="label-style">default | small | pill | square</code>
+                                <span>Select your shape - normally a tightly rounded corner.</span>
+                            </td>
+                            <td className="props-cell"><code className="label-style">default</code></td>
+                        </tr>
+
+                         <tr className="props-row">
+                            <td className="props-cell"><code className="label-style">iconLeft <br/> iconRight</code></td>
+                            <td className="props-cell props-details">
+                                <code className="label-style">MaterialIconName</code>
+                                <span>Right now it's setup to just take the name of the Material Icon you want to use. Can be updated to use whatever icons you want.</span>
+                            </td>
+                            <td className="props-cell"><code className="label-style">NA</code></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 gap-y-12 mt-6 mb-12">

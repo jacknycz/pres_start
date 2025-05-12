@@ -1,6 +1,5 @@
 import React from "react";
-import { AccordionGroup } from "../components/Accordion/AccordionGroup";
-import Accordion from "../components/Accordion/Accordion";
+import { Accordion, AccordionGroup } from "../components/Accordion";
 
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
@@ -19,6 +18,16 @@ const generateButtonCodeSingleFull = () => {
     id="2" 
     title="What is Tailwind?" 
     className={"w-full"}
+>
+    Tailwind CSS is a utility-first framework...
+</Accordion>`;
+};
+
+const generateButtonCodeSingleOpen = () => {
+    return `<Accordion 
+    id="2" 
+    title="What is Tailwind?" 
+    dafaultOpen={true}
 >
     Tailwind CSS is a utility-first framework...
 </Accordion>`;
@@ -55,53 +64,73 @@ const generateButtonCodeGroupMultiple = () => {
 export default function ExampleAccordions() {
     return (
         <>
-            <div className="flex">
+            <div className="component-header">
                 <h2 className="text-4xl">Accordions</h2>
             </div>
 
             <div className="component-wrapper">
-                <Accordion id="1" title="What is Tailwind?">
-                    Tailwind CSS is a utility-first framework...
+                <Accordion id="1" title="Why did Presley refuse to debug the code?">
+                    <div className="space-y-2">
+                        <p>Because he thought "fetch" was just for sticks!<sup>*</sup></p>
+                        <span className="text-sm">*All jokes created by ChatGPT with a poorly designed prompt. My bad.</span>
+                    </div>
                 </Accordion>
             </div>
 
-            <div className="code my-6">
+            <div className="component-code">
                 <SyntaxHighlighter language="jsx" style={oneDark} className="bg-[#0B1739]">
                     {generateButtonCodeSingleDefault()}
                 </SyntaxHighlighter>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 gap-y-12 mt-6 mb-12">
-                <div className="section-base">
-                    <code className="label-style">single</code>
-                    <ul className="list-style">
-                        <li><code className="bg-gray-100 px-1 dark:text-gray-800 rounded text-sm">&lt;Accordion /&gt;</code></li>
-                    </ul>
-                    <p>Single element, children are the content, title is a prop. I might change this, but for now I haven't run into any problems. Additional needs are probably more custom than this starter kit will ever allow.</p>
-                </div>
+            <div className="props-wrapper">
+                <h3 className='text-2xl mb-6'>Props</h3>
+                <table className="w-full border rounded-lg table-auto props">
+                    <thead className="props-header">
+                        <tr>
+                            <th className="props-cell">Name</th>
+                            <th className="props-cell">Details</th>
+                            <th className="props-cell">Default</th>
+                        </tr>
+                    </thead>
 
-                <div className="section-base">
-                    <code className="label-style">group</code>
-                    <ul className="list-style">
-                        <li><code className="bg-gray-100 px-1 dark:text-gray-800 rounded text-sm">&lt;AccordionGroup /&gt;</code></li>
-                    </ul>
-                    <p>Wrap this around an <code className="bg-gray-100 px-1 dark:text-gray-800 rounded text-sm">&lt;Accordion /&gt;</code> or two. Groups 'em. Does stuff.</p>
-                </div>
+                    <tbody>
+                        <tr className="props-row">
+                            <td className="props-cell"><code className="label-style">id</code></td>
+                            <td className="props-cell props-details">
+                                <code className="label-style">string</code>
+                                <span>The unique id of the accordion.</span>
+                            </td>
+                            <td className="props-cell"><code className="label-style">NA</code></td>
+                        </tr>
 
-                <div className="section-base">
-                    <code className="label-style">allowMultiple</code>
-                    <ul className="list-style">
-                        <li>true</li>
-                        <li>false</li>
-                    </ul>
-                    <p>Sometimes you want all the things open. Sometimes just one. This does the thing.</p>
-                </div>
+                        <tr className="props-row">
+                            <td className="props-cell"><code className="label-style">title</code></td>
+                            <td className="props-cell props-details">
+                                <code className="label-style">string</code>
+                                <span>The title/header of the accordion.</span>
+                            </td>
+                            <td className="props-cell"><code className="label-style">NA</code></td>
+                        </tr>
+
+                        <tr className="props-row">
+                            <td className="props-cell"><code className="label-style">defaultOpen</code></td>
+                            <td className="props-cell props-details">
+                                <code className="label-style">boolean</code>
+                                <span>Option to show the content by default.</span>
+                            </td>
+                            <td className="props-cell"><code className="label-style">NA</code></td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
+
+            <hr className="hr-fade" />
 
             <div className="flex gap-4 mt-12 mb-6 flex-wrap">
                 <h4 className="text-lg font-medium mb-2">Full-width</h4>
-                <Accordion id="2" title="What is Tailwind?" className={"w-full"}>
-                    Tailwind CSS is a utility-first framework...
+                <Accordion id="2" title="What’s Presley’s favorite programming language?" className={"w-full"}>
+                    BarkScript — it’s paw-sitively easy to chew on!
                 </Accordion>
             </div>
 
@@ -113,53 +142,91 @@ export default function ExampleAccordions() {
 
             <hr className="hr-fade" />
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-                {/* accordions */}
+            <div className="flex flex-col gap-4 mt-12 mb-6 flex-wrap">
+                <h4 className="text-lg font-medium mb-2">Open</h4>
+                <Accordion id="2" title="Why did Presley start his own design system?" defaultOpen={true}>
+                    Because he wanted more “pup-ups” instead of pop-ups!
+                </Accordion>
+            </div>
+
+            <div className="code mt-6 mb-12">
+                <SyntaxHighlighter language="jsx" style={oneDark} className="bg-[#0B1739]">
+                    {generateButtonCodeSingleOpen()}
+                </SyntaxHighlighter>
+            </div>
+
+            <hr className="hr-fade" />
+
+            <div className="flex flex-col mt-12">
                 <div className="col-span-1 md:col-span-3">
                     <h3 className='text-2xl mb-6'>Accordion Group</h3>
                 </div>
-                
+
                 <div className="flex flex-col items-start gap-4">
                     <h4 className="text-lg font-medium mb-2">Single Opened</h4>
                     <AccordionGroup allowMultiple={false}>
-                        <Accordion id="3" title="What is Tailwind?">
-                            Tailwind CSS is a utility-first framework...
+                        <Accordion id="3" title="Why did Presley refuse to debug the code?">
+                            Because he thought "fetch" was just for sticks!
                         </Accordion>
-                        <Accordion id="4" title="What is Vite?">
-                            Vite is a build tool that aims to provide a faster dev experience...
+                        <Accordion id="4" title="What's Presley's favorite programming language?">
+                            BarkScript — it's paw-sitively easy to chew on!
                         </Accordion>
-                        <Accordion id="5" title="What is React?">
-                            React is a JavaScript library for building UIs.
+                        <Accordion id="5" title="Why did Presley start his own design system?">
+                            Because he wanted more “pup-ups” instead of pop-ups!
                         </Accordion>
                     </AccordionGroup>
                 </div>
-                
-                <div className="flex code mt-6 mb-12">
+
+                <div className="component-code">
                     <SyntaxHighlighter language="jsx" style={oneDark} className="bg-[#0B1739]">
                         {generateButtonCodeGroup()}
                     </SyntaxHighlighter>
                 </div>
 
+                <div className="props-wrapper">
+                    <table className="w-full border rounded-lg table-auto props">
+                        <thead className="props-header">
+                            <tr>
+                                <th className="props-cell">Name</th>
+                                <th className="props-cell">Details</th>
+                                <th className="props-cell">Default</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr className="props-row">
+                                <td className="props-cell"><code className="label-style">allowMultiple</code></td>
+                                <td className="props-cell props-details">
+                                    <code className="label-style">boolean</code>
+                                    <span>A boolean that allows you to show more than one accordion open at a time - if that is your desired behavior.</span>
+                                </td>
+                                <td className="props-cell"><code className="label-style">false</code></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
                 <div className="flex flex-col items-start gap-4">
                     <h4 className="text-lg font-medium mb-2">Multiple Opened</h4>
                     <AccordionGroup allowMultiple={true}>
-                        <Accordion id="q1" title="What is Tailwind?">
-                            Tailwind CSS is a utility-first framework...
+                        <Accordion id="q1" title="Why did Presley take a nap on the keyboard?">
+                            He was trying to "paws" the build!
                         </Accordion>
-                        <Accordion id="q2" title="What is Vite?">
-                            Vite is a build tool that aims to provide a faster dev experience...
+                        <Accordion id="q2" title="How does Presley handle version control?">
+                            With plenty of "commit-mints" and a few chewed branches!
                         </Accordion>
-                        <Accordion id="q3" title="What is React?">
-                            React is a JavaScript library for building UIs.
+                        <Accordion id="q3" title="What does Presley do when a bug shows up in the design system?">
+                            He growls at it until it "fleas" the codebase!
                         </Accordion>
                     </AccordionGroup>
                 </div>
-                
+
                 <div className="code mt-6 mb-12">
                     <SyntaxHighlighter language="jsx" style={oneDark} className="bg-[#0B1739]">
                         {generateButtonCodeGroupMultiple()}
                     </SyntaxHighlighter>
                 </div>
+
             </div>
         </>
     );

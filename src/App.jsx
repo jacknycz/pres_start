@@ -23,34 +23,47 @@ import ExampleCheckbox from './examples/ExampleCheckbox'
 import ExampleRadioGroup from './examples/ExampleRadioGroup'
 import ExampleToggleSwitch from './examples/ExampleToggleSwitch'
 
+const routes = [
+  { path: '/', element: <Home />, index: true },
+  { path: 'examplebuttons', element: <ExampleButtons /> },
+  { path: 'examplebadges', element: <ExampleBadges /> },
+  { path: 'examplemenus', element: <ExampleMenus /> },
+  { path: 'exampleavatars', element: <ExampleAvatars /> },
+  { path: 'exampleaccordions', element: <ExampleAccordions /> },
+  { path: 'exampletabs', element: <ExampleTabs /> },
+  { path: 'examplemodals', element: <ExampleModals /> },
+  { path: 'exampletextinput', element: <ExampleTextInput /> },
+  { path: 'exampleselectinput', element: <ExampleSelectInput /> },
+  { path: 'examplecheckbox', element: <ExampleCheckbox /> },
+  { path: 'exampleradiogroup', element: <ExampleRadioGroup /> },
+  { path: 'exampletoggleswitch', element: <ExampleToggleSwitch /> },
+  { path: 'typography', element: <Typography /> },
+  { path: 'colors', element: <Colors /> },
+]
+
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="examplebuttons" element={<ExampleButtons />} />
-          <Route path="examplebadges" element={<ExampleBadges />} />
-          <Route path="examplemenus" element={<ExampleMenus />} />
-          <Route path="exampleavatars" element={<ExampleAvatars />} />
-          <Route path="exampleaccordions" element={<ExampleAccordions />} />
-          <Route path="exampletabs" element={<ExampleTabs />} />
-          <Route path="examplemodals" element={<ExampleModals />} />
-          <Route path="exampletextinput" element={<ExampleTextInput />} />
-          <Route path="exampleselectinput" element={<ExampleSelectInput />} />
-          <Route path="examplecheckbox" element={<ExampleCheckbox />} />
-          <Route path="exampleradiogroup" element={<ExampleRadioGroup />} />
-          <Route path="exampletoggleswitch" element={<ExampleToggleSwitch />} />
-          <Route path="typography" element={<Typography/>} />
-          <Route path="colors" element={<Colors/>} />
+          {routes.map(({ path, element, index }) => (
+            <Route key={path} path={path} element={element} index={index} />
+          ))}
         </Route>
       </Routes>
     </BrowserRouter>
   )
 }
 
-createRoot(document.getElementById('root')).render(
+// Export the App component for potential imports elsewhere
+export default App
+
+// Mount the application to the DOM
+const rootElement = document.getElementById('root')
+const root = createRoot(rootElement)
+
+root.render(
   <StrictMode>
     <App />
-  </StrictMode>,
+  </StrictMode>
 )

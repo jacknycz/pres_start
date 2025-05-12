@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: 'Inter', sans-serif;
 
@@ -21,31 +22,118 @@
   --color-p-95: #EFECFA;
   --color-p-100: #FFFFFF;
 }
+
 @theme inline {
   --button-primary: var(--color-p-50);
   --button-primary-hover: var(--color-p-40);
 }
 
 @layer utilities {
-  .section-base {
-    @apply flex flex-col gap-2 text-gray-700 dark:text-gray-200;
-  }
 
+  /* Switch this out for the badge you idiot */
   .label-style {
-    @apply bg-gray-200 dark:bg-[#0B1739] px-2 rounded text-xl text-p-50 dark:text-p-70 w-fit shadow-lg dark:shadow-gray-950;
+    @apply bg-gray-200 dark:bg-p-50 px-2 rounded text-p-50 dark:text-p-90 w-fit;
   }
 
   .list-style {
     @apply list-disc list-inside space-y-1 my-2;
   }
 
-  .component-wrapper {
-    @apply flex gap-4 my-6 justify-center border-1 border-p-90 bg-p-95 dark:bg-gray-900 dark:border-p-30 rounded-lg p-8 shadow-lg dark:shadow-gray-950;
+  /* These basically theme most of the component pages */
+  .component-header {
+    @apply mb-6 text-2xl font-bold text-gray-800 dark:text-gray-200;
   }
 
+  .component-wrapper {
+    @apply flex gap-4 mt-6 mb-12 justify-center border-1 border-gray-300 bg-gray-100 dark:bg-gray-900 dark:border-p-30 rounded-lg p-8;
+  }
+
+  .component-code {
+    @apply my-12;
+  }
+
+  .component-props {}
+
+  /* Props table, could be cleaned up... */
+  .props-wrapper {
+    @apply overflow-x-auto mb-12;
+  }
+
+  .props {
+    @apply bg-white dark:bg-gray-800 shadow-md border border-gray-400 dark:border-gray-700;
+  }
+
+  .props-header {
+    @apply bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-white font-medium text-left;
+  }
+
+  .props-row {
+    @apply odd:bg-white even:bg-gray-50 dark:odd:bg-gray-800 dark:even:bg-gray-900 border-t border-gray-400 dark:border-gray-700;
+  }
+
+  .props-cell {
+    @apply px-4 py-3 text-sm text-gray-800 dark:text-white align-top space-y-2;
+  }
+
+  .props-details {
+    @apply flex flex-col
+  }
+
+  /* Sweet faded hr that actually gets used I promise */
   .hr-fade {
     @apply border-0 h-px bg-gradient-to-r from-transparent via-p-30/75 to-transparent;
     @apply dark:from-transparent dark:via-p-50/75 dark:to-transparent;
+  }
+
+  /* Super basic card wrapper for homepage stuff */
+  .card-standard {
+    @apply bg-gradient-to-b from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 space-y-4 border-2 border-gray-100 rounded-2xl p-6 transition duration-300 hover:border-2 hover:border-p-50 hover:scale-105 hover:shadow-lg hover:shadow-gray-200 dark:hover:shadow-gray-700;
+  }
+
+  /* Insane, useless, fun button to "launch" stuff eventually */
+  .push--flat {
+    box-shadow: inset 0 7.5px 0 #da2e0b, inset 0 -7.5px 0 #aa2409, inset 0 0 0 7.5px #b32609, inset 0 0 0 20px #c2290a, inset 0 0 0 24px #611405, inset 0 0 0 26px black, inset 0 0 0 32px rgba(247, 133, 110, 0.7), inset 0 0 0 44px #c2290a, inset 0 96px 32px #aa2409, inset 0 0 24px 40px #911f08, 0 12px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .push--flat:active,
+  .push--flat.is-pushed {
+    box-shadow: inset 0 7.5px 0 #da2e0b, inset 0 -7.5px 0 #aa2409, inset 0 0 0 7.5px #b32609, inset 0 0 0 20px #c2290a, inset 0 0 0 24px #611405, inset 0 0 0 28px black, inset 0 0 0 32px rgba(247, 133, 110, 0.2), inset 0 0 0 44px #b32609, inset 0 96px 32px #9b2108, inset 0 0 24px 40px #791a06, 0 12px 0 rgba(0, 0, 0, 0.3);
+    background-color: #b8270a;
+  }
+
+  .push--flat:active span,
+  .push--flat.is-pushed span {
+    bottom: 7px;
+    border-width: 0;
+  }
+
+  /* Fancy dark mode glow text */
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 16px rgba(255, 255, 255, 0.6);
+    }
+
+    50% {
+      text-shadow: 0 0 16px rgba(255, 255, 255, 1), 0 0 32px rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  .neon-glow {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 16px rgba(255, 255, 255, 0.6);
+    animation: pulse-glow 1.5s infinite alternate;
+  }
+
+  body {
+  
+    /* thumb color, track color */
+    scrollbar-width: thin;
+    /* Width of the scrollbar */
+  }
+  
+  .dark body {
+    scrollbar-color: #333 #081028;
   }
 }
 
