@@ -106,20 +106,16 @@ export default function PaletteGenerator() {
         <pre className="bg-gray-800 text-white p-4 rounded text-sm overflow-x-auto w-full">
           {`colors: {
 ${Object.entries(tailwindPalettes)
-              .map(
-                ([name, palette]) =>
-                  `  ${name}: ${JSON.stringify(
-                    Object.fromEntries(
-                      Object.entries(palette).map(([k, v]) => [k, v.toUpperCase()])
-                    ),
-                    null,
-                    2
-                  )}`
+              .map(([name, palette]) =>
+                `  ${name}: {\n${Object.entries(palette)
+                  .map(([k, v]) => `    ${k}: ${v.toUpperCase()};`)
+                  .join('\n')}\n  }`
               )
               .join(',\n')}
 }`}
         </pre>
       </div>
+
     </div>
   );
 }

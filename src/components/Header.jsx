@@ -30,10 +30,10 @@ export default function Header(props) {
     }, [isOpen, setOpen]);
 
     return (
-        <header className={`relative z-30 flex flex-col md:h-full ${props.className}`}>
+        <header className={`relative z-30 flex flex-col md:h-full ${!isOpen ? 'overflow-hidden' : ''} ${props.className}`}>
             
             {/* Fixed logo and mobile toggle */}
-            <div className="flex justify-between items-center w-full p-2 md:p-4 md:sticky md:top-0 md:z-10 bg-white dark:bg-[#081028] shrink-0 border-b-4 shadow border-gray-100 dark:border-p-20">
+            <div className="flex justify-between items-center w-full p-3 md:p-4 md:sticky md:top-0 md:z-10 bg-white dark:bg-[#081028] shrink-0 border-b-4 shadow border-gray-100 dark:border-p-20">
                 <Link to="/" className="flex items-center gap-1">
                     <span className="flex p-2 dark:bg-p-50 rounded-full">
                         <Pres size="36" fill="#000" />
@@ -99,8 +99,10 @@ export default function Header(props) {
                     ))}
                 </nav>
 
-                <h3 className="py-4 px-2 text-lg font-medium border-t border-gray-100 dark:border-p-30">Components</h3>
-                <nav className="flex flex-col w-full space-y-2 md:space-y-0 p-4 md:p-0">
+                <h3 className={`px-4 py-3 text-lg font-medium border-t border-gray-100 dark:border-p-30 transition-opacity duration-500 ease-out ${
+                    isOpen ? 'opacity-100' : 'opacity-0 md:opacity-100'
+                }`}>Components</h3>
+                <nav className="flex flex-col w-full space-y-1 md:space-y-0 px-4 pb-4 md:p-0">
                     {[
                         { to: "/exampleaccordions", label: "Accordions" },
                         { to: "/exampleavatars", label: "Avatars" },

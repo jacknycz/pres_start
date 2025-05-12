@@ -12,7 +12,7 @@ export default function Layout({ children }) {
         <div className="grid grid-cols-1 md:grid-cols-4 dark:text-white bg-white dark:bg-[#081028] min-h-screen">
             {/* Header takes full height and is fixed to left on md screens */}
             <div className="md:col-span-1 md:h-screen md:sticky md:top-0 md:left-0">
-                <Header className="w-full h-auto md:h-full flex flex-col dark:bg-[#081028]shadow-md border-r border-p-95 dark:border-p-20 overflow-hidden" />
+                <Header className="w-full h-auto md:h-full flex flex-col dark:bg-[#081028]shadow-md border-r border-p-95 dark:border-p-20" />
             </div>
 
             {/* Main content area */}
