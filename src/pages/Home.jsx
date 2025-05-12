@@ -6,6 +6,7 @@ import Figma2Logo from "../assets/figma-2.svg";
 import Material2Logo from "../assets/material-2.svg"
 import React2Logo from "../assets/react-2.svg";
 import useDarkMode from "../hooks/useDarkMode";
+import Prestronaut from '/src/assets/prestronaut-2.png';
 
 export default function Home() {
     const [isDark, toggleDark] = useDarkMode()
@@ -41,7 +42,7 @@ export default function Home() {
                 </div>
 
                 <div className="flex justify-center items-center">
-                    <img src="/src/assets/prestronaut-2.png" alt="" />
+                    <img src={Prestronaut} alt="" />
                 </div>
 
                 <h3 className="text-white text-center text-2xl font-medium neon-glow">Oh yeah, it's got dark mode</h3>
