@@ -19,7 +19,7 @@ function MobileMenu({ isOpen, onClose }) {
             onClick={onClose}
         >
             <div
-                className="bg-white dark:bg-gray-900 w-[calc(100vw-48px)] max-h-[calc(100vh-48px)] overflow-y-auto relative"
+                className="bg-white dark:bg-gray-900 absolute left-8 right-8 top-8 bottom-8 overflow-y-auto"
                 onClick={(e) => e.stopPropagation()} // Prevent closing on inner click
             >
                 <nav className="flex flex-col w-full space-y-2">
