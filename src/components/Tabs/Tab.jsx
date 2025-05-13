@@ -12,7 +12,7 @@ export default function Tab({ children, icon, isActive, onSelect, id, panelId })
             onClick={onSelect}
             className={`flex cursor-pointer items-center gap-2 px-4 py-2 text-sm font-medium border-b-2 transition-colors duration-200
           ${isActive
-                    ? 'border-p-50 text-p-50 dark:text-white'
+                    ? 'border-p-500 text-p-500 dark:text-white'
                     : 'border-transparent text-gray-600 dark:text-p-90 dark:hover:text-white hover:border-p-60'}
         `}
         >

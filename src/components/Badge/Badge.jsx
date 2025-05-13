@@ -9,9 +9,9 @@ const typeStyles = {
     success: 'bg-green-500 text-white',
     warning: 'bg-yellow-500 text-white',
     error: 'bg-red-500 text-white',
-    primary: 'bg-p-50 text-white',
+    primary: 'bg-p-500 text-white',
     secondary: 'bg-gray-500 text-white',
-    ghost: 'bg-transparent text-p-50 dark:text-white border border-p-50',
+    ghost: 'bg-transparent text-p-500 dark:text-white border border-p-500',
 }
 
 const shapeStyles = {

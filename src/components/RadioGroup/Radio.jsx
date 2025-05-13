@@ -33,7 +33,7 @@ export default function Radio({
           ${disabled ? "bg-gray-100 dark:bg-gray-800" : "bg-white dark:bg-gray-900"}
           peer-focus:ring-2 ring-blue-300`}
       >
-        {checked && !disabled && <div className="w-2.5 h-2.5 bg-p-50 rounded-full" />}
+        {checked && !disabled && <div className="w-2.5 h-2.5 bg-p-500 rounded-full" />}
       </div>
       <span className="text-gray-800 dark:text-gray-200">{children}</span>
     </label>

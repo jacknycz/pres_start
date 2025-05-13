@@ -32,7 +32,7 @@ export default function Checkbox({
       />
       <div
         className={`w-5 h-5 border-2 rounded flex items-center justify-center shrink-0
-          ${checked ? "border-p-50 bg-p-50" : "border-gray-400 bg-white"}
+          ${checked ? "border-p-500 bg-p-500" : "border-gray-400 bg-white"}
           ${disabled ? "bg-gray-100 dark:bg-gray-800" : ""}
           peer-focus:ring-2 ring-blue-300`}
       >

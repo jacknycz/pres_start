@@ -9,21 +9,33 @@
   --color-tahiti: #3ab7bf;
   --color-bermuda: #78dcca;
 
-  --color-p-50: #FFEEFF;
-    --color-p-100: #E3C8F6;
-    --color-p-200: #C5A3ED;
-    --color-p-300: #A67EE3;
-    --color-p-400: #855AD9;
-    --color-p-500: #5E36CE;
-    --color-p-600: #492CAC;
-    --color-p-700: #34238B;
-    --color-p-800: #1F1A6C;
-    --color-p-900: #0A114E;
-    --color-p-950: #000033;
+  --color-p-50: #FFFFFF;
+  --color-p-100: #E0E4FE;
+  --color-p-200: #C0CBFD;
+  --color-p-300: #9DB1FB;
+  --color-p-400: #7599F9;
+  --color-p-500: #3B82F6;
+  --color-p-600: #3167D3;
+  --color-p-700: #264CB0;
+  --color-p-800: #1B338F;
+  --color-p-900: #0D1A6F;
+  --color-p-950: #000051;
+
+  /* --color-p-50: #FFEEFF;
+  --color-p-100: #E3C8F6;
+  --color-p-200: #C5A3ED;
+  --color-p-300: #A67EE3;
+  --color-p-400: #855AD9;
+  --color-p-500: #5E36CE;
+  --color-p-600: #492CAC;
+  --color-p-700: #34238B;
+  --color-p-800: #1F1A6C;
+  --color-p-900: #0A114E;
+  --color-p-950: #000033; */
 }
 
 @theme inline {
-  --button-primary: var(--color-p-50);
+  --button-primary: var(--color-p-500);
   --button-primary-hover: var(--color-p-40);
 }
 
@@ -31,7 +43,7 @@
 
   /* Switch this out for the badge you idiot */
   .label-style {
-    @apply bg-gray-200 dark:bg-p-50 px-2 rounded text-p-50 dark:text-p-100 w-fit;
+    @apply bg-gray-200 dark:bg-p-500 px-2 rounded text-p-500 dark:text-p-100 w-fit;
   }
 
   .list-style {
@@ -81,12 +93,12 @@
   /* Sweet faded hr that actually gets used I promise */
   .hr-fade {
     @apply border-0 h-px bg-gradient-to-r from-transparent via-p-700/75 to-transparent;
-    @apply dark:from-transparent dark:via-p-50/75 dark:to-transparent;
+    @apply dark:from-transparent dark:via-p-500/75 dark:to-transparent;
   }
 
   /* Super basic card wrapper for homepage stuff */
   .card-standard {
-    @apply bg-gradient-to-b from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 space-y-4 border-2 border-gray-100 rounded-2xl p-6 transition duration-300 hover:border-2 hover:border-p-50 hover:scale-105 hover:shadow-lg hover:shadow-gray-200 dark:hover:shadow-gray-700;
+    @apply bg-gradient-to-b from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 space-y-4 border-2 border-gray-100 rounded-2xl p-6 transition duration-300 hover:border-2 hover:border-p-500 hover:scale-105 hover:shadow-lg hover:shadow-gray-200 dark:hover:shadow-gray-700;
   }
 
   /* Insane, useless, fun button to "launch" stuff eventually */

@@ -9,9 +9,9 @@ import CloseIcon from "@mui/icons-material/Close";
 export default function Header(props) {
     const navLinkClass = ({ isActive }) =>
         classNames(
-            "ml-2 pl-2 dark:text-white p-3 hover:text-p-50 transition-colors duration-300 text-left border-l-4 border-transparent rounded opacity-0 translate-y-2 md:opacity-100 md:translate-y-0",
+            "ml-2 pl-2 dark:text-white p-3 hover:text-p-500 transition-colors duration-300 text-left border-l-4 border-transparent rounded opacity-0 translate-y-2 md:opacity-100 md:translate-y-0",
             {
-                "text-p-50 bg-gray-100 dark:bg-[#0A1330] font-semibold hover:text-p-50 dark:text-p-60 dark:hover:text-p-60 border-l-p-40":
+                "text-p-500 bg-gray-100 dark:bg-[#0A1330] font-semibold hover:text-p-500 dark:text-p-60 dark:hover:text-p-60 border-l-p-40":
                     isActive,
             }
         );
@@ -35,7 +35,7 @@ export default function Header(props) {
             {/* Fixed logo and mobile toggle */}
             <div className="flex justify-between items-center w-full p-3 md:p-4 md:sticky md:top-0 md:z-10 bg-white dark:bg-[#081028] shrink-0 border-b-4 shadow border-gray-100 dark:border-p-20">
                 <Link to="/" className="flex items-center gap-1">
-                    <span className="flex p-2 dark:bg-p-50 rounded-full">
+                    <span className="flex p-2 dark:bg-p-500 rounded-full">
                         <Pres size="36" fill="#000" />
                     </span>
                     <span className="text-2xl font-bold dark:text-white">

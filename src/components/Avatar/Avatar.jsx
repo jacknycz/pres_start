@@ -7,13 +7,13 @@ const baseStyles = `
     flex
     rounded-full
     overflow-hidden
-    bg-p-50
+    bg-p-500
     items-center
     justify-center
-    text-p-500
+    text-p-5000
     font-medium
     text-white
-    border-p-50
+    border-p-500
 `.trim();
 
 const sizeStyles = {
@@ -35,7 +35,7 @@ function Avatar({
             className={classNames(
                 baseStyles,
                 sizeStyles[size],
-                src && (size === 'large' ? 'border-4 border-p-50' : 'border-3 border-p-50'),
+                src && (size === 'large' ? 'border-4 border-p-500' : 'border-3 border-p-500'),
                 className)}
             {...props}
         >
