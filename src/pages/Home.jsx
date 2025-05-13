@@ -16,33 +16,31 @@ export default function Home() {
             {/* <Pres size="256" fill="#ccc" /> */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
                 <div className="flex flex-col justify-center">
-                    <h1 className="text-6xl font-bold mb-8">Pres Start</h1>
-                    <p className="text-gray-600 dark:text-gray-400 mb-6">A simple, extendable starter kit. No bells, no whistles. It's a 1998 Honda Civic - go crazy.</p>
+                    <h1 className="text-6xl font-bold mb-8 text-center md:text-left">Pres Start</h1>
+                    <p className="text-gray-600 dark:text-gray-400 mb-6 text-center md:text-left">A simple, extendable starter kit. No bells, no whistles. It's a 1998 Honda Civic - go crazy.</p>
 
                     <div className="flex flex-col w-full items-center">
-                        {/* <Link to="/typography">
-                        <Button variant="primary" size="large">
-                            Get Started
-                        </Button>
-                    </Link> */}
                         <button
-                            className="w-60 h-60 border-0 m-4 outline-none text-white text-4xl font-medium bg-red-700 dark:bg-red-800 rounded-full cursor-pointer transition-shadow duration-200 push--flat"
+                            className="hidden md:block w-40 h-40 md:w-60 md:h-60 border-0 m-4 outline-none text-white text-2xl md:text-4xl font-medium bg-red-700 dark:bg-red-800 rounded-full cursor-pointer transition-shadow duration-200 push--flat"
                             onClick={toggleDark}
                         >
                             START
                         </button>
-                        {/* <button
-                        //   onClick={onClick}
-                        className="relative inline-flex items-center justify-center px-8 py-4 text-2xl font-bold text-white bg-red-600 border-4 border-red-800 rounded-full shadow-lg active:translate-y-1 active:shadow-none transition-transform ease-in-out duration-150"
-                    >
-                        START
-                        <span className="absolute inset-0 rounded-full bg-red-800 opacity-25 -z-10"></span>
-                    </button> */}
                     </div>
                 </div>
 
-                <div className="flex justify-center items-center">
-                    <img src={Prestronaut} alt="" />
+                <div className="flex w-full md:hidden items-center">
+                    <button
+                        className="w-40 h-40 flex-shrink-0 border-0 m-4 outline-none text-white text-2xl md:text-4xl font-medium bg-red-700 dark:bg-red-800 rounded-full cursor-pointer transition-shadow duration-200 push--flat"
+                        onClick={toggleDark}
+                    >
+                        START
+                    </button>
+                    <img className="w-auto h-auto" src={Prestronaut} alt="" />
+                </div>
+
+                <div className="hidden md:flex md:w-full md:h-full justify-center items-center">
+                    <img className="max-w-full h-auto" src={Prestronaut} alt="" />
                 </div>
 
                 <h3 className="text-white text-center text-2xl font-medium neon-glow">Oh yeah, it's got dark mode</h3>
@@ -51,9 +49,8 @@ export default function Home() {
             <div className="flex flex-col my-24 space-y-4">
                 <h2 className="text-3xl font-bold">Welcome to Pres Start</h2>
                 <p className="text-gray-600 dark:text-gray-400">You're probably asking yourself some things - like "how the hell did I get here?" and "what's going on?" and "well the astronaut dog is a nice touch".</p>
-                <p className="text-gray-600 dark:text-gray-400">I wish I could tell you. It appears to me that a dog built a design system...?</p>
-                <p className="text-gray-600 dark:text-gray-400">I'm being told this was all built by some dude who is a "digital designer who codes" which sounds like some super pretentious BS, but it's his design system sooo...</p>
-                <p className="text-gray-600 dark:text-gray-400">Ok, so he built the thing because he wanted to freshen up his React skills, and he thought this would be a cool way to do it and maybe even have some kind of functional outcome.</p>
+                <p className="text-gray-600 dark:text-gray-400">Well once upon a time I was a developer and I missed doing that. So, I was diving into re-learning React and cool new front-end stuff and doing a bunch of courses, and one of those things I just kept building was various components. I had eventually amassed enough of these that I had the thought "well, I'm a product designer who has done a bunch of design systems, I could build one."</p>
+                <p className="text-gray-600 dark:text-gray-400">So I did. It's a selfish little project I built for <em>myself</em> to learn something I knew pretty well in a whole new way. I stole pieces from other places, I used all the cool new stuff, so if that sounds like a super practical starting point for you - do steal!</p>
             </div>
 
             <div className="flex mt-12 mb-6">

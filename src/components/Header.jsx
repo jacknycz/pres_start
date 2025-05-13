@@ -49,7 +49,6 @@ export default function Header(props) {
 
                     <IconButton
                         variant="ghost"
-                        size="small"
                         onClick={toggleMenu}
                         aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
                         aria-expanded={isMenuOpen}
