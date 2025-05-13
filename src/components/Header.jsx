@@ -1,10 +1,8 @@
-import React, { useEffect } from "react";
-import { NavLink, Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, NavLink } from "react-router-dom";
 import Pres from "../assets/Pres";
+import MobileMenu from "./MenuMainMobile";
 import classNames from "classnames";
-import useToggle from "../hooks/useToggle";
-import MenuIcon from "@mui/icons-material/Menu";
-import CloseIcon from "@mui/icons-material/Close";
 
 export default function Header(props) {
     const navLinkClass = ({ isActive }) =>
@@ -16,81 +14,67 @@ export default function Header(props) {
             }
         );
 
-    const [isOpen, toggleOpen, setOpen] = useToggle();
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    // Close w/ escape (this is how I used to do it so there's probably a new way?)
+    const toggleMenu = () => {
+        setIsMenuOpen((prev) => !prev);
+    };
+
     useEffect(() => {
         const handleKeyDown = (e) => {
-            if (e.key === "Escape" && isOpen) {
-                setOpen(false);
+            if (e.key === "Escape" && isMenuOpen) {
+                setIsMenuOpen(false);
             }
         };
         window.addEventListener("keydown", handleKeyDown);
         return () => window.removeEventListener("keydown", handleKeyDown);
-    }, [isOpen, setOpen]);
+    }, [isMenuOpen, setIsMenuOpen]);
 
     return (
-        <header className={`${props.className} ${isOpen ? 'fixed inset-0 h-screen flex flex-col' : 'relative'}`}>
+        <header className={`${props.className}`}>
             {/* Fixed logo and mobile toggle */}
             <div className="flex-shrink-0">
                 <div className="flex justify-between items-center w-full p-3 md:p-4 z-20 bg-white dark:bg-[#081028] border-b-4 border-gray-100 dark:border-p-900 shadow">
-                <Link to="/" className="flex items-center gap-1">
-                    <span className="flex p-2 dark:bg-p-500 rounded-full">
-                        <Pres size="36" fill="#000" />
-                    </span>
-                    <span className="text-2xl font-bold dark:text-white">
-                        Pres Start
-                    </span>
-                </Link>
+                    <Link to="/" className="flex items-center gap-1">
+                        <span className="flex p-2 dark:bg-p-500 rounded-full">
+                            <Pres size="36" fill="#000" />
+                        </span>
+                        <span className="text-2xl font-bold dark:text-white">
+                            Pres Start
+                        </span>
+                    </Link>
 
-                <button
-                    onClick={toggleOpen}
-                    className="text-gray-800 dark:text-white focus:outline-none flex md:hidden items-center justify-center p-3 rounded-lg bg-gray-100 dark:bg-[#0A1330] hover:bg-gray-200 dark:hover:bg-[#0A1330] transition-colors duration-300"
-                    aria-label="Toggle navigation"
-                    aria-expanded={isOpen}
-                    aria-controls="mobile-nav"
-                >
-                    {isOpen ? <CloseIcon /> : <MenuIcon />}
-                </button>
-            </div>
+                    <button
+                        onClick={toggleMenu}
+                        aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
+                        className="md:hidden text-gray-800 dark:text-white focus:outline-none flex items-center justify-center p-3 rounded-lg bg-gray-100 dark:bg-[#0A1330] hover:bg-gray-200 dark:hover:bg-[#0A1330] transition-colors duration-300"
+                        aria-expanded={isMenuOpen}
+                        aria-controls="mobile-nav"
+                    >
+                        {isMenuOpen ? '✖️' : '☰'}
+                    </button>
+
+                    {/* Mobile Menu */}
+                    <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
+                </div>
             </div>
 
             {/* Navigation that I should probably rethink since I broke it in two 
             rather hastily for cool points, but it's fixed and scrolls on md+ */}
-            <div
-                className={classNames(
-                    `
-                    flex-1 overflow-y-auto w-full bg-white dark:bg-[#0A1330] shadow-lg md:shadow-none
-                    transition-all duration-300 ease-in-out
-                    ${isOpen ? 'flex' : 'hidden md:flex'}
-                    flex-col
-                `,
-                    isOpen ? "opacity-100" : "opacity-0 md:opacity-100 hidden md:flex md:flex-1"
-                )}
-                style={{
-                    transition: "opacity 0.3s ease-in-out",
-                }}
-            >
+            <div className="hidden md:flex md:flex-col">
                 <nav className="flex flex-col w-full space-y-2 md:space-y-0 p-4 md:p-0">
-                {[
+                    {[
                         { to: "/", label: "Getting Started" },
                         { to: "/colors", label: "Colors" },
-                        { to: "/typography", label: "Typography" },                            
+                        { to: "/typography", label: "Typography" },
                     ].map((item, index) => (
                         <NavLink
                             key={item.to}
                             to={item.to}
                             className={({ isActive }) =>
-                                classNames(
-                                    navLinkClass({ isActive }),
-                                    "transition-opacity duration-500 ease-out",
-                                    isOpen
-                                        ? `opacity-100 translate-y-0 delay-${index * 100}`
-                                        : "opacity-0 translate-y-2 md:opacity-100 md:translate-y-0 delay-0"
-                                )
+                                navLinkClass({ isActive })
                             }
                             onClick={() => {
-                                if (isOpen) toggleOpen(); 
                                 window.scrollTo({ top: 0, behavior: "smooth" });
                             }}
                         >
@@ -99,15 +83,13 @@ export default function Header(props) {
                     ))}
                 </nav>
 
-                <h3 className={`px-4 py-3 text-lg font-medium border-t border-gray-100 dark:border-p-30 transition-opacity duration-500 ease-out ${
-                    isOpen ? 'opacity-100' : 'opacity-0 md:opacity-100'
-                }`}>Components</h3>
+                <h3 className={`px-4 py-3 text-lg font-medium border-t border-gray-100 dark:border-p-30 transition-opacity duration-500 ease-out`}>Components</h3>
                 <nav className="flex flex-col w-full space-y-1 md:space-y-0 px-4 pb-4 md:p-0">
                     {[
                         { to: "/exampleaccordions", label: "Accordions" },
                         { to: "/exampleavatars", label: "Avatars" },
                         { to: "/examplebadges", label: "Badges" },
-                        { to: "/examplebuttons", label: "Buttons" },                        
+                        { to: "/examplebuttons", label: "Buttons" },
                         { to: "/examplecheckbox", label: "Checkbox" },
                         { to: "/examplemenus", label: "Menus" },
                         { to: "/examplemodals", label: "Modals" },
@@ -121,16 +103,9 @@ export default function Header(props) {
                             key={item.to}
                             to={item.to}
                             className={({ isActive }) =>
-                                classNames(
-                                    navLinkClass({ isActive }),
-                                    "transition-opacity duration-500 ease-out",
-                                    isOpen
-                                        ? `opacity-100 translate-y-0 delay-${index * 100}`
-                                        : "opacity-0 translate-y-2 md:opacity-100 md:translate-y-0 delay-0"
-                                )
+                                navLinkClass({ isActive })
                             }
                             onClick={() => {
-                                if (isOpen) toggleOpen();
                                 window.scrollTo({ top: 0, behavior: "smooth" });
                             }}
                         >
