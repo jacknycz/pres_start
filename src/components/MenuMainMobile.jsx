@@ -15,7 +15,7 @@ function MobileMenu({ isOpen, onClose }) {
 
     return createPortal(
         <div
-            className="fixed inset-0 bg-black/70 backdrop-blur-sm z-[9999] flex justify-center items-center"
+            className="fixed inset-0 bg-black/70 backdrop-blur-sm z-40 flex justify-center items-center"
             onClick={onClose}
         >
             <div
@@ -78,13 +78,13 @@ function MobileMenu({ isOpen, onClose }) {
                 </nav>
             </div>
 
-            <button
-                    onClick={onClose}
-                    className="absolute top-0 right-0 w-12 h-12 flex items-center justify-center bg-gray-950 text-gray-500 dark:text-gray-400"
-                    aria-label="Close menu"
-                >
-                    <span className="text-2xl">×</span>
-                </button>
+            {/* <button
+                onClick={onClose}
+                className="absolute top-0 right-0 w-12 h-12 flex items-center justify-center bg-gray-950 text-gray-500 dark:text-gray-400"
+                aria-label="Close menu"
+            >
+                <span className="text-2xl">×</span>
+            </button> */}
         </div>,
         document.body
     );

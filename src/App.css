@@ -141,10 +141,12 @@
     /* thumb color, track color */
     scrollbar-width: thin;
     /* Width of the scrollbar */
+    background-color: #fff;
   }
   
   .dark body {
     scrollbar-color: #333 #081028;
+    background-color: #081028;
   }
 }
 

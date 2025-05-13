@@ -56,6 +56,7 @@ export default function ExampleIconButtons() {
 
             <div className="component-wrapper">
                 <IconButton icon={icon} variant={variant} shape={shape} />
+                <IconButton />
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">

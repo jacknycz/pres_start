@@ -3,13 +3,16 @@ import { Link, NavLink } from "react-router-dom";
 import Pres from "../assets/Pres";
 import MobileMenu from "./MenuMainMobile";
 import classNames from "classnames";
+import IconButton from "./IconButton/IconButton";
+import { Menu } from "@mui/icons-material";
+import { Close } from "@mui/icons-material";
 
 export default function Header(props) {
     const navLinkClass = ({ isActive }) =>
         classNames(
-            "ml-2 pl-2 dark:text-white p-3 hover:text-p-500 transition-colors duration-300 text-left border-l-4 border-transparent rounded opacity-0 translate-y-2 md:opacity-100 md:translate-y-0",
+            "pl-4 dark:text-white p-3 hover:text-p-500 transition-colors duration-300 text-left border-l-4 border-transparent opacity-0 translate-y-2 md:opacity-100 md:translate-y-0",
             {
-                "text-p-500 bg-gray-100 dark:bg-[#0A1330] font-semibold hover:text-p-500 dark:text-p-60 dark:hover:text-p-60 border-l-p-40":
+                "text-p-500 bg-gray-100 dark:bg-[#0A1330] font-semibold hover:text-p-500 dark:text-p-60 dark:hover:text-p-60 border-l-p-500":
                     isActive,
             }
         );
@@ -44,18 +47,17 @@ export default function Header(props) {
                         </span>
                     </Link>
 
-                    <button
+                    <IconButton
+                        variant="ghost"
+                        size="small"
                         onClick={toggleMenu}
                         aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-                        className="md:hidden text-gray-800 dark:text-white focus:outline-none flex items-center justify-center p-3 rounded-lg bg-gray-100 dark:bg-[#0A1330] hover:bg-gray-200 dark:hover:bg-[#0A1330] transition-colors duration-300"
                         aria-expanded={isMenuOpen}
                         aria-controls="mobile-nav"
+                        className="md:hidden z-50 fixed right-4 top-4"
                     >
-                        {isMenuOpen ? '✖️' : '☰'}
-                    </button>
-
-
-
+                        {isMenuOpen ? <Close /> : <Menu />}
+                    </IconButton>
 
                     {/* Mobile Menu */}
                     <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
@@ -86,7 +88,7 @@ export default function Header(props) {
                     ))}
                 </nav>
 
-                <h3 className={`px-4 py-3 text-lg font-medium border-t border-gray-100 dark:border-p-30 transition-opacity duration-500 ease-out`}>Components</h3>
+                <h3 className={`px-3 py-6 pb-3 text-lg font-medium border-t border-gray-100 dark:border-p-900 transition-opacity duration-500 ease-out`}>Components</h3>
                 <nav className="flex flex-col w-full space-y-1 md:space-y-0 px-4 pb-4 md:p-0">
                     {[
                         { to: "/exampleaccordions", label: "Accordions" },

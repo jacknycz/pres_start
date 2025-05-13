@@ -31,6 +31,7 @@ function IconButton({
     className,
     disabled,
     onClick,
+    children,
     ...props
 }) {
     return (
@@ -41,11 +42,13 @@ function IconButton({
                 variantStyles[variant], 
                 baseStyles, 
                 className)}
+            disabled={disabled}
+            onClick={onClick}
             {...props}
         >
-            {icon}
+            {icon ? icon : children ? children : 'NA'}
         </button>
     );
 }
 
-export default IconButton;
+export default IconButton; 
