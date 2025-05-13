@@ -41,6 +41,7 @@ export default function ModalExample() {
     };
 
     return (
+        console.log(open),
         <>
             <div className="component-header">
                 <h2 className="text-4xl">Modal</h2>

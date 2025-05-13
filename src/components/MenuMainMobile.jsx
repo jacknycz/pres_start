@@ -52,6 +52,7 @@ function MobileMenu({ isOpen, onClose }) {
                         { to: "/examplebadges", label: "Badges" },
                         { to: "/examplebuttons", label: "Buttons" },
                         { to: "/examplecheckbox", label: "Checkbox" },
+                        { to: "/exampleiconbuttons", label: "Icon Buttons" },
                         { to: "/examplemenus", label: "Menus" },
                         { to: "/examplemodals", label: "Modals" },
                         { to: "/exampleradiogroup", label: "Radio Group" },

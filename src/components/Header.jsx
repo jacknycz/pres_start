@@ -54,6 +54,9 @@ export default function Header(props) {
                         {isMenuOpen ? '✖️' : '☰'}
                     </button>
 
+
+
+
                     {/* Mobile Menu */}
                     <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
                 </div>
@@ -91,6 +94,7 @@ export default function Header(props) {
                         { to: "/examplebadges", label: "Badges" },
                         { to: "/examplebuttons", label: "Buttons" },
                         { to: "/examplecheckbox", label: "Checkbox" },
+                        { to: "/exampleiconbuttons", label: "Icon Buttons" },
                         { to: "/examplemenus", label: "Menus" },
                         { to: "/examplemodals", label: "Modals" },
                         { to: "/exampleradiogroup", label: "Radio Group" },

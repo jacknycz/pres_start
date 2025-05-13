@@ -22,6 +22,7 @@ import ExampleTextInput from './examples/ExampleTextInput'
 import ExampleCheckbox from './examples/ExampleCheckbox'
 import ExampleRadioGroup from './examples/ExampleRadioGroup'
 import ExampleToggleSwitch from './examples/ExampleToggleSwitch'
+import ExampleIconButtons from './examples/ExampleIconButtons'
 
 const routes = [
   { path: '/', element: <Home />, index: true },
@@ -37,6 +38,7 @@ const routes = [
   { path: 'examplecheckbox', element: <ExampleCheckbox /> },
   { path: 'exampleradiogroup', element: <ExampleRadioGroup /> },
   { path: 'exampletoggleswitch', element: <ExampleToggleSwitch /> },
+  { path: 'exampleiconbuttons', element: <ExampleIconButtons /> },
   { path: 'typography', element: <Typography /> },
   { path: 'colors', element: <Colors /> },
 ]
