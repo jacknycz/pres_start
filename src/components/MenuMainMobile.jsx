@@ -6,9 +6,9 @@ function MobileMenu({ isOpen, onClose }) {
     if (!isOpen) return null;
     const navLinkClass = ({ isActive }) =>
             classNames(
-                "ml-2 pl-2 dark:text-white p-3 hover:text-p-500 transition-colors duration-300 text-left border-l-4 border-transparent rounded",
+                "dark:text-white p-4 transition-colors duration-300 text-left border-l-4 border-transparent",
                 {
-                    "text-p-500 bg-gray-100 dark:bg-[#0A1330] font-semibold hover:text-p-500 dark:text-p-60 dark:hover:text-p-60 border-l-p-40":
+                    "text-p-500 bg-gray-100 dark:bg-gray-800 font-semibold hover:text-p-500 dark:text-p-500 dark:hover:text-p-60 border-l-p-500":
                         isActive,
                 }
             );
@@ -19,10 +19,10 @@ function MobileMenu({ isOpen, onClose }) {
             onClick={onClose}
         >
             <div
-                className="bg-white dark:bg-gray-900 p-6 rounded-md w-[calc(100vw-4em)] max-h-[calc(100vh-4rem)] overflow-y-auto relative"
+                className="bg-white dark:bg-gray-900 w-[calc(100vw-48px)] max-h-[calc(100vh-48px)] overflow-y-auto relative"
                 onClick={(e) => e.stopPropagation()} // Prevent closing on inner click
             >
-                <nav className="flex flex-col w-full space-y-2 md:space-y-0 p-4 md:p-0">
+                <nav className="flex flex-col w-full space-y-2">
                     {[
                         { to: "/", label: "Getting Started" },
                         { to: "/colors", label: "Colors" },
@@ -36,6 +36,7 @@ function MobileMenu({ isOpen, onClose }) {
                             }
                             onClick={() => {
                                 window.scrollTo({ top: 0, behavior: "smooth" });
+                                onClose();
                             }}
                         >
                             {item.label}
@@ -43,8 +44,8 @@ function MobileMenu({ isOpen, onClose }) {
                     ))}
                 </nav>
 
-                <h3 className={`py-3 dark:text-white text-lg font-medium border-t border-gray-100 dark:border-p-800 transition-opacity duration-500 ease-out`}>Components</h3>
-                <nav className="flex flex-col w-full space-y-1 md:space-y-0 px-4 pb-4 md:p-0">
+                <h3 className={`p-3 dark:text-white text-lg font-medium border-t border-gray-100 dark:border-p-800 transition-opacity duration-500 ease-out`}>Components</h3>
+                <nav className="flex flex-col w-full space-y-2">
                     {[
                         { to: "/exampleaccordions", label: "Accordions" },
                         { to: "/exampleavatars", label: "Avatars" },
@@ -67,6 +68,7 @@ function MobileMenu({ isOpen, onClose }) {
                             }
                             onClick={() => {
                                 window.scrollTo({ top: 0, behavior: "smooth" });
+                                onClose();
                             }}
                         >
                             {item.label}
