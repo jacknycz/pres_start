@@ -6,7 +6,7 @@ import { Add } from '@mui/icons-material';
 
 export default function PaletteGenerator() {
   const [palettes, setPalettes] = useState({
-    brand: { color: '#5E36CE', input: '#5E36CE' },
+    brand: { color: '#3B82F6', input: '#3B82F6' },
   });
 
   const handleHexChange = (name, newInput) => {

@@ -30,10 +30,10 @@ export default function Header(props) {
     }, [isOpen, setOpen]);
 
     return (
-        <header className={`relative z-30 flex flex-col md:h-full ${!isOpen ? 'overflow-hidden' : ''} ${props.className}`}>
+        <header className={`relative z-30 flex flex-col md:h-full ${!isOpen ? 'overflow-hidden' : 'fixed inset-0 h-screen'} ${props.className}`}>
             
             {/* Fixed logo and mobile toggle */}
-            <div className="flex justify-between items-center w-full p-3 md:p-4 md:sticky md:top-0 md:z-10 bg-white dark:bg-[#081028] shrink-0 border-b-4 shadow border-gray-100 dark:border-p-20">
+            <div className="flex justify-between items-center w-full p-3 md:p-4 md:sticky md:top-0 z-20 bg-white dark:bg-[#081028] shrink-0 border-b-4 border-gray-100 dark:border-p-900 shadow">
                 <Link to="/" className="flex items-center gap-1">
                     <span className="flex p-2 dark:bg-p-500 rounded-full">
                         <Pres size="36" fill="#000" />
@@ -59,16 +59,16 @@ export default function Header(props) {
             <div
                 className={classNames(
                     `
-                    absolute top-full left-0 right-0 z-40 flex flex-col
+                    absolute top-16 bottom-0 left-0 right-0 z-10 flex flex-col
                     md:relative md:top-auto md:left-auto md:right-auto md:z-auto
-                    md:flex-1 md:overflow-y-auto
+                    md:flex-1 overflow-y-auto
                     w-full bg-white dark:bg-[#0A1330]/80 shadow-lg md:shadow-none
                     transition-all duration-300 ease-in-out
                 `,
-                    isOpen ? "max-h-dvh opacity-100" : "max-h-0 md:max-h-full md:opacity-100"
+                    isOpen ? "opacity-100" : "opacity-0 md:opacity-100 hidden md:flex"
                 )}
                 style={{
-                    transition: "max-height 0.4s ease-in-out",
+                    transition: "opacity 0.3s ease-in-out",
                 }}
             >
                 <nav className="flex flex-col w-full space-y-2 md:space-y-0 p-4 md:p-0">
