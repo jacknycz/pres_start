@@ -3,10 +3,8 @@ import { useState } from 'react'
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import IconButton from "../components/IconButton/IconButton";
-import { PlayArrow, ArrowForward, Home, Info, CheckCircle, Warning, Error, } from '@mui/icons-material';
+import { PlayArrow, ArrowForward, Home, Info, CheckCircle, Warning, Error, Add } from '@mui/icons-material';
 import SelectInput from "../components/Input/SelectInput";
-import TextInput from "../components/Input/TextInput";
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';  
 
 const iconMap = {
     arrowForward: <ArrowForward />,
@@ -59,7 +57,7 @@ export default function ExampleIconButtons() {
                 <IconButton />
             </div>
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div className="flex flex-col">
 
                     <SelectInput
@@ -100,18 +98,6 @@ export default function ExampleIconButtons() {
                         <option value="square">Square</option>
                         <option value="small">Small</option>
                     </SelectInput>
-                </div>
-
-                <div className="flex flex-col">
-
-                    <TextInput
-                        label="Text"
-                        name="text"
-                        value={text}
-                        onChange={(e) => setText(e.target.value)}
-                        maxLength={20}
-                        placeholder="Type a message"
-                    />
                 </div>
             </div>
 
@@ -164,17 +150,14 @@ export default function ExampleIconButtons() {
             </div>
 
             <div className="flex mt-12">
-                <h3 className='text-2xl'>Badge Variants</h3>
+                <h3 className='text-2xl'>Variants</h3>
             </div>
 
             <div className='flex gap-4 my-6 flex-wrap'>
-                <IconButton icon={<Info />} variant="info" />
-                <IconButton icon={<CheckCircle />} variant="success" />
-                <IconButton icon={<Warning />} variant="warning" />
-                <IconButton icon={<Error />} variant="error" />
                 <IconButton icon={<Info />} variant="primary" />
-                <IconButton icon={<Info />} variant="secondary" />
-                <IconButton icon={<Info />} variant="ghost" />
+                <IconButton icon={<CheckCircle />} variant="secondary" />
+                <IconButton icon={<Warning />} variant="ghost" />
+                <IconButton icon={<Error />} variant="destructive" />
                 {/* <Badge shape="pill" variant="info">Info</Badge>
                 <Badge shape="pill" variant="success">Success</Badge>
                 <Badge shape="pill" variant="warning">Warning</Badge>       
@@ -185,17 +168,24 @@ export default function ExampleIconButtons() {
             </div>
 
             <div className="flex mt-12">
-                <h3 className='text-2xl'>w/ Icons</h3>
+                <h3 className='text-2xl'>Sizes</h3>
             </div>
 
             <div className='flex gap-4 my-6 flex-wrap'>
-                {/* <Badge icon={<Info style={{ fontSize: 16 }} />} shape="pill" variant="info">Info</Badge>
-                <Badge icon={<CheckCircle />} shape="pill" variant="success">Success</Badge>
-                <Badge icon={<Warning />} shape="pill" variant="warning">Warning</Badge>
-                <Badge icon={<Error />} shape="pill" variant="error">Error</Badge>
-                <Badge icon={<Info />} shape="pill" variant="primary">Primary</Badge>
-                <Badge icon={<Info />} shape="pill" variant="secondary">Secondary</Badge>
-                <Badge icon={<Info />} shape="pill" variant="ghost">Ghost</Badge> */}
+                <IconButton icon={<Add />} variant="primary" size="small" />
+                <IconButton icon={<Add />} variant="primary" size="default" />
+                <IconButton icon={<Add />} variant="primary" size="large" />
+            </div>
+
+            <div className="flex mt-12">
+                <h3 className='text-2xl'>Shapes</h3>
+            </div>
+
+            <div className='flex gap-4 my-6 flex-wrap'>
+                <IconButton icon={<Add />} variant="primary" shape="default" />
+                <IconButton icon={<Add />} variant="primary" shape="circle" />
+                <IconButton icon={<Add />} variant="primary" shape="square" />
+                <IconButton icon={<Add />} variant="primary" shape="small" />
             </div>
 
         </>

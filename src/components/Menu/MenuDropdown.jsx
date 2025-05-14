@@ -8,7 +8,7 @@ export default function MenuDropdown({ children }) {
         <>
             {open ? (
                 <div
-                    className="absolute left-0 mt-2 bg-white border border-gray-400 rounded-md"
+                    className="absolute z-30 left-0 mt-2 bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-600 rounded-md"
                 >
                     {children}
                 </div>

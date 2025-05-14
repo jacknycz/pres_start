@@ -53,7 +53,7 @@ export default function Header(props) {
                         aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
                         aria-expanded={isMenuOpen}
                         aria-controls="mobile-nav"
-                        className="md:hidden z-50 fixed right-4 top-4"
+                        className="md:hidden z-50 fixed right-4 top-4 bg-white dark:bg-[#081028]"
                     >
                         {isMenuOpen ? <Close /> : <Menu />}
                     </IconButton>

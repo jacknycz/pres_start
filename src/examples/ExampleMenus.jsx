@@ -2,7 +2,7 @@ import React from "react";
 import Menu from "../components/Menu";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import { ArrowForward, PlayArrow } from "@mui/icons-material";
+import { ArrowForward, PlayArrow, Add } from "@mui/icons-material";
 
 export default function ExampleMenus() {
     const generateMenuCode = () => {
@@ -36,6 +36,24 @@ export default function ExampleMenus() {
                     >
                         Menu Button
                     </Menu.Button>
+
+                    <Menu.Dropdown>
+                        <Menu.Item>
+                            <PlayArrow className="mr-2" />
+                            Menu Item 1
+                        </Menu.Item>
+                        <Menu.Item>Menu Item 1</Menu.Item>
+                        <Menu.Item>Menu Item 1</Menu.Item>
+                    </Menu.Dropdown>
+                </Menu>
+            </div>
+            
+            <div className="component-wrapper">
+                <Menu>
+                    <Menu.Button as="icon-button"
+                        variant="ghost"
+                        icon={<Add />}
+                    />
 
                     <Menu.Dropdown>
                         <Menu.Item>

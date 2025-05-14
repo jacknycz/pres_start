@@ -26,7 +26,7 @@ function MobileMenu({ isOpen, onClose }) {
                     transition={{ duration: 0.2 }}
                 >
                     <motion.div
-                        className="bg-white dark:bg-gray-900 absolute left-8 right-8 top-8 bottom-8 overflow-y-auto"
+                        className="bg-white dark:bg-gray-900 rounded-xl absolute left-8 right-8 top-8 bottom-20 overflow-y-auto"
                         onClick={(e) => e.stopPropagation()}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}

@@ -1,6 +1,8 @@
 import React from "react";
-import Button from "../Button/Button";
+import IconButton from "../IconButton/IconButton";
 import { useEffect, useRef } from "react";
+import CloseIcon from '@mui/icons-material/Close';
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Modal({ isOpen, onClose, header, children }) {
     const overlayRef = useRef(null);
@@ -21,33 +23,43 @@ export default function Modal({ isOpen, onClose, header, children }) {
         }
     };
 
-    if (!isOpen) return null;
-
     return (
-        <div
-            ref={overlayRef}
-            onClick={handleClickOutside}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
-            aria-modal="true"
-            role="dialog"
-        >
-            <div
-                ref={dialogRef}
-                className="relative w-full max-w-lg mx-4 sm:mx-auto rounded-xl bg-white dark:bg-gray-900 shadow-xl p-6 transition-all duration-300 transform scale-100 opacity-100"
-            >
-                {header && (
-                    <h2 className="text-xl font-semibold mb-4 text-gray-800 dark:text-white">{header}</h2>
-                )}
-                <button
-                    onClick={onClose}
-                    className="absolute top-3 right-3 text-gray-500 hover:text-gray-800 dark:hover:text-white"
-                    aria-label="Close modal"
+        <AnimatePresence>
+            {isOpen && (
+                <motion.div
+                    ref={overlayRef}
+                    onClick={handleClickOutside}
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
+                    aria-modal="true"
+                    role="dialog"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.2 }}
                 >
-                    <span className="material-icons text-xl">close</span>
-                </button>
-
-                {children}
-            </div>
-        </div>
+                    <motion.div
+                        ref={dialogRef}
+                        className="relative w-full max-w-lg mx-4 sm:mx-auto rounded-xl bg-white dark:bg-gray-900 shadow-xl p-4 md:p-6"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 20 }}
+                        transition={{ duration: 0.2, ease: "easeOut" }}
+                    >
+                        {header && (
+                            <h2 className="text-xl font-semibold mb-4 text-gray-800 dark:text-white">{header}</h2>
+                        )}
+                        <IconButton
+                            onClick={onClose}
+                            variant="secondary"
+                            icon={<CloseIcon />}
+                            aria-label="Close modal"
+                            as="icon-button"
+                            className="absolute md:top-6 md:right-6 top-4 right-4"
+                        />
+                        {children}
+                    </motion.div>
+                </motion.div>
+            )}
+        </AnimatePresence>
     );
 }
