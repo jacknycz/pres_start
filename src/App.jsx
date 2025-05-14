@@ -1,6 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { ThemeProvider } from './context/ThemeContext'
+import ThemePickerModal from './components/ThemePickerModal'
 import './App.css'
 
 // Layout & Pages
@@ -45,15 +47,18 @@ const routes = [
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<Layout />}>
-          {routes.map(({ path, element, index }) => (
-            <Route key={path} path={path} element={element} index={index} />
-          ))}
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <ThemePickerModal />
+        <Routes>
+          <Route element={<Layout />}>
+            {routes.map(({ path, element, index }) => (
+              <Route key={path} path={path} element={element} index={index} />
+            ))}
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   )
 }
 

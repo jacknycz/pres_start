@@ -9,20 +9,21 @@ import useDarkMode from "../hooks/useDarkMode";
 import Prestronaut from '/src/assets/prestronaut-2.png';
 import { DarkMode as DarkModeIcon, LightMode as LightModeIcon } from '@mui/icons-material';
 import IconButton from '../components/IconButton/IconButton';
+import ThemeColorPicker from '../components/ThemeColorPicker';
 
-export default function Home() {    
+export default function Home() {
     const [isDark, toggleDark] = useDarkMode();
 
     return (
         <div className="container mx-auto px-4 py-8">
-            <div className="flex flex-col md:flex-row items-center justify-between py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-p-50 to-p-100 dark:from-gray-900 dark:to-gray-800 rounded-3xl overflow-hidden">
+            <div className="flex flex-col md:flex-row items-center justify-between py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 rounded-3xl overflow-hidden">
                 <div className="relative z-10 text-center md:text-left max-w-2xl">
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-2">Pres Start</h1>
                     <h3 className="text-2xl md:text-3xl lg:text-4xl line-clamp-4 font-semibold text-p-500 dark:text-p-400 mb-6">It's a design system starter kit thing</h3>
                     <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
                         Jumpstart your next project with a comprehensive design system built on React and Tailwind CSS
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <div className="flex flex-col md:flex-row gap-4 justify-center md:justify-start">
                         <Button
                             variant="primary"
                             className="mt-4"
@@ -42,32 +43,31 @@ export default function Home() {
                             icon={isDark ? <LightModeIcon /> : <DarkModeIcon />}
                             onClick={toggleDark}
                             aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-                            className="ml-2"
+                            className="mt-4 ml-2"
                         />
                     </div>
                 </div>
 
                 <div className="mt-12 md:mt-0 relative z-10">
                     <div className="relative">
-                        <div className="absolute -inset-4 bg-p-500/20 dark:bg-p-400/30 rounded-full blur-lg animate-pulse"></div>
+                        <div className="absolute -inset-4 bg-gray-50/20 dark:bg-gray-400/30 rounded-full blur-lg animate-pulse"></div>
                         <div className="relative bg-white dark:bg-gray-800 p-1 rounded-full shadow-2xl border border-gray-100 dark:border-gray-700">
-                            <div className="h-64 w-64 md:h-80 md:w-80 rounded-full bg-gradient-to-br from-p-100 to-p-200 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
+                            <div className="h-64 w-64 md:h-80 md:w-80 rounded-full bg-gradient-to-br from-p-50 to-p-200 dark:from-gray-700 dark:to-gray-800 flex items-center justify-center">
                                 <img src={Prestronaut} alt="Prestronaut" className="w-full h-full object-contain" />
                             </div>
                         </div>
                     </div>
                 </div>
-
-                {/* Decorative elements */}
-                <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-p-400/10 dark:bg-p-300/10"></div>
-                <div className="absolute -bottom-32 -left-32 w-80 h-80 rounded-full bg-p-500/10 dark:bg-p-400/10"></div>
             </div>
 
             <div className="flex flex-col my-24 space-y-4">
-                <h2 className="text-3xl font-bold">Welcome to Pres Start</h2>
-                <p className="text-gray-600 dark:text-gray-400">You're probably asking yourself some things - like "how the hell did I get here?" and "what's going on?" and "well the astronaut dog is a nice touch".</p>
-                <p className="text-gray-600 dark:text-gray-400">Well once upon a time I was a developer and I missed doing that. So, I was diving into re-learning React and cool new front-end stuff and doing a bunch of courses, and one of those things I just kept building was various components. I had eventually amassed enough of these that I had the thought "well, I'm a product designer who has done a bunch of design systems, I could build one."</p>
-                <p className="text-gray-600 dark:text-gray-400">So I did. It's a selfish little project I built for <em>myself</em> to learn something I knew pretty well in a whole new way. I stole pieces from other places, I used all the cool new stuff, so if that sounds like a super practical starting point for you - do steal!</p>
+                <div className="mb-16">
+                    <h2 className="text-3xl font-bold mb-6">Theme Customization</h2>
+                    <p className="text-gray-600 dark:text-gray-400 mb-6">
+                        Customize your experience by selecting a primary color. The color palette will be automatically generated and applied throughout the application.
+                    </p>
+                    <ThemeColorPicker />
+                </div>
             </div>
 
             <div className="flex mt-12 mb-6">
@@ -126,7 +126,7 @@ export default function Home() {
                 <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-gray-700">
                     <div className="bg-gray-50 flex px-6 py-2 gap-2 items-center dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
                         <img src={React2Logo} alt="Logo" className="max-w-10 h-10" />
-                        <h2 className="text-p-50 text-xl font-semibold">React</h2>
+                        <h2 className="text-gray-800 dark:text-white text-xl font-semibold">React</h2>
                     </div>
                     <div className="px-6 pt-4 pb-6">
                         <blockquote className="border-l-4 border-p-80 pl-3 italic text-gray-700 dark:text-gray-300 my-6">
@@ -138,8 +138,8 @@ export default function Home() {
 
                 <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-gray-700">
                     <div className="bg-gray-50 flex px-6 py-2 gap-2 items-center dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
-                        <img src={React2Logo} alt="Logo" className="max-w-10 h-10" />
-                        <h2 className="text-p-50 text-xl font-semibold">Tailwind</h2>
+                        <img src={Tailwind2Logo} alt="Logo" className="max-w-10 h-10" />
+                        <h2 className="text-gray-800 dark:text-white text-xl font-semibold">Tailwind</h2>
                     </div>
                     <div className="px-6 pt-4 pb-6">
                         <blockquote className="border-l-4 border-p-80 pl-3 italic text-gray-700 dark:text-gray-300 my-6">
@@ -151,8 +151,8 @@ export default function Home() {
 
                 <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-gray-700">
                     <div className="bg-gray-50 flex px-6 py-2 gap-2 items-center dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
-                        <img src={React2Logo} alt="Logo" className="max-w-10 h-10" />
-                        <h2 className="text-p-50 text-xl font-semibold">MUI</h2>
+                        <img src={Material2Logo} alt="Logo" className="max-w-10 h-10" />
+                        <h2 className="text-gray-800 dark:text-white text-xl font-semibold">MUI</h2>
                     </div>
                     <div className="px-6 pt-4 pb-6">
                         <blockquote className="border-l-4 border-p-80 pl-3 italic text-gray-700 dark:text-gray-300 my-6">
@@ -165,7 +165,7 @@ export default function Home() {
                 <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-gray-700">
                     <div className="bg-gray-50 flex px-6 py-2 gap-2 items-center dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
                         <img src={Figma2Logo} alt="Logo" className="max-w-10 h-10" />
-                        <h2 className="text-p-50 text-xl font-semibold">Figma</h2>
+                        <h2 className="text-gray-800 dark:text-white text-xl font-semibold">Figma</h2>
                     </div>
                     <div className="px-6 pt-4 pb-6">
                         <blockquote className="border-l-4 border-p-80 pl-3 italic text-gray-700 dark:text-gray-300 my-6">
