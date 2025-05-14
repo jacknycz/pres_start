@@ -1,8 +1,6 @@
-// src/components/Accordion/Accordion.jsx
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import classNames from 'classnames';
-import useToggle from '../../hooks/useToggle';
 import { useAccordionGroupItem } from './AccordionGroup';
 
 export default function Accordion({
@@ -18,13 +16,19 @@ export default function Accordion({
     const group = useAccordionGroupItem(id);
     const contentRef = useRef(null);
     const [contentHeight, setContentHeight] = useState("0px");
+    const [isOpenLocal, setIsOpenLocal] = useState(defaultOpen);
     
-    const [isOpenLocal, toggleOpenLocal] = useToggle({
-        initialValue: defaultOpen,
-        onToggle,
-        onEnable,
-        onDisable,
-    });
+    // Handle toggling the accordion
+    const toggleOpenLocal = useCallback(() => {
+        setIsOpenLocal(prev => !prev);
+    }, []);
+
+    // Handle callbacks when isOpenLocal changes
+    useEffect(() => {
+        if (onToggle) onToggle(isOpenLocal);
+        if (isOpenLocal && onEnable) onEnable();
+        if (!isOpenLocal && onDisable) onDisable();
+    }, [isOpenLocal, onToggle, onEnable, onDisable]);
 
     const isOpen = group.isOpen ?? isOpenLocal;
     const toggle = group.toggle ?? toggleOpenLocal;
@@ -56,7 +60,6 @@ export default function Accordion({
                 />
             </button>
             
-            {/* Wrapper for animation - this div handles the height animation */}
             <div 
                 style={{ 
                     height: contentHeight,
@@ -64,7 +67,6 @@ export default function Accordion({
                     overflow: 'hidden'
                 }}
             >
-                {/* Content wrapper - this div maintains consistent padding */}
                 <div 
                     ref={contentRef}
                     className="px-4 pt-2 pb-4 text-gray-600 dark:text-white"

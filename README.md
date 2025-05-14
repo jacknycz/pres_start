@@ -1,12 +1,23 @@
-# React + Vite
+# Pres Start
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A learning project to get dive back into React and all the cool new front-end stuff like Tailwind CSS, Vite, easier icons, inline styles what are you people doing???
 
-Currently, two official plugins are available:
+I kid, Tailwind is awesome.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Built with React
+That was the whole point of this project. I used React years ago, I've been UX'ing for years, I want to get back into coding and I want to get back into React.
 
-## Expanding the ESLint configuration
+## Uses Tailwind CSS
+Tailwind is awesome. It felt crazy natural despite having never used it before (especially coming from SCSS and several years of not coding).  
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Uses MUI
+I've used Material for projects before, but always on the Figma side of things for prototyping and stealing their icons! Which is what I did here. I stole the icons from Material and used them in this project.
+
+## Uses Motion
+I am super familiar with Framer Motion/Motion and I used motion.js or whatever version of that used to be around (back in the day). But, I had never used this - it's nice. I like the motion divs - I still like the way GSAP does some stuff, but this is a lot easier.
+
+## Sits on Vite
+I like Vite, but I did not utilize much of it's coolness in this project. It does sit on it though!
+
+## Uses React Router
+I had used this before, and they made it better. _Like, significantly better._ Or at least, it's a lot more logical. Or easier. Well _I like it better_, for reasons.

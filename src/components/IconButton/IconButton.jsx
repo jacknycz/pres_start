@@ -5,7 +5,7 @@ const baseStyles = 'inline-flex items-center justify-center font-medium transiti
 
 const variantStyles = {
     primary: 'bg-p-500 text-white hover:bg-p-40 transition duration-300 ease-in-out dark:bg-p-60',
-    secondary: 'bg-gray-200 text-gray-800 hover:bg-gray-300 transition duration-300 ease-in-out dark:bg-gray-60',
+    secondary: 'bg-gray-200 dark:bg-gray-700 dark:text-white text-gray-800 hover:bg-gray-300 dark:hover:bg-gray-800 transition duration-300 ease-in-out dark:bg-gray-60',
     ghost: 'bg-transparent ring-2 ring-inset ring-p-500 text-p-500 hover:bg-p-90 dark:hover:bg-p-500 transition duration-300 ease-in-out dark:text-white',
     destructive: 'bg-red-500 text-white hover:bg-red-600 transition duration-300 ease-in-out dark:bg-red-600',
 };
