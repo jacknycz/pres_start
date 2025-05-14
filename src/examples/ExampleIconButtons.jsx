@@ -120,30 +120,48 @@ export default function ExampleIconButtons() {
 
                     <tbody>
                         <tr className="props-row">
-                            <td className="props-cell"><code className="label-style">icon</code></td>
-                            <td className="props-cell props-details">
-                                <code className="label-style">MaterialIconName</code>
-                                <span>Right now it's setup to just take the name of the Material Icon you want to use. Can be updated to use whatever icons you want.</span>
-                            </td>
-                            <td className="props-cell"><code className="label-style">NA</code></td>
-                        </tr>
-
-                        <tr className="props-row">
                             <td className="props-cell"><code className="label-style">variant</code></td>
                             <td className="props-cell props-details">
-                                <code className="label-style">info | success | warning | error | primary | secondary | ghost</code>
-                                <span>Controls the color and default icon of the badge.</span>
+                                <code className="label-style">primary | secondary | ghost | destructive</code>
+                                <span>Controls the color, no affect on operation.</span>
                             </td>
-                            <td className="props-cell"><code className="label-style">info</code></td>
+                            <td className="props-cell"><code className="label-style">primary</code></td>
                         </tr>
 
                         <tr className="props-row">
-                            <td className="props-cell"><code className="label-style">shape</code></td>
+                            <td className="props-cell"><code className="label-style">disabled</code></td>
                             <td className="props-cell props-details">
-                                <code className="label-style">default | pill | square</code>
+                                <code className="label-style">boolean</code>
+                                <span>Disables the button and applies the disabled styles. I kept it seperate and not set as a variant because that felt right to me. Sue me.</span>
+                            </td>
+                            <td className="props-cell"><code className="label-style">false</code></td>
+                        </tr>
+
+                        <tr className="props-row">
+                            <td className="props-cell"><code className="label-style">size</code></td>
+                            <td className="props-cell props-details">
+                                <code className="label-style">small | default | large</code>
+                                <span>Probably not the first time you'll see "basic options, add more" and it's easy.</span>
+                            </td>
+                            <td className="props-cell"><code className="label-style">default</code></td>
+                        </tr>
+
+                        <tr className="props-row">
+                            <td className="props-cell"><code className="label-style">rounded</code></td>
+                            <td className="props-cell props-details">
+                                <code className="label-style">default | small | pill | square</code>
                                 <span>Select your shape - normally a tightly rounded corner.</span>
                             </td>
                             <td className="props-cell"><code className="label-style">default</code></td>
+                        </tr>
+
+                         <tr className="props-row">
+                            <td className="props-cell"><code className="label-style">icon</code></td>
+                            <td className="props-cell props-details">
+                                <code className="label-style">MaterialIconName</code>
+                                <span>Right now it's setup to just take the name of the Material Icon you want to use. You can add this icon using this prop, or you can place it as a child of IconButton. The prop will override if both are used.</span>
+                            </td>
+                            <td className="props-cell"><code className="label-style">NA</code></td>
                         </tr>
                     </tbody>
                 </table>
@@ -158,13 +176,7 @@ export default function ExampleIconButtons() {
                 <IconButton icon={<CheckCircle />} variant="secondary" />
                 <IconButton icon={<Warning />} variant="ghost" />
                 <IconButton icon={<Error />} variant="destructive" />
-                {/* <Badge shape="pill" variant="info">Info</Badge>
-                <Badge shape="pill" variant="success">Success</Badge>
-                <Badge shape="pill" variant="warning">Warning</Badge>       
-                <Badge shape="pill" variant="error">Error</Badge>
-                <Badge shape="pill" variant="primary">Primary</Badge>
-                <Badge shape="pill" variant="secondary">Secondary</Badge>
-                <Badge shape="pill" variant="ghost">Ghost</Badge> */}
+                <IconButton icon={<Error />} disabled />
             </div>
 
             <div className="flex mt-12">

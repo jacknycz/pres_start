@@ -12,8 +12,8 @@ export default function Radio({
   return (
     <label
       htmlFor={id}
-      className={`flex items-center gap-3 text-sm px-1 py-2 min-h-[44px] rounded cursor-pointer select-none transition
-        ${disabled ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-50 dark:hover:bg-gray-800"}
+      className={`flex items-center gap-2 text-sm px-1 py-2 min-h-[44px] rounded cursor-pointer select-none transition
+        ${disabled ? "opacity-50 cursor-not-allowed" : ""}
       `}
     >
       <input
@@ -29,7 +29,7 @@ export default function Radio({
       />
       <div
         className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0
-          ${checked ? "border-white" : "border-gray-400"}
+          ${checked ? "border-p-500" : "border-p-300"}
           ${disabled ? "bg-gray-100 dark:bg-gray-800" : "bg-white dark:bg-gray-900"}
           peer-focus:ring-2 ring-blue-300`}
       >

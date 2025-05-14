@@ -8,6 +8,7 @@ const variantStyles = {
     secondary: 'bg-gray-200 dark:bg-gray-700 dark:text-white text-gray-800 hover:bg-gray-300 dark:hover:bg-gray-800 transition duration-300 ease-in-out dark:bg-gray-60',
     ghost: 'bg-transparent ring-2 ring-inset ring-p-500 text-p-500 hover:bg-p-90 dark:hover:bg-p-500 transition duration-300 ease-in-out dark:text-white',
     destructive: 'bg-red-500 text-white hover:bg-red-600 transition duration-300 ease-in-out dark:bg-red-600',
+    disabled: 'bg-gray-200 dark:bg-gray-800 dark:text-white text-gray-800',
 };
 
 const shapeStyles = {
@@ -37,13 +38,18 @@ function IconButton({
     return (
         <button
             className={classNames(
-                shapeStyles[shape], 
-                sizeStyles[size], 
-                variantStyles[variant], 
-                baseStyles, 
-                className)}
+                shapeStyles[shape],
+                sizeStyles[size],
+                disabled ? variantStyles.disabled : variantStyles[variant],
+                baseStyles,
+                className,
+                {
+                    'opacity-50 cursor-not-allowed': disabled
+                }
+            )}
             disabled={disabled}
             onClick={onClick}
+            aria-disabled={disabled}
             {...props}
         >
             {icon ? icon : children ? children : 'NA'}

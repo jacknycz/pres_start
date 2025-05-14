@@ -13,6 +13,7 @@ export default function SelectInput({
   iconRight,
   className,
   children,
+  disabled = false,
   ...props
 }) {
   return (
@@ -30,6 +31,7 @@ export default function SelectInput({
         className={classNames(
           "relative flex items-center rounded-lg border px-3 py-2 transition",
           "bg-white dark:bg-gray-800",
+          disabled ? "opacity-50 cursor-not-allowed" : "",
           error
             ? "border-red-500 focus-within:ring-red-500"
             : "border-gray-300 dark:border-gray-600 focus-within:ring-2 focus-within:ring-blue-500"
@@ -45,7 +47,8 @@ export default function SelectInput({
           id={name}
           name={name}
           value={value}
-          onChange={onChange}
+          onChange={!disabled ? onChange : undefined}
+          disabled={disabled}
           className={classNames(
             "w-full bg-transparent outline-none text-sm text-gray-900 dark:text-white",
             iconRight && "pr-8",

@@ -11,6 +11,7 @@ export default function TextInput({
   supportText,
   error = false,
   required = false,
+  disabled = false,
   iconLeft,
   iconRight,
   className,
@@ -38,6 +39,7 @@ export default function TextInput({
         className={classNames(
           "relative flex items-center rounded-lg border px-3 py-2 transition",
           "bg-white dark:bg-gray-800",
+          disabled ? "opacity-50 cursor-not-allowed" : "",
           isFocused && "ring-2",
           error
             ? "border-red-500 focus-within:ring-red-500"
@@ -52,7 +54,7 @@ export default function TextInput({
           id={id}
           name={name}
           value={value}
-          onChange={onChange}
+          onChange={!disabled ? onChange : undefined}
           placeholder={placeholder}
           maxLength={maxLength}
           aria-invalid={error ? "true" : "false"}

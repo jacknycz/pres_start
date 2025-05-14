@@ -57,95 +57,106 @@ export default function Home() {
                 <h3 className='text-2xl'>You get control of...</h3>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 lg:gap-12">
-                <Link to="/typography" className="card-standard">
-                    <h2 className="text-p-50 text-xl font-semibold">Typography</h2>
-                    <p className="text-gray-600 dark:text-gray-400">I picked a font, which I'll talk about briefly. You can pick your own, I'll show you that bit.</p>
-                    <Button
-                        variant="primary"
-                        className="mt-4"
-                    >
-                        Learn More
-                    </Button>
-                </Link>
+            <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 md:gap-8 lg:gap-12">
+                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-gray-700">
+                    <div className="p-6">
+                        <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3">Typography</h3>
+                        <p className="text-gray-600 dark:text-gray-300">I picked a font, which I'll talk about briefly. You can pick your own, I'll show you that bit.</p>
+                        <Button
+                            variant="primary"
+                            className="mt-4"
+                            to="/typography"
+                        >
+                            Learn More
+                        </Button>
+                    </div>
+                </div>
 
-                <Link to="/colors" className="card-standard">
-                    <h2 className="text-p-50 text-xl font-semibold">Colors</h2>
-                    <p className="text-gray-600 dark:text-gray-400">I picked a font, which I'll talk about briefly. You can pick your own, I'll show you that bit.</p>
-                    <Button
-                        variant="primary"
-                        className="mt-4"
-                    >
-                        Learn More
-                    </Button>
-                </Link>
+                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-gray-700">
+                    <div className="p-6">
+                        <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3">Colors</h3>
+                        <p className="text-gray-600 dark:text-gray-300">I actually made a helpful little things using HSL and HEX and code stuff that generates some Tailwind color code for you. I thought it was helpful.</p>
+                        <Button
+                            variant="primary"
+                            className="mt-4"
+                            to="/colors"
+                        >
+                            Learn More
+                        </Button>
+                    </div>
+                </div>
 
-                <Link to="/icons" className="card-standard">
-                    <h2 className="text-p-50 text-xl font-semibold">Icons</h2>
-                    <p className="text-gray-600 dark:text-gray-400">I picked a font, which I'll talk about briefly. You can pick your own, I'll show you that bit.</p>
-                    <Button
-                        variant="primary"
-                        className="mt-4"
-                    >
-                        Learn More
-                    </Button>
-                </Link>
+                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-gray-700">
+                    <div className="p-6">
+                        <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3">Icons</h3>
+                        <p className="text-gray-600 dark:text-gray-300">These are MUI icons and I blatently stole them because they are probably familiar. They are easy. They are also super switchable, so we can cover that.</p>
+                        <Button
+                            variant="primary"
+                            className="mt-4"
+                            to="/icons"
+                        >
+                            Learn More
+                        </Button>
+                    </div>
+                </div>
             </div>
 
             <div className="flex mt-12 mb-6">
                 <h3 className='text-2xl'>...using this stuff you may have heard of</h3>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 lg:gap-12">
-                <Link to="/typography" className="card-standard">
-                    <div className="flex gap-1 md:gap-2 items-center mb-3">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8 lg:gap-12">
+                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-gray-700">
+                    <div className="bg-gray-50 flex px-6 py-2 gap-2 items-center dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
                         <img src={React2Logo} alt="Logo" className="max-w-10 h-10" />
-                        <h2 className="text-xl md:text-2xl font-semibold text-gray-800 dark:text-gray-100">React</h2>
+                        <h2 className="text-p-50 text-xl font-semibold">React</h2>
                     </div>
-
-                    <blockquote className="border-l-4 border-p-80 pl-3 italic text-gray-700 dark:text-gray-300 my-6">
-                        <p>"The library for web and native user interfaces"</p>
-                    </blockquote>
-
-                    <p className="text-gray-600 dark:text-gray-400">These are simple, stupid, simple components built by a designer who codes. They do work and follow some sort of "best practices" as far as I can tell.</p>
-                </Link>
-
-                <Link to="/typography" className="card-standard">
-                    <div className="flex gap-1 md:gap-2 items-center mb-3">
-                        <img src={Tailwind2Logo} alt="Logo" className="max-w-10 h-10" />
-                        <h2 className="text-xl md:text-2xl font-semibold text-gray-800 dark:text-gray-100">Tailwind</h2>
+                    <div className="px-6 pt-4 pb-6">
+                        <blockquote className="border-l-4 border-p-80 pl-3 italic text-gray-700 dark:text-gray-300 my-6">
+                            <p>"The library for web and native user interfaces"</p>
+                        </blockquote>
+                        <p className="text-gray-600 dark:text-gray-300">These are simple, stupid, simple components built by a designer who codes. They do work and follow some sort of "best practices" as far as I can tell.</p>
                     </div>
+                </div>  
 
-                    <blockquote className="border-l-4 border-p-80 pl-3 italic text-gray-700 dark:text-gray-300 my-6">
-                        <p>"Rapidly build modern websites without ever leaving your HTML."</p>
-                    </blockquote>
-
-                    <p className="text-gray-600 dark:text-gray-400">I can't believe you people - back in my day, if a style was inline you were fired. Just wave around !important or something.</p>
-                </Link>
-
-                <Link to="/typography" className="card-standard">
-                    <div className="flex gap-1 md:gap-2 items-center mb-3">
-                        <img src={Material2Logo} alt="Logo" className="max-w-10 h-10" />
-                        <h2 className="text-xl md:text-2xl font-semibold text-gray-800 dark:text-gray-100">Material Icons</h2>
+                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-gray-700">
+                    <div className="bg-gray-50 flex px-6 py-2 gap-2 items-center dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
+                        <img src={React2Logo} alt="Logo" className="max-w-10 h-10" />
+                        <h2 className="text-p-50 text-xl font-semibold">Tailwind</h2>
                     </div>
+                    <div className="px-6 pt-4 pb-6">
+                        <blockquote className="border-l-4 border-p-80 pl-3 italic text-gray-700 dark:text-gray-300 my-6">
+                            <p>"Rapidly build modern websites without ever leaving your HTML."</p>
+                        </blockquote>
+                        <p className="text-gray-600 dark:text-gray-300">Tailwind is a utility-first CSS framework that provides a solid foundation for consistent and accessible text styling. By leveraging Tailwind's utility-first approach, the system offers a flexible and scalable way to apply typography styles to components and layouts.</p>
+                    </div>
+                </div>  
 
-                    <blockquote className="border-l-4 border-p-80 pl-3 italic text-gray-700 dark:text-gray-300 my-6">
-                        <p>"All Material Symbols are newly drawn to be pixel-crisp and modernized."</p>
-                    </blockquote>
-                    <p className="text-gray-600 dark:text-gray-400">They don't really have a tagline, but I feel like this is 👌</p>
-                </Link>
+                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-gray-700">
+                    <div className="bg-gray-50 flex px-6 py-2 gap-2 items-center dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
+                        <img src={React2Logo} alt="Logo" className="max-w-10 h-10" />
+                        <h2 className="text-p-50 text-xl font-semibold">MUI</h2>
+                    </div>
+                    <div className="px-6 pt-4 pb-6">
+                        <blockquote className="border-l-4 border-p-80 pl-3 italic text-gray-700 dark:text-gray-300 my-6">
+                            <p>"The library for web and native user interfaces"</p>
+                        </blockquote>
+                        <p className="text-gray-600 dark:text-gray-300">Material-UI (MUI) is a popular React component library that provides a wide range of pre-built components and utilities for building modern web applications. It offers a consistent and accessible design system, making it easier to create visually appealing and user-friendly interfaces.</p>
+                    </div>
+                </div>  
 
-                <Link to="/typography" className="card-standard">
-                    <div className="flex gap-1 md:gap-2 items-center mb-3">
+                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-gray-700">
+                    <div className="bg-gray-50 flex px-6 py-2 gap-2 items-center dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
                         <img src={Figma2Logo} alt="Logo" className="max-w-10 h-10" />
-                        <h2 className="text-xl md:text-2xl font-semibold text-gray-800 dark:text-gray-100">Figma</h2>
+                        <h2 className="text-p-50 text-xl font-semibold">Figma</h2>
                     </div>
-
-                    <blockquote className="border-l-4 border-p-80 pl-3 italic text-gray-700 dark:text-gray-300 my-6">
-                        <p>"Figma helps design and development teams build great products, together."</p>
-                    </blockquote>
-                    <p className="text-gray-600 dark:text-gray-400">Oh yeah, there's a whole Figma file that goes with this. I'll chat about it. It's the same thing, but you know - Figma.</p>
-                </Link>
+                    <div className="px-6 pt-4 pb-6">
+                        <blockquote className="border-l-4 border-p-80 pl-3 italic text-gray-700 dark:text-gray-300 my-6">
+                            <p>"Figma helps design and development teams build great products, together."</p>
+                        </blockquote>
+                        <p className="text-gray-600 dark:text-gray-300">Oh yeah, there's a whole Figma file that goes with this. I'll chat about it. It's the same thing, but you know - Figma.</p>
+                    </div>
+                </div>  
             </div>
         </div>
     );

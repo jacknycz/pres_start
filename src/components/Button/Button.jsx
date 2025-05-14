@@ -9,7 +9,7 @@ const variantStyles = {
     secondary: 'bg-gray-200 dark:bg-gray-800 dark:text-white text-gray-800 hover:bg-gray-300 transition duration-300 ease-in-out dark:bg-gray-60',
     ghost: 'bg-transparent ring-2 ring-inset ring-p-500 text-p-500 hover:bg-p-90 dark:hover:bg-p-500 transition duration-300 ease-in-out dark:text-white',
     destructive: 'bg-red-500 text-white hover:bg-red-600 transition duration-300 ease-in-out dark:bg-red-600',
-    disabled: 'opacity-50 cursor-not-allowed',
+    disabled: 'bg-gray-200 dark:bg-gray-800 dark:text-white text-gray-800',
 };
 
 const roundedStyles = {
@@ -40,18 +40,22 @@ function Button({
     return (
         <button
             className={classNames(
-                roundedStyles[rounded], 
-                sizeStyles[size], 
-                variantStyles[variant], 
-                baseStyles, 
-                className)}
+                roundedStyles[rounded],
+                sizeStyles[size],
+                disabled ? variantStyles.disabled : variantStyles[variant],
+                baseStyles,
+                className,
+                {
+                    'opacity-50 cursor-not-allowed': disabled
+                }
+            )}
             disabled={disabled}
             onClick={onClick}
             {...props}
         >
-            {iconLeft && <span className="mr-2 -ml-1">{iconLeft}</span>}
+            {iconLeft && <span className="mr-2">{iconLeft}</span>}
             {children}
-            {iconRight && <span className="ml-2 -mr-1">{iconRight}</span>}
+            {iconRight && <span className="ml-2">{iconRight}</span>}
         </button>
     );
 }

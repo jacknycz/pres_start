@@ -10,7 +10,7 @@ export default function Typography() {
             </div>
 
             <div className="flex flex-col space-y-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 md:gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
                     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden border border-gray-200 dark:border-gray-700">
                         <div className="bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
                             <img src={InterTypo} alt="Inter Font Sample" className="w-full h-auto rounded-t" />
@@ -32,7 +32,7 @@ export default function Typography() {
                     </div>
                 </div>
 
-                <blockquote className="relative p-6 my-6 border-l-4 border-p-500 bg-gray-50 dark:bg-gray-800 rounded-r-lg italic text-gray-700 dark:text-gray-300">
+                <blockquote className="relative p-6 my-12 border-l-4 border-p-500 bg-gray-50 dark:bg-gray-800 rounded-r-lg italic text-gray-700 dark:text-gray-300">
                     <svg className="absolute top-0 left-0 w-6 h-6 -ml-3 -mt-3 text-p-700" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                     </svg>

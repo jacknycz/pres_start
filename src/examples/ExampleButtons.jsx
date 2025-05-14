@@ -174,6 +174,15 @@ export default function ExampleButtons() {
                         </tr>
 
                         <tr className="props-row">
+                            <td className="props-cell"><code className="label-style">disabled</code></td>
+                            <td className="props-cell props-details">
+                                <code className="label-style">boolean</code>
+                                <span>Disables the button and applies the disabled styles. I kept it seperate and not set as a variant because that felt right to me. Sue me.</span>
+                            </td>
+                            <td className="props-cell"><code className="label-style">false</code></td>
+                        </tr>
+
+                        <tr className="props-row">
                             <td className="props-cell"><code className="label-style">size</code></td>
                             <td className="props-cell props-details">
                                 <code className="label-style">small | default | large</code>
@@ -202,60 +211,6 @@ export default function ExampleButtons() {
                     </tbody>
                 </table>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 gap-y-12 mt-6 mb-12">
-                <div className="section-base">
-                    <code className="label-style">variant</code>
-                    <ul className="list-style">
-                        <li>primary</li>
-                        <li>secondary</li>
-                        <li>ghost</li>
-                    </ul>
-                    <p>That's it, three kinds. It's a couple of lines to add a new one, go for it.</p>
-                </div>
-
-                <div className="section-base">
-                    <code className="label-style">size</code>
-                    <ul className="list-style">
-                        <li>default</li>
-                        <li>small</li>
-                        <li>large</li>
-                    </ul>
-                    <p>Cool, you see the theme. Even easier to add this time.</p>
-                </div>
-
-                <div className="section-base">
-                    <code className="label-style">rounded</code>
-                    <ul className="list-style">
-                        <li>default</li>
-                        <li>small</li>
-                        <li>pill</li>
-                        <li>square</li>
-                    </ul>
-                    <p>This could have been shape and I'm still on the fence.</p>
-                </div>
-            </div>
-
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 gap-y-12 mt-6 mb-12">
-                <div className="section-base">
-                    <code className="label-style">iconLeft/iconRight</code>
-                    <ul className="list-style">
-                        <li>this will get updated, probably a few times</li>
-                    </ul>
-                    <p>Right now this is mapped to Material Icons, but that could change.</p>
-                </div>
-
-                <div className="section-base">
-                    <code className="label-style">children</code>
-                    <ul className="list-style">
-                        <li>literally anything you want</li>
-                    </ul>
-                    <p>The button component just takes a child - so drop text, another component, this thing 🚀</p>
-                </div>
-            </div>
-
-            <hr className='hr-fade' />
 
             {/* Begin button examples section - updated with grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
@@ -288,6 +243,22 @@ export default function ExampleButtons() {
                     <Button variant='ghost' size='large'>Button</Button>
                 </div>
 
+                <div className="flex flex-col items-start gap-4">
+                    <h4 className="text-lg font-medium mb-2">Destructive</h4>
+                    <Button variant='destructive' size='large' iconLeft={<ArrowForward />} iconRight={<PlayArrow />}>Button</Button>
+                    <Button variant='destructive' size='large' iconRight={<PlayArrow />}>Button</Button>
+                    <Button variant='destructive' size='large' iconLeft={<ArrowForward />}>Button</Button>
+                    <Button variant='destructive' size='large'>Button</Button>
+                </div>
+
+                <div className="flex flex-col items-start gap-4">
+                    <h4 className="text-lg font-medium mb-2">Disabled</h4>
+                    <Button disabled size='large' iconLeft={<ArrowForward />} iconRight={<PlayArrow />}>Button</Button>
+                    <Button disabled size='large' iconRight={<PlayArrow />}>Button</Button>
+                    <Button disabled size='large' iconLeft={<ArrowForward />}>Button</Button>
+                    <Button disabled size='large'>Button</Button>
+                </div>
+
                 {/* Default buttons section */}
                 <div className="col-span-1 md:col-span-3">
                     <h3 className='text-2xl mb-6 mt-8'>Default</h3>
@@ -317,6 +288,22 @@ export default function ExampleButtons() {
                     <Button variant='ghost'>Button</Button>
                 </div>
 
+                <div className="flex flex-col items-start gap-4">
+                    <h4 className="text-lg font-medium mb-2">Destructive</h4>
+                    <Button variant='destructive' iconLeft={<ArrowForward />} iconRight={<PlayArrow />}>Button</Button>
+                    <Button variant='destructive' iconRight={<PlayArrow />}>Button</Button>
+                    <Button variant='destructive' iconLeft={<ArrowForward />}>Button</Button>
+                    <Button variant='destructive'>Button</Button>
+                </div>
+
+                <div className="flex flex-col items-start gap-4">
+                    <h4 className="text-lg font-medium mb-2">Disabled</h4>
+                    <Button disabled iconLeft={<ArrowForward />} iconRight={<PlayArrow />}>Button</Button>
+                    <Button disabled iconRight={<PlayArrow />}>Button</Button>
+                    <Button disabled iconLeft={<ArrowForward />}>Button</Button>
+                    <Button disabled>Button</Button>
+                </div>
+
                 {/* Small buttons section */}
                 <div className="col-span-1 md:col-span-3">
                     <h3 className='text-2xl mb-6 mt-8'>Small</h3>
@@ -344,6 +331,22 @@ export default function ExampleButtons() {
                     <Button variant='ghost' size='small' iconRight={<PlayArrow />}>Button</Button>
                     <Button variant='ghost' size='small' iconLeft={<ArrowForward />}>Button</Button>
                     <Button variant='ghost' size='small'>Button</Button>
+                </div>
+
+                <div className="flex flex-col items-start gap-4">
+                    <h4 className="text-lg font-medium mb-2">Destructive</h4>
+                    <Button variant='destructive' size='small' iconLeft={<ArrowForward />} iconRight={<PlayArrow />}>Button</Button>
+                    <Button variant='destructive' size='small' iconRight={<PlayArrow />}>Button</Button>
+                    <Button variant='destructive' size='small' iconLeft={<ArrowForward />}>Button</Button>
+                    <Button variant='destructive' size='small'>Button</Button>
+                </div>
+
+                <div className="flex flex-col items-start gap-4">
+                    <h4 className="text-lg font-medium mb-2">Disabled</h4>
+                    <Button disabled size='small' iconLeft={<ArrowForward />} iconRight={<PlayArrow />}>Button</Button>
+                    <Button disabled size='small' iconRight={<PlayArrow />}>Button</Button>
+                    <Button disabled size='small' iconLeft={<ArrowForward />}>Button</Button>
+                    <Button disabled size='small'>Button</Button>
                 </div>
             </div>
         </>
