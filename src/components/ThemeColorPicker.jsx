@@ -2,10 +2,36 @@ import React, { useState, useEffect } from 'react';
 import { generatePalette } from '../utils/generatePalette';
 import Button from './Button/Button';
 import { useTheme } from '../context/ThemeContext';
-import { motion, AnimatePresence } from 'framer-motion';
-import { XMarkIcon } from '@heroicons/react/24/outline';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import chroma from 'chroma-js';
 import Modal from './Modal/Modal';
+
+function CopyButton({ textToCopy }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(textToCopy);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+    }
+  };
+
+  return (
+    <Button
+      onClick={handleCopy}
+      variant="secondary"
+      size="small"
+      className="absolute top-2 right-2 text-xs"
+      title="Copy to clipboard"
+      iconLeft={!copied && <ContentCopyIcon fontSize="small" />}
+    >
+      {copied ? 'Copied!' : 'Copy'}
+    </Button>
+  );
+}
 
 export default function ThemeColorPicker({ isModal = false, onClose }) {
   const { primaryColor, setPrimaryColor, setIsPickerOpen } = useTheme();
@@ -188,17 +214,29 @@ export default function ThemeColorPicker({ isModal = false, onClose }) {
       </div>
       
       <div className="mt-12 w-full">
-        <h3 className="text-lg font-semibold mb-2">💾 Tailwind Config Snippet</h3>
-        <pre className="bg-gray-100 dark:bg-gray-800 p-4 rounded text-sm overflow-x-auto w-full">
-          {`colors: {
+        <h3 className="text-lg font-semibold mb-2">Tailwind Config Snippet</h3>
+        <div className="relative">
+          <pre className="bg-gray-100 dark:bg-gray-800 p-4 rounded text-sm overflow-x-auto w-full font-mono">
+            {`colors: {
 ${Object.entries(tailwindPalettes)
-              .map(([name, palette]) =>
-                `  ${name}: {\n${Object.entries(palette)
-                  .map(([k, v]) => `    ${k}: '${v.toUpperCase()}',`)
-                  .join('\n')}\n  }`
-              )
-              .join(',\n')}\n}`}
-        </pre>
+                .map(([name, palette]) =>
+                  `  ${name}: {\n${Object.entries(palette)
+                    .map(([k, v]) => `    ${k}: '${v.toUpperCase()}',`)
+                    .join('\n')}\n  }`
+                )
+                .join(',\n')}\n}`}
+          </pre>
+          <CopyButton 
+            textToCopy={`colors: {
+${Object.entries(tailwindPalettes)
+                .map(([name, palette]) =>
+                  `  ${name}: {\n${Object.entries(palette)
+                    .map(([k, v]) => `    ${k}: '${v.toUpperCase()}',`)
+                    .join('\n')}\n  }`
+                )
+                .join(',\n')}\n}`} 
+          />
+        </div>
       </div>
     </div>
   );
