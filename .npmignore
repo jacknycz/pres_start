@@ -1,0 +1,84 @@
+# Build output
+/dist
+
+# Dependencies
+/node_modules
+
+# Source files (included via files field in package.json)
+/src
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+!.env.example
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Testing
+/coverage
+coverage
+coverage.html
+*.log
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Documentation
+README.md
+LICENSE
+CHANGELOG.md
+
+# Build output
+/dist
+dist/types/*
+
+# Exclude brochure site components
+src/components/ColorPaletteViewer.jsx
+src/components/DarkToggle.jsx
+src/components/FloatingThemeButton.jsx
+src/components/Header.jsx
+src/components/Layout.jsx
+src/components/MenuMainMobile.jsx
+src/components/PaletteGenerator.jsx
+src/components/ThemeColorPicker.jsx
+src/components/ThemePickerModal.jsx
+
+# Test files
+src/**/__tests__/*
+src/**/__stories__/*
+src/**/*.test.*
+src/**/*.stories.*
+
+# Config files
+rollup.config.js
+babel.config.json
+tsconfig.json
+*.config.js
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# System files
+.DS_Store
+Thumbs.db
