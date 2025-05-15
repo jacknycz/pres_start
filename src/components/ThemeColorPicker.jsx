@@ -4,6 +4,7 @@ import Button from './Button/Button';
 import { useTheme } from '../context/ThemeContext';
 import { motion, AnimatePresence } from 'framer-motion';
 import { XMarkIcon } from '@heroicons/react/24/outline';
+import chroma from 'chroma-js';
 
 export default function ThemeColorPicker({ isModal = false, onClose }) {
   const { primaryColor, setPrimaryColor, setIsPickerOpen } = useTheme();
@@ -15,6 +16,25 @@ export default function ThemeColorPicker({ isModal = false, onClose }) {
     updateThemeColors(primaryColor);
   }, [primaryColor]);
 
+  const generateTailwindPalettes = (hexColor) => {
+    const base = {};
+    const steps = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
+    
+    const light = chroma(hexColor).brighten(3.8);
+    const dark = chroma(hexColor).darken(3.4);
+    const lightScale = chroma.scale([light, hexColor]).mode('lab').colors(6);
+    const darkScale = chroma.scale([hexColor, dark]).mode('lab').colors(6);
+    const fullScale = [...lightScale, ...darkScale.slice(1)];
+    
+    steps.forEach((step, i) => {
+      base[step] = fullScale[i];
+    });
+    
+    return {
+      primary: base
+    };
+  };
+
   const updateThemeColors = (hexColor) => {
     const newPalette = generatePalette(hexColor);
     setPalette(newPalette);
@@ -25,6 +45,8 @@ export default function ThemeColorPicker({ isModal = false, onClose }) {
       document.documentElement.style.setProperty(key, value);
     });
   };
+  
+  const tailwindPalettes = generateTailwindPalettes(primaryColor);
 
   const handleColorChange = (e) => {
     const newColor = e.target.value.toUpperCase();
@@ -180,6 +202,20 @@ export default function ThemeColorPicker({ isModal = false, onClose }) {
             </div>
           ))}
         </div>
+      </div>
+      
+      <div className="mt-12 w-full">
+        <h3 className="text-lg font-semibold mb-2">💾 Tailwind Config Snippet</h3>
+        <pre className="bg-gray-100 dark:bg-gray-800 p-4 rounded text-sm overflow-x-auto w-full">
+          {`colors: {
+${Object.entries(tailwindPalettes)
+              .map(([name, palette]) =>
+                `  ${name}: {\n${Object.entries(palette)
+                  .map(([k, v]) => `    ${k}: '${v.toUpperCase()}',`)
+                  .join('\n')}\n  }`
+              )
+              .join(',\n')}\n}`}
+        </pre>
       </div>
     </div>
   );
