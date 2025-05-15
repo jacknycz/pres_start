@@ -56,7 +56,7 @@ export default function ThemeColorPicker({ isModal = false, onClose }) {
           >
             <div className="p-6">
               <div className="flex justify-between items-center mb-4">
-                <h2 className="text-2xl font-bold">Theme Color</h2>
+                <h2 className="text-2xl font-bold text-p-500 dark:text-p-400">Theme Color</h2>
                 <button 
                   onClick={() => {
                     setIsPickerOpen(false);
@@ -85,7 +85,7 @@ export default function ThemeColorPicker({ isModal = false, onClose }) {
                       type="text"
                       value={localColor}
                       onChange={(e) => setLocalColor(e.target.value.toUpperCase())}
-                      className="w-full px-3 py-2 border rounded-md text-sm font-mono"
+                      className="w-full px-3 py-2 border rounded-md dark:border-gray-700 dark:bg-gray-800 dark:text-white text-sm font-mono"
                       maxLength={7}
                     />
                   </div>
@@ -143,14 +143,14 @@ export default function ThemeColorPicker({ isModal = false, onClose }) {
               type="color"
               value={primaryColor}
               onChange={handleColorChange}
-              className="w-12 h-12 rounded cursor-pointer"
+              className="w-12 h-12 rounded cursor-pointer dark:border-gray-700 dark:bg-gray-800 dark:text-white"
             />
             <input
               type="text"
               value={primaryColor}
               onChange={(e) => setLocalColor(e.target.value.toUpperCase())}
               onBlur={() => updateThemeColors(localColor)}
-              className="px-3 py-2 border rounded-md text-sm font-mono w-32"
+              className="px-3 py-2 border rounded-md text-sm font-mono w-32 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
               maxLength={7}
             />
           </div>
