@@ -29,6 +29,10 @@ export default function ThemeColorPicker({ isModal = false, onClose }) {
   const handleColorChange = (e) => {
     const newColor = e.target.value.toUpperCase();
     setLocalColor(newColor);
+    // For the color picker input, update immediately for better UX
+    if (e.target.type === 'color') {
+      updateThemeColors(newColor);
+    }
   };
 
   const applyColor = () => {
@@ -141,14 +145,16 @@ export default function ThemeColorPicker({ isModal = false, onClose }) {
           <div className="flex items-center gap-2">
             <input
               type="color"
-              value={primaryColor}
+              value={localColor}
               onChange={handleColorChange}
+              onBlur={() => updateThemeColors(localColor)}
               className="w-12 h-12 rounded cursor-pointer dark:border-gray-700 dark:bg-gray-800 dark:text-white"
             />
             <input
               type="text"
-              value={primaryColor}
+              value={localColor}
               onChange={(e) => setLocalColor(e.target.value.toUpperCase())}
+              onKeyDown={(e) => e.key === 'Enter' && updateThemeColors(localColor)}
               onBlur={() => updateThemeColors(localColor)}
               className="px-3 py-2 border rounded-md text-sm font-mono w-32 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
               maxLength={7}

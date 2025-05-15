@@ -16,13 +16,12 @@ export default function Home() {
 
     return (
         <div className="container mx-auto px-4 py-8">
-            <div className="flex flex-col md:flex-row items-center justify-between py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 rounded-3xl overflow-hidden">
+            <div className="flex flex-col gap-6 md:gap-12 md:flex-row items-center justify-between py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 rounded-3xl overflow-hidden">
                 <div className="relative z-10 text-center md:text-left max-w-2xl">
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-2">Pres Start</h1>
-                    <h3 className="text-2xl md:text-3xl lg:text-4xl line-clamp-4 font-semibold text-p-500 dark:text-p-400 mb-6">It's a design system starter kit thing</h3>
+                    <h3 className="text-2xl md:text-3xl lg:text-4xl line-clamp-2 font-semibold text-p-500 dark:text-p-400 mb-6">It's a design system starter kit thing</h3>
                     <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
-                        Jumpstart your next project with a comprehensive design system built on React and Tailwind CSS
-                    </p>
+                        <strong>Read:</strong> I wanted to <span className="line-through">brush up on</span> <em>relearn</em> React and Tailwind and the other cool front-end things I've been missing, so I made this thing.</p>
                     <div className="flex flex-col md:flex-row gap-4 justify-center md:justify-start">
                         <Button
                             variant="primary"
