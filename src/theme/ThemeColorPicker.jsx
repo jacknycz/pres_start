@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { generatePalette } from '../utils/generatePalette';
-import Button from './Button/Button';
+import Button from '../components/Button/Button';
 import { useTheme } from '../context/ThemeContext';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import chroma from 'chroma-js';
-import Modal from './Modal/Modal';
+import Modal from '../components/Modal/Modal';
 
 function CopyButton({ textToCopy }) {
   const [copied, setCopied] = useState(false);

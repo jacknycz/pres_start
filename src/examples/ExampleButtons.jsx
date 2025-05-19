@@ -41,8 +41,8 @@ export default function ExampleButtons() {
     variant="${variant}" 
     size="${size}" 
     rounded="${rounded}" 
-    iconLeft="${iconLeftKey}" 
-    iconRight="${iconRightKey}"
+    ${iconLeftKey !== 'none' ? `iconLeft={<${iconLeftKey === 'arrowForward' ? 'ArrowForward' : iconLeftKey === 'playArrow' ? 'PlayArrow' : 'Home'} />}` : ''}
+    ${iconRightKey !== 'none' ? `iconRight={<${iconRightKey === 'arrowForward' ? 'ArrowForward' : iconRightKey === 'playArrow' ? 'PlayArrow' : 'Home'} />}` : ''}
 >
     ${text}
 </Button>`;

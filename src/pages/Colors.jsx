@@ -1,6 +1,6 @@
 import React from "react";
 import Pres from "../assets/Pres";
-import PaletteGenerator from "../components/PaletteGenerator";
+import PaletteGenerator from "../theme/PaletteGenerator";
 
 export default function Colors() {
     return (

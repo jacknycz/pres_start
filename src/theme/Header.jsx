@@ -3,7 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import Pres from "../assets/Pres.svg";
 import MobileMenu from "./MenuMainMobile";
 import classNames from "classnames";
-import IconButton from "./IconButton/IconButton";
+import IconButton from "../components/IconButton/IconButton";
 import { Menu } from "@mui/icons-material";
 import { Close } from "@mui/icons-material";
 
@@ -65,7 +65,7 @@ export default function Header(props) {
 
             {/* Navigation that I should probably rethink since I broke it in two 
             rather hastily for cool points, but it's fixed and scrolls on lg+ */}
-            <div className="hidden lg:flex lg:flex-col">
+            <div className="hidden lg:flex lg:flex-col overflow-y-scroll">
                 <nav className="flex flex-col w-full space-y-2 lg:space-y-0 p-4 lg:p-0">
                     {[
                         { to: "/", label: "Getting Started" },
@@ -93,16 +93,25 @@ export default function Header(props) {
                         { to: "/exampleaccordions", label: "Accordions" },
                         { to: "/exampleavatars", label: "Avatars" },
                         { to: "/examplebadges", label: "Badges" },
+                        { to: "/examplebuttongroup", label: "Button Group" },
                         { to: "/examplebuttons", label: "Buttons" },
                         { to: "/examplecheckbox", label: "Checkbox" },
+                        { to: "/exampleheading", label: "Heading" },
                         { to: "/exampleiconbuttons", label: "Icon Buttons" },
+                        { to: "/examplelink", label: "Link" },
                         { to: "/examplemenus", label: "Menus" },
                         { to: "/examplemodals", label: "Modals" },
+                        { to: "/exampleprogress", label: "Progress" },
                         { to: "/exampleradiogroup", label: "Radio Group" },
+                        { to: "/examplerangeslider", label: "Range Slider" },
                         { to: "/exampleselectinput", label: "Select Input" },
+                        { to: "/examplespinner", label: "Spinner" },
                         { to: "/exampletabs", label: "Tabs" },
+                        { to: "/exampletag", label: "Tag" },
                         { to: "/exampletextinput", label: "Text Input" },
+                        { to: "/exampletoast", label: "Toast" },
                         { to: "/exampletoggleswitch", label: "Toggle Switch" },
+                        { to: "/exampletooltip", label: "Tooltip" },
                     ].map((item, index) => (
                         <NavLink
                             key={item.to}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { generatePalette } from '../utils/generatePalette';
 import { ColorPaletteViewer } from './ColorPaletteViewer';
-import Button from './Button/Button';
+import Button from '../components/Button/Button';
 import { Add } from '@mui/icons-material';
 
 export default function PaletteGenerator() {

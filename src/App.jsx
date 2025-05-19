@@ -2,11 +2,11 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ThemeProvider } from './context/ThemeContext'
-import ThemePickerModal from './components/ThemePickerModal'
+import ThemePickerModal from './theme/ThemePickerModal'
 import './App.css'
 
 // Layout & Pages
-import Layout from './components/Layout'
+import Layout from './theme/Layout'
 import Home from './pages/Home'
 import Typography from './pages/Typography'
 import Colors from './pages/Colors'
@@ -25,6 +25,15 @@ import ExampleCheckbox from './examples/ExampleCheckbox'
 import ExampleRadioGroup from './examples/ExampleRadioGroup'
 import ExampleToggleSwitch from './examples/ExampleToggleSwitch'
 import ExampleIconButtons from './examples/ExampleIconButtons'
+import ExampleButtonGroup from './examples/ExampleButtonGroup'
+import ExampleTooltip from './examples/ExampleTooltip'
+import ExampleRangeSlider from './examples/ExampleRangeSlider'
+import ExampleProgress from './examples/ExampleProgress'
+import ExampleSpinner from './examples/ExampleSpinner'
+import ExampleHeading from './examples/ExampleHeading'
+import ExampleLink from './examples/ExampleLink'
+import ExampleToast from './examples/ExampleToast'
+import ExampleTag from './examples/ExampleTag'
 
 const routes = [
   { path: '/', element: <Home />, index: true },
@@ -41,6 +50,15 @@ const routes = [
   { path: 'exampleradiogroup', element: <ExampleRadioGroup /> },
   { path: 'exampletoggleswitch', element: <ExampleToggleSwitch /> },
   { path: 'exampleiconbuttons', element: <ExampleIconButtons /> },
+  { path: 'examplebuttongroup', element: <ExampleButtonGroup /> },
+  { path: 'exampletooltip', element: <ExampleTooltip /> },
+  { path: 'examplerangeslider', element: <ExampleRangeSlider /> },
+  { path: 'exampleprogress', element: <ExampleProgress /> },
+  { path: 'examplespinner', element: <ExampleSpinner /> },
+  { path: 'exampleheading', element: <ExampleHeading /> },
+  { path: 'examplelink', element: <ExampleLink /> },
+  { path: 'exampletoast', element: <ExampleToast /> },
+  { path: 'exampletag', element: <ExampleTag /> },
   { path: 'typography', element: <Typography /> },
   { path: 'colors', element: <Colors /> },
 ]

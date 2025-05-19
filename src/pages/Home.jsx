@@ -9,7 +9,7 @@ import useDarkMode from "../hooks/useDarkMode";
 import Prestronaut from '/src/assets/prestronaut-2.png';
 import { DarkMode as DarkModeIcon, LightMode as LightModeIcon } from '@mui/icons-material';
 import IconButton from '../components/IconButton/IconButton';
-import ThemeColorPicker from '../components/ThemeColorPicker';
+import ThemeColorPicker from '../theme/ThemeColorPicker';
 
 export default function Home() {
     const [isDark, toggleDark] = useDarkMode();
