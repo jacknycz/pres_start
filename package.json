@@ -30,6 +30,7 @@
     "express": "^5.1.0",
     "framer-motion": "^12.12.1",
     "motion": "^12.11.0",
+    "node-fetch": "^2.7.0",
     "react": "^19.0.0",
     "react-collapse": "^5.1.1",
     "react-dom": "^19.1.0",
