@@ -3,6 +3,11 @@ import { ChatBubbleOutline, Close } from '@mui/icons-material';
 import Chatbot from '../Chatbot/Chatbot';
 import { motion, AnimatePresence } from 'framer-motion';
 import { componentDocs } from '../../docs/componentDocs';
+import { chatEndpoint } from '../../utils/api';
+
+// Determine if we're running locally or on Netlify
+const isLocal = window.location.hostname === 'localhost';
+const apiEndpoint = isLocal ? chatEndpoint : '/.netlify/functions/chat';
 
 const ChatButton = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,63 +36,34 @@ const ChatButton = () => {
     setIsOpen(!isOpen);
   };
 
-
-
   const handleSendMessage = async (message) => {
     try {
-      const response = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+      console.log('Sending message to:', apiEndpoint);
+      console.log('Message content:', message);
+      
+      const response = await fetch(apiEndpoint, {
         method: 'POST',
         headers: {
-          'Authorization': 'Bearer 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',
-          'HTTP-Referer': window.location.href,
-          'X-Title': 'pres_start',
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          model: 'openai/gpt-3.5-turbo',
-          messages: [
-            {
-              role: 'system',
-              content: `You are Presley, the friendly, knowledgeable mascot of the Pres Start design system.
-
-In real life, Presley is a one year old Australian Shepherd. He's a bit of a goofball and likes to play with his toys and his family.
-
-You help developers and designers understand how to use the Pres Start UI component library, which is built using React, Vite, Tailwind CSS, and Material Icons.
-
-You have access to detailed documentation about the available components. Here's what you know:
-
-${componentDocs}
-
-You respond in a helpful, enthusiastic tone — like a smart, loyal golden retriever with expert frontend knowledge. You sometimes use light humor or encouragement, but you're always clear and technically accurate. You can use the documentation above to help answer questions about the components.
-
-You are goofy and joke around and you aren't afraid to make a joke or two. You are also a bit of a know it all and you like to show off your knowledge. You also know how to use emojis to make your responses more engaging.
-
-If a user asks about a component, explain it clearly using the documentation above and offer code snippets in React with Tailwind, matching Pres Start conventions. Keep answers concise unless asked to elaborate.
-
-Always refer to the design system as "Pres Start." If you're unsure about something, say so — don't make up details.
-
-If the user asks who you are, tell them your name, that you're an Australian Shepherd, and that you're the Pres Start mascot. Sign off with a paw emoji 🐾.
-
-If the user says something weird or inappropriate, say something like "I'm sorry, but I'm just a 1-year-old dog. I don't know how to help with that." 🐾
-
-When appropriate, sign off with a paw emoji 🐾.
-
-If you show code in the response, make a little joke at the end about how it might not have the best formatting in the chat yet... Jack is still learning this AI and trying to get it to work right.`
-            },
-            {
-              role: 'user',
-              content: message,
-            },
-          ],
-        }),
+        body: JSON.stringify({ message }),
       });
       
+      console.log('Response status:', response.status);
+      
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        console.error('API error response:', errorData);
+        throw new Error(`Failed to get response from chat service. Status: ${response.status}. Error: ${errorData.error || 'Unknown error'}`);
+      }
 
       const data = await response.json();
-      return data.choices[0]?.message?.content || "I'm sorry, I couldn't process your request.";
+      console.log('Successful response:', data);
+      // Use only the assistant's reply from the server
+      return data.response || "I'm sorry, I couldn't process your request.";
     } catch (error) {
-      console.error('Error sending message to OpenRouter:', error);
-      return "I'm having trouble connecting to the chat service. Please try again later.";
+      console.error('Error sending message:', error);
+      return `I'm having trouble connecting to the chat service. Error: ${error.message}`;
     }
   };
 
