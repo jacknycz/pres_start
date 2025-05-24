@@ -34,6 +34,7 @@ import ExampleHeading from './examples/ExampleHeading'
 import ExampleLink from './examples/ExampleLink'
 import ExampleToast from './examples/ExampleToast'
 import ExampleTag from './examples/ExampleTag'
+import ExampleChatbot from './examples/ExampleChatbot'
 
 const routes = [
   { path: '/', element: <Home />, index: true },
@@ -59,6 +60,7 @@ const routes = [
   { path: 'examplelink', element: <ExampleLink /> },
   { path: 'exampletoast', element: <ExampleToast /> },
   { path: 'exampletag', element: <ExampleTag /> },
+  { path: 'examplechatbot', element: <ExampleChatbot /> },
   { path: 'typography', element: <Typography /> },
   { path: 'colors', element: <Colors /> },
 ]

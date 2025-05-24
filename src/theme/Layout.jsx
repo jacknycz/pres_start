@@ -3,6 +3,7 @@ import Header from "./Header";
 import { Outlet } from "react-router-dom";
 import useDarkMode from "../hooks/useDarkMode";
 import DarkToggle from "./DarkToggle";
+import ChatButton from "../components/ChatButton/ChatButton";
 
 export default function Layout({ children }) {
     const [isDark, toggleDark] = useDarkMode();
@@ -23,9 +24,11 @@ export default function Layout({ children }) {
                 <Outlet />
             </main>
 
-            {/* Theme toggle switch */}
-            <div className="fixed bottom-0 right-0 z-50 flex items-center gap-4 p-2 shadow lg:p-4 justify-center bg-white dark:bg-[#081028]">
+            {/* Theme toggle and chat button */}
+            <div className="fixed bottom-0 right-0 z-50 flex items-center gap-4 p-2 shadow lg:p-4 justify-center bg-white dark:bg-[#081028] rounded-tl-lg">
                 <DarkToggle />
+                <div className="h-8 w-px bg-gray-300 dark:bg-gray-600"></div>
+                <ChatButton />
             </div>
         </div>
     );

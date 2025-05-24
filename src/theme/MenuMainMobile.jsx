@@ -80,6 +80,7 @@ function MobileMenu({ isOpen, onClose }) {
                                 { to: "/exampletoast", label: "Toast" },
                                 { to: "/exampletoggleswitch", label: "Toggle Switch" },
                                 { to: "/exampletooltip", label: "Tooltip" },
+                                { to: "/examplechatbot", label: "Chatbot" },
                             ].map((item, index) => (
                                 <NavLink
                                     key={item.to}
