@@ -76,8 +76,8 @@ export default function TextArea({
         )}
       </div>
 
-      <div className="flex justify-between mt-1">
-        {supportText && (
+      {supportText && (
+        <div className="flex justify-between mt-1">
           <p
             id={hasErrorMessage ? errorId : undefined}
             className={classNames(
@@ -87,14 +87,13 @@ export default function TextArea({
           >
             {supportText}
           </p>
-        )}
-        
-        {maxLength && (
-          <p className="text-xs text-gray-500 dark:text-gray-400 ml-auto">
-            {value ? value.length : 0}/{maxLength}
-          </p>
-        )}
-      </div>
+          {maxLength && (
+            <p className="text-xs text-gray-500 dark:text-gray-400 ml-auto">
+              {value ? value.length : 0}/{maxLength}
+            </p>
+          )}
+        </div>
+      )}
     </div>
   );
 }

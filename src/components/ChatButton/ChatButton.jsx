@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from 'react';
 import { ChatBubbleOutline, Close } from '@mui/icons-material';
 import Chatbot from '../Chatbot/Chatbot';
 import { motion, AnimatePresence } from 'framer-motion';
-import { componentDocs } from '../../docs/componentDocs';
 import { chatEndpoint } from '../../utils/api';
 
 // Determine if we're running locally or on Netlify

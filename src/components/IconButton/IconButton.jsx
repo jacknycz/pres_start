@@ -21,6 +21,7 @@ const shapeStyles = {
 const sizeStyles = {
     small: 'h-[32px] w-[32px] justify-center items-center touch-none focus:outline-none active:outline-none md:touch-target touch-target:md:w-[44px] touch-target:md:h-[44px] touch-target:md:rounded-full',
     default: 'h-[40px] w-[40px] justify-center items-center touch-none focus:outline-none active:outline-none md:touch-target touch-target:md:w-[44px] touch-target:md:h-[44px] touch-target:md:rounded-full',
+    medium: 'h-[40px] w-[40px] justify-center items-center touch-none focus:outline-none active:outline-none md:touch-target touch-target:md:w-[44px] touch-target:md:h-[44px] touch-target:md:rounded-full',
     large: 'h-[48px] w-[48px] justify-center items-center touch-none focus:outline-none active:outline-none md:touch-target touch-target:md:w-[44px] touch-target:md:h-[44px] touch-target:md:rounded-full',
 };
 

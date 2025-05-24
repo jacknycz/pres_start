@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { Send, SmartToy } from '@mui/icons-material';
 import TextArea from '../Input/TextArea';
 import Button from '../Button/Button';
+import IconButton from '../IconButton/IconButton';
 import { Spinner } from '../Spinner/Spinner';
 
 const Message = ({ message, isBot, timestamp }) => {
@@ -176,8 +177,7 @@ const Chatbot = ({
         className="p-4 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900"
       >
         <div className="flex items-end space-x-2">
-          <div className="flex-1">
-            <TextArea
+          <TextArea
               ref={textareaRef}
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
@@ -185,22 +185,17 @@ const Chatbot = ({
               placeholder={placeholder}
               rows={1}
               className="resize-none"
-              style={{ minHeight: '44px', maxHeight: '150px' }}
+              // style={{ minHeight: '48px', maxHeight: '150px' }}
             />
-          </div>
-          <Button
+          <IconButton
             type="submit"
             variant="primary"
-            size="small"
-            className="h-10 w-10 p-0 flex-shrink-0"
+            size="medium"
+            className="flex-shrink-0"
             disabled={!inputValue.trim() || isTyping}
-          >
-            {isTyping ? (
-              <Spinner size="small" className="text-white" />
-            ) : (
-              <Send className="w-5 h-5" />
-            )}
-          </Button>
+            icon={isTyping ? <Spinner size="small" className="text-white" /> : <Send className="w-5 h-5" />}
+            aria-label="Send message"
+          />
         </div>
       </form>
     </div>
