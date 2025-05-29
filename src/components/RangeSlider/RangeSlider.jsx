@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import classNames from 'classnames';
+import './RangeSlider.css';
 
 export function RangeSlider({
   min = 0,
@@ -53,16 +54,19 @@ export function RangeSlider({
           onChange={handleChange}
           disabled={disabled}
           className={classNames(
-            'w-full h-2 appearance-none bg-gray-200 dark:bg-gray-700 rounded-full outline-none',
-            'transition-opacity',
+            'range-slider w-full h-2 appearance-none bg-gray-200 dark:bg-gray-700 rounded-full outline-none',
+            'transition-all duration-200',
             disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer',
-            'range-thumb:appearance-none range-thumb:w-5 range-thumb:h-5',
-            'range-thumb:bg-white range-thumb:rounded-full range-thumb:border-2',
-            'range-thumb:border-p-500 range-thumb:shadow-md',
-            'range-thumb:focus:ring-2 range-thumb:focus:ring-p-500'
+            className
           )}
           style={{
-            background: `linear-gradient(to right, #4f46e5 0%, #4f46e5 ${progress}%, #e5e7eb ${progress}%, #e5e7eb 100%)`
+            '--progress': `${progress}%`,
+            '--track-bg': 'var(--color-gray-200, #e5e7eb)',
+            '--track-bg-dark': 'var(--color-gray-700, #374151)',
+            '--thumb-size': '1.25rem',
+            '--thumb-bg': 'white',
+            '--thumb-border': 'var(--color-p-500, #4f46e5)',
+            '--thumb-shadow': '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)'
           }}
           aria-valuemin={min}
           aria-valuemax={max}
