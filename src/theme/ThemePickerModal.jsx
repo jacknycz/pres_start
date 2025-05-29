@@ -3,10 +3,22 @@ import { useTheme } from '../context/ThemeContext';
 import { Palette as PaletteIcon } from '@mui/icons-material';
 import { motion, AnimatePresence } from 'framer-motion';
 import ThemeColorPicker from './ThemeColorPicker';
+import { generatePalette } from '../utils/generatePalette';
 
 export default function ThemePickerModal() {
-  const { isPickerOpen, setIsPickerOpen } = useTheme();
+  const { isPickerOpen, setIsPickerOpen, primaryColor, setPrimaryColor } = useTheme();
   const [isMounted, setIsMounted] = useState(false);
+  const [localColor, setLocalColor] = useState(primaryColor);
+  
+  const updateThemeColors = (hexColor) => {
+    const newPalette = generatePalette(hexColor);
+    setPrimaryColor(hexColor);
+    
+    // Update CSS variables
+    Object.entries(newPalette).forEach(([key, value]) => {
+      document.documentElement.style.setProperty(key, value);
+    });
+  };
 
   // Prevent scrolling when modal is open
   useEffect(() => {
@@ -56,7 +68,14 @@ export default function ThemePickerModal() {
               className="w-full max-w-md"
               onClick={e => e.stopPropagation()}
             >
-              <ThemeColorPicker isModal onClose={() => setIsPickerOpen(false)} />
+              <ThemeColorPicker 
+                isModal 
+                onClose={() => setIsPickerOpen(false)}
+                onColorSelect={(color) => {
+                  setLocalColor(color);
+                  updateThemeColors(color);
+                }}
+              />
             </motion.div>
           </div>
         )}

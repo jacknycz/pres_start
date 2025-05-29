@@ -18,11 +18,10 @@ const roundedStyles = {
     pill: 'rounded-full',
     square: 'rounded-none',
 };
-
 const sizeStyles = {
-    default: 'h-[40px] px-4 py-2 text-base',
-    small: 'h-[32px] px-2 py-1 text-sm',
-    large: 'h-[48px] px-6 py-3 text-lg',
+    default: 'h-auto px-4 py-2 text-base min-h-[40px]',
+    small: 'h-auto px-2 py-1 text-sm min-h-[32px]',
+    large: 'h-auto px-6 py-3 text-lg min-h-[48px]',
 };
 
 function Button({

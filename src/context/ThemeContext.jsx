@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 const ThemeContext = createContext();
 
 export const ThemeProvider = ({ children }) => {
-  const [primaryColor, setPrimaryColor] = useState('#3b82f6'); // Default blue-500
+  const [primaryColor, setPrimaryColor] = useState('#718096'); // Default grey-500
   const [isPickerOpen, setIsPickerOpen] = useState(false);
 
   // Load saved theme from localStorage on initial render

@@ -38,11 +38,19 @@ export default function Header(props) {
             {/* Fixed logo and mobile toggle */}
             <div className="flex-shrink-0">
                 <div className="flex justify-between items-center w-full p-3 lg:p-4 z-20 bg-white dark:bg-[#081028] border-b-4 border-gray-100 dark:border-p-900 shadow">
-                    <Link to="/" className="flex items-center gap-1">
-                        <span className="flex p-2 dark:bg-p-500 rounded-full">
-                            <img src={Pres} alt="Pres" />
+                    <Link to="/" className="flex items-center gap-2">
+                        <span className="relative flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-p-300 to-p-500 text-white shadow-lg 
+                            dark:from-p-400 dark:to-p-600
+                            before:absolute before:inset-0 before:rounded-full before:border-2 before:border-white/30 before:transition-all before:duration-1000 before:ease-in-out before:content-['']
+                            dark:before:border-p-200/30
+                            animate-[pulse_3s_ease-in-out_infinite]
+                            dark:shadow-[0_0_15px_var(--color-p-500)]">
+                            <span className="relative z-10">
+                                <img src={Pres} alt="Pres" className="h-8 w-8" />
+                            </span>
+                            <span className="absolute -inset-1.5 rounded-full bg-p-300/20 blur-md dark:bg-p-400/20"></span>
                         </span>
-                        <span className="text-2xl font-bold dark:text-white">
+                        <span className="text-2xl font-400 dark:text-white tracking-widest">
                             Pres Start
                         </span>
                     </Link>

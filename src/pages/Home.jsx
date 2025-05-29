@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import { Link } from "react-router-dom";
 import Button from "../components/Button/Button";
 import Tailwind2Logo from "../assets/tailwind-2.svg";
@@ -18,15 +18,21 @@ export default function Home() {
         <div className="container mx-auto px-4 py-8">
             <div className="flex flex-col gap-6 md:gap-12 md:flex-row items-center justify-between py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 rounded-3xl overflow-hidden">
                 <div className="relative z-10 text-center md:text-left max-w-2xl">
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-2">Pres Start</h1>
-                    <h3 className="text-2xl md:text-3xl lg:text-4xl line-clamp-2 font-semibold text-p-500 dark:text-p-400 mb-6">It's a design system starter kit thing</h3>
-                    <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
+                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-light tracking-widest text-gray-900 dark:text-white mb-2">Pres Start</h1>
+                    <h3 className="text-xl md:text-2xl lg:text-3xl line-clamp-2 font-medium text-p-500 dark:text-p-400 mb-6">It's a design system starter kit thing</h3>
+                    <p className="text-lg md:text-xl text-gray-600 font-light dark:text-gray-300 mb-8">
                         <strong>Read:</strong> I wanted to <span className="line-through">brush up on</span> <em>relearn</em> React and Tailwind and the other cool front-end things I've been missing, so I made this thing.</p>
                     <div className="flex flex-col md:flex-row gap-4 justify-center md:justify-start">
                         <Button
                             variant="primary"
                             className="mt-4"
-                            to="/typography"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                document.getElementById('theme-customization')?.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'start'
+                                });
+                            }}
                         >
                             Get Started
                         </Button>
@@ -59,11 +65,22 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="flex flex-col my-24 space-y-4">
+            <div id="theme-customization" className="flex flex-col my-24 space-y-4 scroll-mt-24">
                 <div className="mb-16">
-                    <h2 className="text-3xl font-bold mb-6">Theme Customization</h2>
-                    <p className="text-gray-600 dark:text-gray-400 mb-6">
-                        Customize your experience by selecting a primary color. The color palette will be automatically generated and applied throughout the application.
+                    <h2 className="text-3xl font-bold mb-6 flex items-center gap-3">
+                      <span className="relative flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-p-300 to-p-500 text-white shadow-lg 
+                        dark:from-p-400 dark:to-p-600
+                        before:absolute before:inset-0 before:rounded-full before:border-2 before:border-white/30 before:transition-all before:duration-1000 before:ease-in-out before:content-['']
+                        dark:before:border-p-200/30
+                        animate-[pulse_3s_ease-in-out_infinite]
+                        dark:shadow-[0_0_15px_var(--color-p-500)]">
+                        <span className="relative z-10 font-mono font-bold">1</span>
+                        <span className="absolute -inset-1.5 rounded-full bg-p-300/20 blur-md dark:bg-p-400/20"></span>
+                      </span>
+                      <span>Let's start with getting some color in this place!</span>
+                    </h2>
+                    <p className="text-lg md:text-xl font-light text-gray-600 dark:text-gray-400 mb-8">
+                        The entire point of Pres Start is to give you a starting point for your next project - so let's start with getting your brand color involved! Select your brand color here (or pick one of our awesome suggestions) and we'll generate a color palette for you. You can see what your starter kit will look like right away as we'll apply the color palette to the UI on this site. Then, your code will be output below and we'll get that into your project.
                     </p>
                     <ThemeColorPicker />
                 </div>
