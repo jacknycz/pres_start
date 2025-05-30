@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { generatePalette } from '../utils/generatePalette';
 import Button from '../components/Button/Button';
+import TextInput from '../components/Input/TextInput';
 import { useTheme } from '../context/ThemeContext';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import chroma from 'chroma-js';
@@ -39,7 +40,7 @@ export default function ThemeColorPicker({ isModal = false, onClose, onColorSele
   const { primaryColor, setPrimaryColor, setIsPickerOpen } = useTheme();
   const [palette, setPalette] = useState({});
   const [localColor, setLocalColor] = useState(primaryColor);
-  const [isDefaultColor, setIsDefaultColor] = useState(() => 
+  const [isDefaultColor, setIsDefaultColor] = useState(() =>
     primaryColor.toUpperCase() === DEFAULT_COLOR.toUpperCase()
   );
 
@@ -57,17 +58,17 @@ export default function ThemeColorPicker({ isModal = false, onClose, onColorSele
   const generateTailwindPalettes = (hexColor) => {
     const base = {};
     const steps = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900, 950];
-    
+
     const light = chroma(hexColor).brighten(3.8);
     const dark = chroma(hexColor).darken(3.4);
     const lightScale = chroma.scale([light, hexColor]).mode('lab').colors(6);
     const darkScale = chroma.scale([hexColor, dark]).mode('lab').colors(6);
     const fullScale = [...lightScale, ...darkScale.slice(1)];
-    
+
     steps.forEach((step, i) => {
       base[step] = fullScale[i];
     });
-    
+
     return {
       primary: base
     };
@@ -77,21 +78,21 @@ export default function ThemeColorPicker({ isModal = false, onClose, onColorSele
     const newPalette = generatePalette(hexColor);
     setPalette(newPalette);
     setPrimaryColor(hexColor);
-    
+
     // Update default color state
     setIsDefaultColor(hexColor.toUpperCase() === DEFAULT_COLOR.toUpperCase());
-    
+
     // Update CSS variables
     Object.entries(newPalette).forEach(([key, value]) => {
       document.documentElement.style.setProperty(key, value);
     });
-    
+
     // If there's an onColorSelect prop, call it with the new color
     if (onColorSelect) {
       onColorSelect(hexColor);
     }
   };
-  
+
   const tailwindPalettes = generateTailwindPalettes(primaryColor);
 
   const handleColorChange = (e) => {
@@ -123,8 +124,8 @@ export default function ThemeColorPicker({ isModal = false, onClose, onColorSele
   // Only show the floating button in modal mode
   if (isModal) {
     return (
-      <Modal 
-        isOpen={true} 
+      <Modal
+        isOpen={true}
         onClose={() => {
           setIsPickerOpen(false);
           if (onClose) onClose();
@@ -167,16 +168,15 @@ export default function ThemeColorPicker({ isModal = false, onClose, onColorSele
             { id: 'golden-biscuit', hex: '#D9A05B', name: 'Golden Biscuit', description: 'A warm, toasty tan-brown with treat-like charm.' },
             { id: 'terrier-teal', hex: '#1CA28F', name: 'Terrier Teal', description: 'A punchy teal-green with cool confidence and great contrast.' }
           ].map((color) => (
-            <div 
+            <div
               key={color.id}
               onClick={() => setLocalColor(color.hex)}
-              className={`relative overflow-hidden rounded-lg cursor-pointer transition-all duration-200 ${
-                localColor === color.hex ? 'ring-2 ring-offset-2 ring-primary-500' : 'hover:ring-2 hover:ring-offset-2 hover:ring-primary-300'
-              }`}
+              className={`relative overflow-hidden rounded-lg cursor-pointer transition-all duration-200 ${localColor === color.hex ? 'ring-2 ring-offset-2 ring-primary-500' : 'hover:ring-2 hover:ring-offset-2 hover:ring-primary-300'
+                }`}
             >
-              <div 
+              <div
                 className="p-2 pb-3 text-sm font-semibold text-center text-white truncate"
-                style={{ 
+                style={{
                   backgroundColor: color.hex,
                   textShadow: '0 1px 2px rgba(0,0,0,0.3)'
                 }}
@@ -210,64 +210,66 @@ export default function ThemeColorPicker({ isModal = false, onClose, onColorSele
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 border border-gray-200 dark:border-gray-700">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl font-bold">Customize Theme</h2>
-        <Button 
-          variant="ghost" 
+        <Button
+          variant="ghost"
           onClick={resetToDefault}
         >
           Reset to Default
         </Button>
       </div>
-      
+
       <div className="flex items-start gap-4">
         {/* <div className="md:mr-8">
           <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Current Color</p>
           <div className="w-12 h-12 rounded" style={{ backgroundColor: primaryColor }} />
         </div> */}
 
-        <div>
+        <div className="flex items-start gap-4 mt-2">
 
-          <Button 
-            variant="primary" 
-            size="large" 
+          <Button
+            variant="primary"
+            // size="large"
             onClick={() => setIsPickerOpen(true)}
-            className="mb-6"
+            className="my-0"
             style={{ backgroundColor: '#EF4444' }}
           >
             Select Color!
           </Button>
 
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
-            Primary Color
-          </label>
-          <div className="flex items-center gap-2">
-            <input
-              type="color"
-              value={localColor}
-              onChange={handleColorChange}
-              onBlur={() => updateThemeColors(localColor)}
-              className="w-12 h-12 rounded cursor-pointer dark:border-gray-700 dark:bg-gray-800 dark:text-white"
-            />
-            <input
-              type="text"
-              value={localColor}
-              onChange={(e) => setLocalColor(e.target.value.toUpperCase())}
-              onKeyDown={(e) => e.key === 'Enter' && updateThemeColors(localColor)}
-              onBlur={() => updateThemeColors(localColor)}
-              className="px-3 py-2 border rounded-md text-sm font-mono w-32 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
-              maxLength={7}
-            />
+          <div>
+            {/* <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Primary Color
+            </label> */}
+            <div className="flex items-start gap-2">
+              <input
+                type="color"
+                value={localColor}
+                onChange={handleColorChange}
+                onBlur={() => updateThemeColors(localColor)}
+                className="w-10 h-10 -appearance-none p-0 m-0 rounded cursor-pointer dark:border-gray-700 dark:bg-gray-800 dark:text-white"
+              />
+              <TextInput
+                value={localColor}
+                onChange={(e) => setLocalColor(e.target.value.toUpperCase())}
+                onKeyDown={(e) => e.key === 'Enter' && updateThemeColors(localColor)}
+                onBlur={() => updateThemeColors(localColor)}
+                className="w-24 font-mono"
+                inputClassName="text-center"
+                maxLength={7}
+              />
+            </div>
           </div>
         </div>
-        
-        
+
+
       </div>
-      
+
       <div className="mt-6">
         <h3 className="text-lg font-semibold mb-4">Color Palette</h3>
         <div className="grid grid-cols-6 gap-2">
           {Object.entries(palette).map(([key, value]) => (
             <div key={key} className="flex flex-col items-center">
-              <div 
+              <div
                 className="w-full h-12 rounded border border-gray-200 dark:border-gray-700"
                 style={{ backgroundColor: value }}
               />
@@ -276,7 +278,7 @@ export default function ThemeColorPicker({ isModal = false, onClose, onColorSele
           ))}
         </div>
       </div>
-      
+
       <div className="mt-12 w-full">
         <h3 className="text-lg font-semibold mb-2">Tailwind Config Snippet</h3>
         <div className="relative">
@@ -290,7 +292,7 @@ ${Object.entries(tailwindPalettes)
                 )
                 .join(',\n')}\n}`}
           </pre>
-          <CopyButton 
+          <CopyButton
             textToCopy={`colors: {
 ${Object.entries(tailwindPalettes)
                 .map(([name, palette]) =>
@@ -298,7 +300,7 @@ ${Object.entries(tailwindPalettes)
                     .map(([k, v]) => `    ${k}: '${v.toUpperCase()}',`)
                     .join('\n')}\n  }`
                 )
-                .join(',\n')}\n}`} 
+                .join(',\n')}\n}`}
           />
         </div>
       </div>
