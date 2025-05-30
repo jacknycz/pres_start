@@ -43,9 +43,15 @@ export default function ThemeColorPicker({ isModal = false, onClose, onColorSele
     primaryColor.toUpperCase() === DEFAULT_COLOR.toUpperCase()
   );
 
-  // Initialize with current primary color
+  // Keep localColor in sync with primaryColor
   useEffect(() => {
+    setLocalColor(primaryColor);
     updateThemeColors(primaryColor);
+  }, [primaryColor]);
+
+  // Update isDefaultColor when primaryColor changes
+  useEffect(() => {
+    setIsDefaultColor(primaryColor.toUpperCase() === DEFAULT_COLOR.toUpperCase());
   }, [primaryColor]);
 
   const generateTailwindPalettes = (hexColor) => {
