@@ -253,8 +253,7 @@ export default function ThemeColorPicker({ isModal = false, onClose, onColorSele
                 onChange={(e) => setLocalColor(e.target.value.toUpperCase())}
                 onKeyDown={(e) => e.key === 'Enter' && updateThemeColors(localColor)}
                 onBlur={() => updateThemeColors(localColor)}
-                className="w-24 font-mono"
-                inputClassName="text-center"
+                className="w-24 font-mono text-center"
                 maxLength={7}
               />
             </div>
