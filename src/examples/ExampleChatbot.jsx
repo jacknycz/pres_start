@@ -8,7 +8,7 @@ import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
 const mockSendMessage = async (message) => {
   // Simulate API delay
   await new Promise(resolve => setTimeout(resolve, 1000));
-  
+
   // Simple echo response for demo
   return `You said: ${message}`;
 };
@@ -88,7 +88,10 @@ const MyChatbot = () => {
         <h2 className="text-4xl">Chatbot</h2>
       </div>
 
-      <div className="component-wrapper">
+      <div className="flex-col component-wrapper">
+        <p className="text-lg md:text-xl font-light text-gray-600 dark:text-gray-400 mb-8">
+          This one is a fake convo for component demo purposes. PresBot is a real chatbot down below.
+        </p>
         <Button
           onClick={() => setIsOpen(!isOpen)}
           variant="ghost"
@@ -96,7 +99,7 @@ const MyChatbot = () => {
           {isOpen ? 'Hide Chatbot' : 'Show Chatbot'}
         </Button>
 
-        <div className={`transition-all duration-300 mt-4 ${isOpen ? 'opacity-100' : 'opacity-0 h-0 overflow-hidden'}`}>
+        <div className={`transition-all duration-300 mt-4 ${isOpen ? 'opacity-100' : 'opacity-0 max-h-0 overflow-hidden'}`} style={{ minHeight: isOpen ? '500px' : '0' }}>
           {isChatOpen ? (
             <Chatbot
               title="Presbot"
@@ -169,7 +172,7 @@ const MyChatbot = () => {
                 <code className="label-style">() =&gt; void</code>
                 <span>Callback function called when the close button is clicked</span>
               </td>
-              <td className="props-cell"><code className="label-style">() =&gt; {}</code></td>
+              <td className="props-cell"><code className="label-style">() =&gt; { }</code></td>
             </tr>
 
             <tr className="props-row">
