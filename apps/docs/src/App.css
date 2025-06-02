@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Poppins', sans-serif;
+
+  --color-midnight: #121063;
+  --color-tahiti: #3ab7bf;
+  --color-bermuda: #78dcca;
+
+  --color-p-50: #FFFFFF;
+  --color-p-100: #E0E4FE;
+  --color-p-200: #C0CBFD;
+  --color-p-300: #9DB1FB;
+  --color-p-400: #7599F9;
+  --color-p-500: #3B82F6;
+  --color-p-600: #3167D3;
+  --color-p-700: #264CB0;
+  --color-p-800: #1B338F;
+  --color-p-900: #0D1A6F;
+  --color-p-950: #000051;
+
+  /* --color-p-50: #FFEEFF;
+  --color-p-100: #E3C8F6;
+  --color-p-200: #C5A3ED;
+  --color-p-300: #A67EE3;
+  --color-p-400: #855AD9;
+  --color-p-500: #5E36CE;
+  --color-p-600: #492CAC;
+  --color-p-700: #34238B;
+  --color-p-800: #1F1A6C;
+  --color-p-900: #0A114E;
+  --color-p-950: #000033; */
+}
+
+@theme inline {
+  --button-primary: var(--color-p-500);
+  --button-primary-hover: var(--color-p-40);
+}
+
+/* Custom blockquote styles */
+.blockquote {
+  @apply relative p-6 my-6 border-l-4 border-p-500 bg-gray-50 dark:bg-gray-800 rounded-r-lg text-gray-700 dark:text-gray-300;
+}
+
+.blockquote svg {
+  @apply absolute top-0 left-0 w-6 h-6 -ml-3 -mt-3 text-p-500;
+}
+
+.blockquote p {
+  @apply pl-4 italic;
+}
+
+@layer utilities {
+
+  /* Switch this out for the badge you idiot */
+  .label-style {
+    @apply bg-gray-200 dark:bg-p-500 px-2 rounded text-p-500 dark:text-p-100 w-fit;
+  }
+
+  .list-style {
+    @apply list-disc list-inside space-y-1 my-2;
+  }
+
+  /* These basically theme most of the component pages */
+  .component-header {
+    @apply mb-6 text-2xl font-bold text-gray-800 dark:text-gray-200;
+  }
+
+  .component-wrapper {
+    @apply flex gap-4 mt-6 mb-12 justify-center border-1 border-gray-300 bg-gray-100 dark:bg-gray-900 dark:border-p-700 rounded-lg p-8;
+  }
+
+  .component-code {
+    @apply my-12;
+  }
+
+  .component-props {}
+
+  /* Props table, could be cleaned up... */
+  .props-wrapper {
+    @apply overflow-x-auto mb-12;
+  }
+
+  .props {
+    @apply bg-white dark:bg-gray-800 shadow-md border border-gray-400 dark:border-gray-700;
+  }
+
+  .props-header {
+    @apply bg-gray-100 dark:bg-gray-900 text-gray-700 dark:text-white font-medium text-left;
+  }
+
+  .props-row {
+    @apply odd:bg-white even:bg-gray-50 dark:odd:bg-gray-800 dark:even:bg-gray-900 border-t border-gray-400 dark:border-gray-700;
+  }
+
+  .props-cell {
+    @apply px-4 py-3 text-sm text-gray-800 dark:text-white align-top space-y-2;
+  }
+
+  .props-details {
+    @apply flex flex-col
+  }
+
+  /* Sweet faded hr that actually gets used I promise */
+  .hr-fade {
+    @apply border-0 h-px bg-gradient-to-r from-transparent via-p-700/75 to-transparent;
+    @apply dark:from-transparent dark:via-p-500/75 dark:to-transparent;
+  }
+
+  /* Super basic card wrapper for homepage stuff */
+  .card-standard {
+    @apply bg-gradient-to-b from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 space-y-4 border-2 border-gray-100 rounded-2xl p-6 transition duration-300 hover:border-2 hover:border-p-500 hover:scale-105 hover:shadow-lg hover:shadow-gray-200 dark:hover:shadow-gray-700;
+  }
+
+  /* Insane, useless, fun button to "launch" stuff eventually */
+  .push--flat {
+    box-shadow: inset 0 7.5px 0 #da2e0b, inset 0 -7.5px 0 #aa2409, inset 0 0 0 7.5px #b32609, inset 0 0 0 20px #c2290a, inset 0 0 0 24px #611405, inset 0 0 0 26px black, inset 0 0 0 32px rgba(247, 133, 110, 0.7), inset 0 0 0 44px #c2290a, inset 0 96px 32px #aa2409, inset 0 0 24px 40px #911f08, 0 12px 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .push--flat:active,
+  .push--flat.is-pushed {
+    box-shadow: inset 0 7.5px 0 #da2e0b, inset 0 -7.5px 0 #aa2409, inset 0 0 0 7.5px #b32609, inset 0 0 0 20px #c2290a, inset 0 0 0 24px #611405, inset 0 0 0 28px black, inset 0 0 0 32px rgba(247, 133, 110, 0.2), inset 0 0 0 44px #b32609, inset 0 96px 32px #9b2108, inset 0 0 24px 40px #791a06, 0 12px 0 rgba(0, 0, 0, 0.3);
+    background-color: #b8270a;
+  }
+
+  .push--flat:active span,
+  .push--flat.is-pushed span {
+    bottom: 7px;
+    border-width: 0;
+  }
+
+  @media (max-width: 768px) {
+    .push--flat {
+      box-shadow: inset 0 3.75px 0 #da2e0b, inset 0 -3.75px 0 #aa2409, inset 0 0 0 3.75px #b32609, inset 0 0 0 10px #c2290a, inset 0 0 0 12px #611405, inset 0 0 0 16px black, inset 0 0 0 22px rgba(247, 133, 110, 0.7), inset 0 0 0 26px #c2290a, inset 0 48px 16px #aa2409, inset 0 0 12px 20px #911f08, 0 12px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    .push--flat:active,
+    .push--flat.is-pushed {
+      box-shadow: inset 0 3.75px 0 #da2e0b, inset 0 -3.75px 0 #aa2409, inset 0 0 0 3.75px #b32609, inset 0 0 0 10px #c2290a, inset 0 0 0 12px #611405, inset 0 0 0 14px black, inset 0 0 0 16px rgba(247, 133, 110, 0.2), inset 0 0 0 22px #b32609, inset 0 48px 16px #9b2108, inset 0 0 12px 20px #791a06, 0 12px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    .push--flat:active span,
+    .push--flat.is-pushed span {
+      bottom: 3.5px;
+      border-width: 0;
+    }
+  }
+
+  /* Fancy dark mode glow text */
+  @keyframes pulse-glow {
+    0%,
+    100% {
+      text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 16px rgba(255, 255, 255, 0.6);
+    }
+
+    50% {
+      text-shadow: 0 0 16px rgba(255, 255, 255, 1), 0 0 32px rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  .neon-glow {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8), 0 0 16px rgba(255, 255, 255, 0.6);
+    animation: pulse-glow 1.5s infinite alternate;
+  }
+
+  body {
+  
+    /* thumb color, track color */
+    scrollbar-width: thin;
+    /* Width of the scrollbar */
+    background-color: #fff;
+  }
+  
+  .dark body {
+    scrollbar-color: #333 #081028;
+    background-color: #081028;
+  }
+}
+
+html,
+html * {
+  /* transition: background-color 0.3s ease, color 0.3s ease; */
+  box-sizing: border-box;
+}

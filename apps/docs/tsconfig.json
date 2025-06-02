@@ -1,0 +1,12 @@
+// apps/docs/tsconfig.json
+{
+    "extends": "../../tsconfig.json", // assumes you have a root tsconfig
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "pres-start-core": ["../../packages/pres-start-core/src"]
+      }
+    },
+    "include": ["src"]
+  }
+  

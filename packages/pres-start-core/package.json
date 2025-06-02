@@ -1,0 +1,30 @@
+{
+    "name": "pres-start-core",
+    "version": "1.0.0",
+    "main": "index.ts",
+    "types": "dist/index.d.ts",
+    "type": "module",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "build": "rollup -c"
+    },
+    "peerDependencies": {
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "description": "",
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "^28.0.3",
+        "@rollup/plugin-node-resolve": "^16.0.1",
+        "@rollup/plugin-typescript": "^12.1.2",
+        "rollup": "^4.41.1",
+        "rollup-plugin-dts": "^6.2.1",
+        "rollup-plugin-peer-deps-external": "^2.2.4",
+        "typescript": "^5.8.3"
+    }
+}
