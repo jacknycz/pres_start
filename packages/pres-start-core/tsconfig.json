@@ -1,24 +1,27 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "ESNext",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "rootDir": "./src",
+
     "declaration": true,
-    "declarationDir": "dist/types",
-    "outDir": "dist",
-    "rootDir": "src",
-    "allowJs": true,
+    "declarationDir": "./dist",
+    "emitDeclarationOnly": false,
+
+    "jsx": "react-jsx",
+
+    "strict": true,
+    "noImplicitAny": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "strict": true,
-  "noImplicitAny": true, // This is what causes those errors
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "react-jsx",
+
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
@@ -28,8 +31,8 @@
   "exclude": [
     "node_modules",
     "dist",
-    "**/*.test.tsx",
     "**/*.test.ts",
+    "**/*.test.tsx",
     "**/*.stories.tsx",
     "**/*.stories.ts"
   ]

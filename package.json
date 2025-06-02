@@ -38,6 +38,7 @@
     "tailwindcss": "^4.1.8"
   },
   "devDependencies": {
+    "@rollup/plugin-typescript": "^12.1.2",
     "@types/node-fetch": "^2.6.9",
     "@types/react": "^18.3.23",
     "@types/react-dom": "^18.3.7",
