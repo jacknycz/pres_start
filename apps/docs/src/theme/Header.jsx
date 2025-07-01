@@ -94,6 +94,7 @@ export default function Header(props) {
                         { to: "/examplebadges", label: "Badges" },
                         { to: "/examplebuttongroup", label: "Button Group" },
                         { to: "/examplebuttons", label: "Buttons" },
+                        { to: "/examplechatbot", label: "Chatbot" },
                         { to: "/examplecheckbox", label: "Checkbox" },
                         { to: "/exampleheading", label: "Heading" },
                         { to: "/exampleiconbuttons", label: "Icon Buttons" },
@@ -102,7 +103,6 @@ export default function Header(props) {
                         { to: "/examplemodals", label: "Modals" },
                         { to: "/exampleprogress", label: "Progress" },
                         { to: "/exampleradiogroup", label: "Radio Group" },
-                        { to: "/examplerangeslider", label: "Range Slider" },
                         { to: "/exampleselectinput", label: "Select Input" },
                         { to: "/examplespinner", label: "Spinner" },
                         { to: "/exampletabs", label: "Tabs" },
@@ -111,7 +111,6 @@ export default function Header(props) {
                         { to: "/exampletoast", label: "Toast" },
                         { to: "/exampletoggleswitch", label: "Toggle Switch" },
                         { to: "/exampletooltip", label: "Tooltip" },
-                        { to: "/examplechatbot", label: "Chatbot" },
                     ].map((item, index) => (
                         <NavLink
                             key={item.to}

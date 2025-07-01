@@ -27,7 +27,7 @@ import ExampleToggleSwitch from './examples/ExampleToggleSwitch'
 import ExampleIconButtons from './examples/ExampleIconButtons'
 import ExampleButtonGroup from './examples/ExampleButtonGroup'
 import ExampleTooltip from './examples/ExampleTooltip'
-import ExampleRangeSlider from './examples/ExampleRangeSlider'
+
 import ExampleProgress from './examples/ExampleProgress'
 import ExampleSpinner from './examples/ExampleSpinner'
 import ExampleHeading from './examples/ExampleHeading'
@@ -53,7 +53,7 @@ const routes = [
   { path: 'exampleiconbuttons', element: <ExampleIconButtons /> },
   { path: 'examplebuttongroup', element: <ExampleButtonGroup /> },
   { path: 'exampletooltip', element: <ExampleTooltip /> },
-  { path: 'examplerangeslider', element: <ExampleRangeSlider /> },
+
   { path: 'exampleprogress', element: <ExampleProgress /> },
   { path: 'examplespinner', element: <ExampleSpinner /> },
   { path: 'exampleheading', element: <ExampleHeading /> },

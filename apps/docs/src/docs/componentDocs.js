@@ -129,24 +129,7 @@ Usage:
   onChange={setEnabled} 
 />
 
-Component: RangeSlider
-Description: A slider for selecting a value within a range.
-Props:
-- min: number - Minimum value
-- max: number - Maximum value
-- value: number - Current value
-- onChange: (value: number) => void - Change handler
-- step: number - Step size
-- disabled: boolean - Disables the slider
-- label: string - Label text
-Usage:
-<RangeSlider 
-  min={0} 
-  max={100} 
-  value={volume} 
-  onChange={setVolume}
-  label="Volume"
-/>
+
 
 Component: Progress
 Description: Displays progress of an operation.

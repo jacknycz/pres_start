@@ -3,7 +3,7 @@ import Header from "./Header";
 import { Outlet } from "react-router-dom";
 import useDarkMode from "../hooks/useDarkMode";
 import DarkToggle from "./DarkToggle";
-import { ChatButton } from "pres-start-core";
+import ChatButton from "../_components/ChatButton/ChatButton";
 
 export default function Layout({ children }) {
     const [isDark, toggleDark] = useDarkMode();
