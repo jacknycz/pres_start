@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useCallback } from "react"
 
 const AccordionGroupContext = createContext()
 
-export function AccordionGroup({ children, allowMultiple = false }) {
+export function AccordionGroup({ children, allowMultiple = false, className }) {
     const [openItems, setOpenItems] = useState([])
 
     const toggleItem = useCallback((key) => {
@@ -19,7 +19,7 @@ export function AccordionGroup({ children, allowMultiple = false }) {
 
     return (
         <AccordionGroupContext.Provider value={{ toggleItem, isItemOpen }}>
-            <div>{children}</div>
+            <div className={className}>{children}</div>
         </AccordionGroupContext.Provider>
     )
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 
-export default function TabPanel({ children, labelledBy, id }) {
+export default function TabPanel({ children, labelledBy, id, className }) {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -19,6 +19,7 @@ export default function TabPanel({ children, labelledBy, id }) {
       className={`transition duration-300 ease-out transform
         ${show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"}
         focus:outline-none
+        ${className}
       `}
     >
       {children}

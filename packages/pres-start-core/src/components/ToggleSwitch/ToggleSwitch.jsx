@@ -7,6 +7,7 @@ export default function ToggleSwitch({
     value,
     children,
     disabled = false,
+    className,
 }) {
     const id = `${name}-${value}`;
 
@@ -15,6 +16,7 @@ export default function ToggleSwitch({
             htmlFor={id}
             className={`flex items-center gap-3 text-sm px-1 py-2 min-h-[44px] rounded cursor-pointer select-none transition
         ${disabled ? "opacity-50 cursor-not-allowed" : ""}
+      ${className || ""}
       `}
         >
             <input

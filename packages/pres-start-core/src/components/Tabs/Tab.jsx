@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Tab({ children, icon, isActive, onSelect, id, panelId }) {
+export default function Tab({ children, icon, isActive, onSelect, id, panelId, className }) {
     return (
         <button
             id={id}
@@ -14,7 +14,7 @@ export default function Tab({ children, icon, isActive, onSelect, id, panelId })
           ${isActive
                     ? 'border-p-500 text-p-500 dark:text-white'
                     : 'border-transparent text-gray-600 dark:text-p-90 dark:hover:text-white hover:border-p-60'}
-        `}
+        ${className || ''}`}
         >
             {icon && <span className="material-icons text-base">{icon}</span>}
             {children}

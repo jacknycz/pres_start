@@ -3,8 +3,9 @@ import IconButton from "../IconButton/IconButton.jsx";
 import { useEffect, useRef } from "react";
 import CloseIcon from '@mui/icons-material/Close';
 import { motion, AnimatePresence } from "framer-motion";
+import classNames from 'classnames';
 
-export default function Modal({ isOpen, onClose, header, children }) {
+export default function Modal({ isOpen, onClose, header, children, className = "", ...props }) {
     const overlayRef = useRef(null);
     const dialogRef = useRef(null);
 
@@ -36,10 +37,14 @@ export default function Modal({ isOpen, onClose, header, children }) {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.2 }}
+                    {...props}
                 >
                     <motion.div
                         ref={dialogRef}
-                        className="relative w-full max-w-lg mx-4 sm:mx-auto rounded-xl bg-white dark:bg-gray-900 shadow-xl p-4 md:p-6"
+                        className={classNames(
+                            "relative min-w-sm w-full max-w-sm md:max-w-md lg:max-w-lg mx-4 sm:mx-auto rounded-xl bg-white dark:bg-gray-900 shadow-xl p-4 md:p-6",
+                            className
+                        )}
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: 20 }}

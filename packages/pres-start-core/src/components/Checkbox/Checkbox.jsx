@@ -9,6 +9,7 @@ export default function Checkbox({
   value,
   disabled = false,
   helperText = "",
+  className = "",
 }) {
   const id = `${name}-${value}`;
 
@@ -17,6 +18,7 @@ export default function Checkbox({
       htmlFor={id}
       className={`flex items-center gap-3 text-sm px-1 py-2 min-h-[44px] rounded cursor-pointer select-none transition
         ${disabled ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-50 dark:hover:bg-gray-800"}
+        ${className}
       `}
     >
       <input
