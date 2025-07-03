@@ -23,7 +23,7 @@ export default function TextArea({
   const hasErrorMessage = error && supportText;
 
   return (
-    <div className={classNames("w-full", className)}>
+    <div className={classNames("pres-textarea w-full", className)}>
       {label && (
         <label
           htmlFor={id}

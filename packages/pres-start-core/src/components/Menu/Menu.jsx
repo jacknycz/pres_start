@@ -18,7 +18,7 @@ export default function Menu({ children, onOpen, className }) {
 
     return (
         <MenuContext.Provider value={{ open, toggleOpen }}>
-            <div className={`menu relative ${className}`}>
+            <div className={`pres-menu menu relative ${className}`}>
                 {children}
             </div>
         </MenuContext.Provider>

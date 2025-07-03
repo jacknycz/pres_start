@@ -25,7 +25,7 @@ export function Link({
     return (
       <RouterLink
         to={to}
-        className={classNames(baseStyles, variantStyles[variant], className)}
+        className={classNames('pres-link', baseStyles, variantStyles[variant], className)}
         {...props}
       >
         {children}
@@ -36,7 +36,7 @@ export function Link({
   return (
     <a
       href={href}
-      className={classNames(baseStyles, variantStyles[variant], className)}
+      className={classNames('pres-link', baseStyles, variantStyles[variant], className)}
       {...externalProps}
       {...props}
     >

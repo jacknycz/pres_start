@@ -1,5 +1,6 @@
 import React from "react";
 import { Check } from "@mui/icons-material";
+import classNames from "classnames";
 
 export default function Checkbox({
   label,
@@ -16,10 +17,14 @@ export default function Checkbox({
   return (
     <label
       htmlFor={id}
-      className={`flex items-center gap-3 text-sm px-1 py-2 min-h-[44px] rounded cursor-pointer select-none transition
-        ${disabled ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-50 dark:hover:bg-gray-800"}
-        ${className}
-      `}
+      className={classNames(
+        'pres-checkbox flex items-center gap-3 text-sm px-1 py-2 min-h-[44px] rounded cursor-pointer select-none transition',
+        {
+          'opacity-50 cursor-not-allowed': disabled,
+          'hover:bg-gray-50 dark:hover:bg-gray-800': !disabled,
+        },
+        className
+      )}
     >
       <input
         type="checkbox"

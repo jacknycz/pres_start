@@ -12,6 +12,7 @@ const typeStyles = {
     primary: 'bg-p-500 text-white',
     secondary: 'bg-gray-500 text-white',
     ghost: 'bg-transparent text-p-500 dark:text-white border border-p-500',
+    custom: '',
 }
 
 const shapeStyles = {
@@ -31,6 +32,7 @@ function Badge({
     return (
         <div
             className={classNames(
+                'pres-badge',
                 baseStyles,
                 typeStyles[variant],
                 shapeStyles[shape],

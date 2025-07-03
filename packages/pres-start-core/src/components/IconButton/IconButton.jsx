@@ -9,6 +9,7 @@ const variantStyles = {
     ghost: 'bg-transparent ring-2 ring-inset ring-p-500 text-p-500 hover:bg-p-90 dark:hover:bg-p-500 transition duration-300 ease-in-out dark:text-white',
     destructive: 'bg-red-500 text-white hover:bg-red-600 transition duration-300 ease-in-out dark:bg-red-600',
     disabled: 'bg-gray-200 dark:bg-gray-800 dark:text-white text-gray-800',
+    custom: '',
 };
 
 const shapeStyles = {
@@ -39,6 +40,7 @@ function IconButton({
     return (
         <button
             className={classNames(
+                'pres-icon-button',
                 shapeStyles[shape],
                 sizeStyles[size],
                 disabled ? variantStyles.disabled : variantStyles[variant],

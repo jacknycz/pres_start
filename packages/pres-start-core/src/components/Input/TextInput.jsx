@@ -24,7 +24,7 @@ export default function TextInput({
   const hasErrorMessage = error && supportText;
 
   return (
-    <div className={classNames("w-full", className)}>
+    <div className={classNames("pres-textinput w-full", className)}>
       {label && (
         <label htmlFor={inputId} className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
           {label}

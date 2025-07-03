@@ -135,7 +135,7 @@ const Chatbot = ({
   return (
     <div
       className={classNames(
-        'flex flex-col h-[600px] max-h-[80vh] bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden',
+        'pres-chatbot flex flex-col h-[600px] max-h-[80vh] bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden',
         className
       )}
       {...props}

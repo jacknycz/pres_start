@@ -33,6 +33,7 @@ function Avatar({
     return (
         <div
             className={classNames(
+                'pres-avatar',
                 baseStyles,
                 sizeStyles[size],
                 src && (size === 'large' ? 'border-4 border-p-500' : 'border-3 border-p-500'),

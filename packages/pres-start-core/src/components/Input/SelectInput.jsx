@@ -17,7 +17,7 @@ export default function SelectInput({
   ...props
 }) {
   return (
-    <div className={classNames("w-full", className)}>
+    <div className={classNames("pres-selectinput w-full", className)}>
       {label && (
         <label
           htmlFor={name}

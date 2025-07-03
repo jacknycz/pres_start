@@ -43,7 +43,7 @@ export default function Accordion({
     }, [isOpen]);
 
     return (
-        <div className={classNames("bg-white dark:bg-gray-800 border border-b last:border-b-2 border-p-70 dark:border-p-500 rounded shadow-sm overflow-hidden", className)}>
+        <div className={classNames("pres-accordion bg-white dark:bg-gray-800 border border-b last:border-b-2 border-p-70 dark:border-p-500 rounded shadow-sm overflow-hidden", className)}>
             <button
                 className="w-full flex items-center justify-between px-4 py-3 text-left transition-all duration-300 ease-in-out"
                 onClick={toggle}

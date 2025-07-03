@@ -32,7 +32,7 @@ export function Heading({
   return (
     <Component
       className={classNames(
-        'text-gray-900 dark:text-white',
+        'pres-heading text-gray-900 dark:text-white',
         sizeStyles[headingSize],
         !noMargin && marginStyles[headingSize],
         className
