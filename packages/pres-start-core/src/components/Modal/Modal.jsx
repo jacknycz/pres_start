@@ -42,7 +42,7 @@ export default function Modal({ isOpen, onClose, header, children, className = "
                     <motion.div
                         ref={dialogRef}
                         className={classNames(
-                            "pres-modalrelative min-w-sm w-full max-w-sm md:max-w-md lg:max-w-lg mx-4 sm:mx-auto rounded-xl bg-white dark:bg-gray-900 shadow-xl p-4 md:p-6",
+                            "pres-modal relative min-w-sm w-full max-w-sm md:max-w-md lg:max-w-lg mx-4 sm:mx-auto rounded-xl bg-white dark:bg-gray-900 shadow-xl p-4 md:p-6",
                             className
                         )}
                         initial={{ opacity: 0, y: 20 }}
