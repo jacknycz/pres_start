@@ -9,14 +9,17 @@ export default function Radio({
   children,
   disabled = false,
   className,
+  variant = 'default',
 }) {
+  const labelClass = variant === 'custom'
+    ? className || ''
+    : `flex items-center gap-2 text-sm px-1 py-2 min-h-[44px] rounded cursor-pointer select-none transition
+        ${disabled ? "opacity-50 cursor-not-allowed" : ""}
+        ${className || ""}`;
   return (
     <label
       htmlFor={id}
-      className={`flex items-center gap-2 text-sm px-1 py-2 min-h-[44px] rounded cursor-pointer select-none transition
-        ${disabled ? "opacity-50 cursor-not-allowed" : ""}
-        ${className || ""}
-      `}
+      className={labelClass}
     >
       <input
         type="radio"

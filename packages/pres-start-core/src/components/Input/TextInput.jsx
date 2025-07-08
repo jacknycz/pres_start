@@ -17,14 +17,19 @@ export default function TextInput({
   className,
   maxLength,
   id,
+  variant = 'default',
   ...props
 }) {
   const inputId = id || name;
   const errorId = `${inputId}-error`;
   const hasErrorMessage = error && supportText;
 
+  const rootClass = variant === 'custom'
+    ? classNames('pres-textinput', className)
+    : classNames('pres-textinput w-full', className);
+
   return (
-    <div className={classNames("pres-textinput w-full", className)}>
+    <div className={rootClass}>
       {label && (
         <label htmlFor={inputId} className="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-1">
           {label}

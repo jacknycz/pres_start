@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, useCallback } from "react"
 
 const AccordionGroupContext = createContext()
 
-export function AccordionGroup({ children, allowMultiple = false, className }) {
+export function AccordionGroup({ children, allowMultiple = false, className, variant = "default", ...props }) {
     const [openItems, setOpenItems] = useState([])
 
     const toggleItem = useCallback((key) => {
@@ -17,9 +17,12 @@ export function AccordionGroup({ children, allowMultiple = false, className }) {
 
     const isItemOpen = useCallback((key) => openItems.includes(key), [openItems])
 
+    // Determine styles based on variant
+    const groupClass = variant === "custom" ? className : className ? `pres-accordion-group ${className}` : "pres-accordion-group";
+
     return (
         <AccordionGroupContext.Provider value={{ toggleItem, isItemOpen }}>
-            <div className={className}>{children}</div>
+            <div className={groupClass} {...props}>{children}</div>
         </AccordionGroupContext.Provider>
     )
 }

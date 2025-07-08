@@ -5,7 +5,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import { motion, AnimatePresence } from "framer-motion";
 import classNames from 'classnames';
 
-export default function Modal({ isOpen, onClose, header, children, className = "", ...props }) {
+export default function Modal({ isOpen, onClose, header, children, className = "", variant = "default", ...props }) {
     const overlayRef = useRef(null);
     const dialogRef = useRef(null);
 
@@ -22,6 +22,12 @@ export default function Modal({ isOpen, onClose, header, children, className = "
         if (e.target === overlayRef.current) {
             onClose();
         }
+    };
+
+    // Variant styles
+    const variantStyles = {
+        default: "pres-modal relative min-w-sm w-full max-w-sm md:max-w-md lg:max-w-lg mx-4 sm:mx-auto rounded-xl bg-white dark:bg-gray-900 shadow-xl p-4 md:p-6",
+        custom: "pres-modal"
     };
 
     return (
@@ -42,7 +48,7 @@ export default function Modal({ isOpen, onClose, header, children, className = "
                     <motion.div
                         ref={dialogRef}
                         className={classNames(
-                            "pres-modal relative min-w-sm w-full max-w-sm md:max-w-md lg:max-w-lg mx-4 sm:mx-auto rounded-xl bg-white dark:bg-gray-900 shadow-xl p-4 md:p-6",
+                            variantStyles[variant],
                             className
                         )}
                         initial={{ opacity: 0, y: 20 }}

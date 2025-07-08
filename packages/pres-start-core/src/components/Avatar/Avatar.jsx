@@ -28,16 +28,22 @@ function Avatar({
     children,
     className,
     size = 'default',
+    variant = 'default',
     ...props
 }) {
+    // Determine styles based on variant
+    const avatarClass = variant === "custom"
+        ? classNames('pres-avatar', className)
+        : classNames(
+            'pres-avatar',
+            baseStyles,
+            sizeStyles[size],
+            src && (size === 'large' ? 'border-4 border-p-500' : 'border-3 border-p-500'),
+            className
+        );
     return (
         <div
-            className={classNames(
-                'pres-avatar',
-                baseStyles,
-                sizeStyles[size],
-                src && (size === 'large' ? 'border-4 border-p-500' : 'border-3 border-p-500'),
-                className)}
+            className={avatarClass}
             {...props}
         >
             {src ? (

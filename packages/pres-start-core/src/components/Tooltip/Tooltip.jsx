@@ -14,6 +14,7 @@ export function Tooltip({
   position = 'top',
   className,
   isInteractive = false,
+  variant = 'default',
   ...props
 }) {
   const [isVisible, setIsVisible] = useState(false);
@@ -69,7 +70,7 @@ export function Tooltip({
           id="tooltip"
           onMouseEnter={isInteractive ? handleTooltipMouseEnter : undefined}
           onMouseLeave={isInteractive ? handleTooltipMouseLeave : undefined}
-          className={classNames(
+          className={variant === 'custom' ? className : classNames(
             'absolute z-50 px-3 py-1.5 text-sm font-medium text-white bg-gray-900 rounded shadow-lg whitespace-nowrap',
             'dark:bg-gray-700',
             positions[position],

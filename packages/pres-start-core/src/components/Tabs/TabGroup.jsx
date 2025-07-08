@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useId } from "react";
 
-export default function TabGroup({ children, className = "" }) {
+export default function TabGroup({ children, className = "", variant = 'default', ...props }) {
     const tabs = [];
     const panels = [];
 
@@ -20,8 +20,10 @@ export default function TabGroup({ children, className = "" }) {
         else if (e.key === "End") setActiveIndex(tabs.length - 1);
     };
 
+    const rootClass = variant === 'custom' ? className : `w-full ${className}`;
+
     return (
-        <div className={`w-full ${className}`}>
+        <div className={rootClass} {...props}>
             <div
                 role="tablist"
                 aria-label="Tabs"

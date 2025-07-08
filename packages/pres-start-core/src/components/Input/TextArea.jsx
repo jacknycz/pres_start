@@ -15,6 +15,7 @@ export default function TextArea({
   className,
   rows = 4,
   maxLength,
+  variant = 'default',
   ...props
 }) {
   const [isFocused, setIsFocused] = useState(false);
@@ -22,8 +23,12 @@ export default function TextArea({
   const errorId = `${id}-error`;
   const hasErrorMessage = error && supportText;
 
+  const rootClass = variant === 'custom'
+    ? classNames('pres-textarea', className)
+    : classNames('pres-textarea w-full', className);
+
   return (
-    <div className={classNames("pres-textarea w-full", className)}>
+    <div className={rootClass}>
       {label && (
         <label
           htmlFor={id}

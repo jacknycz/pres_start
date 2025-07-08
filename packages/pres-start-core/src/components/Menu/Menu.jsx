@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react"
 const MenuContext = React.createContext()
 export { MenuContext }
 
-export default function Menu({ children, onOpen, className }) {
+export default function Menu({ children, onOpen, className, variant = 'default', ...props }) {
     const [open, setOpen] = useState(false)
     
     const toggleOpen = () => {
@@ -16,9 +16,11 @@ export default function Menu({ children, onOpen, className }) {
         }
     }, [open, onOpen])
 
+    const menuClass = variant === 'custom' ? className : `pres-menu menu relative ${className}`;
+
     return (
         <MenuContext.Provider value={{ open, toggleOpen }}>
-            <div className={`pres-menu menu relative ${className}`}>
+            <div className={menuClass} {...props}>
                 {children}
             </div>
         </MenuContext.Provider>

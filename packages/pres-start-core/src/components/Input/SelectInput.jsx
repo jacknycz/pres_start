@@ -14,10 +14,15 @@ export default function SelectInput({
   className,
   children,
   disabled = false,
+  variant = 'default',
   ...props
 }) {
+  const rootClass = variant === 'custom'
+    ? classNames('pres-selectinput', className)
+    : classNames('pres-selectinput w-full', className);
+
   return (
-    <div className={classNames("pres-selectinput w-full", className)}>
+    <div className={rootClass}>
       {label && (
         <label
           htmlFor={name}

@@ -66,6 +66,7 @@ const Chatbot = ({
   onSendMessage = async () => {},
   initialMessages = [],
   className,
+  variant = 'default',
   ...props
 }) => {
   const [messages, setMessages] = useState(initialMessages);
@@ -134,10 +135,7 @@ const Chatbot = ({
 
   return (
     <div
-      className={classNames(
-        'pres-chatbot flex flex-col h-[600px] max-h-[80vh] bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden',
-        className
-      )}
+      className={variant === 'custom' ? className : classNames('pres-chatbot flex flex-col h-[600px] max-h-[80vh] bg-white dark:bg-gray-900 rounded-xl shadow-lg overflow-hidden', className)}
       {...props}
     >
       <div className="p-4 border-b border-gray-200 dark:border-gray-700 flex items-center bg-white dark:bg-gray-900">

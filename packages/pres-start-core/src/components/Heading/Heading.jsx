@@ -25,18 +25,23 @@ export function Heading({
   className,
   children,
   noMargin = false,
+  variant = 'default',
   ...props
 }) {
   const headingSize = size || Component;
   
-  return (
-    <Component
-      className={classNames(
+  const headingClass = variant === 'custom'
+    ? classNames('pres-heading', className)
+    : classNames(
         'pres-heading text-gray-900 dark:text-white',
         sizeStyles[headingSize],
         !noMargin && marginStyles[headingSize],
         className
-      )}
+      );
+
+  return (
+    <Component
+      className={headingClass}
       {...props}
     >
       {children}

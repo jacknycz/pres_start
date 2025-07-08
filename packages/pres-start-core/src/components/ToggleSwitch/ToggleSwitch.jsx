@@ -8,16 +8,22 @@ export default function ToggleSwitch({
     children,
     disabled = false,
     className,
+    variant = 'default',
+    ...props
 }) {
     const id = `${name}-${value}`;
+
+    const labelClass = variant === 'custom'
+        ? className || ''
+        : `flex items-center gap-3 text-sm px-1 py-2 min-h-[44px] rounded cursor-pointer select-none transition
+        ${disabled ? "opacity-50 cursor-not-allowed" : ""}
+      ${className || ""}`;
 
     return (
         <label
             htmlFor={id}
-            className={`flex items-center gap-3 text-sm px-1 py-2 min-h-[44px] rounded cursor-pointer select-none transition
-        ${disabled ? "opacity-50 cursor-not-allowed" : ""}
-      ${className || ""}
-      `}
+            className={labelClass}
+            {...props}
         >
             <input
                 type="checkbox"
