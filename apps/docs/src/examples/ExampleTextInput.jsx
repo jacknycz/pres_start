@@ -51,6 +51,17 @@ export default function ExampleTextInput() {
           name="email"
           placeholder="you@example.com"
           value={email}
+          variant="custom"
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
+
+      <div className="component-wrapper">
+        <TextInput
+          label="Email"
+          name="email"
+          placeholder="you@example.com"
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
           iconLeft={<EmailIcon fontSize="small" />}
           supportText="We'll never share your email."

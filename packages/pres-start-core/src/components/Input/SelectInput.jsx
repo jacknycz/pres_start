@@ -1,52 +1,44 @@
 import React from "react";
 import classNames from "classnames";
 
-export default function SelectInput({
-  label,
-  name,
-  value,
-  onChange,
-  placeholder = "Select an option",
-  supportText,
-  error = false,
-  iconLeft,
-  iconRight,
-  className,
-  children,
-  disabled = false,
-  variant = 'default',
-  ...props
-}) {
-  const rootClass = variant === 'custom'
-    ? classNames('pres-selectinput', className)
-    : classNames('pres-selectinput w-full', className);
+export default function SelectInput({ ...props }) {
+  const {
+    label,
+    name,
+    value,
+    onChange,
+    placeholder = "Select an option",
+    supportText,
+    error = false,
+    iconLeft,
+    iconRight,
+    className,
+    children,
+    disabled = false,
+    variant = "default",
+    ...rest
+  } = props;
+
+  const rootClass = variant === "custom" ? classNames("pres-selectinput", className) : classNames("pres-selectinput w-full", className);
 
   return (
     <div className={rootClass}>
       {label && (
-        <label
-          htmlFor={name}
-          className="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-200"
-        >
+        <label htmlFor={name} className="block mb-1 text-sm font-medium text-gray-700 dark:text-gray-200">
           {label}
         </label>
       )}
 
       <div
         className={classNames(
-          "relative flex items-center rounded-lg border px-3 py-2 transition",
-          "bg-white dark:bg-gray-800",
+          "relative flex items-center rounded-lg border px-3 py-2 transition bg-white dark:bg-gray-800",
           disabled ? "opacity-50 cursor-not-allowed" : "",
           error
             ? "border-red-500 focus-within:ring-red-500"
             : "border-gray-300 dark:border-gray-600 focus-within:ring-2 focus-within:ring-blue-500"
         )}
       >
-        {iconLeft && (
-          <span className="mr-2 text-gray-500 dark:text-gray-400">
-            {iconLeft}
-          </span>
-        )}
+        {iconLeft && <span className="mr-2 text-gray-500 dark:text-gray-400">{iconLeft}</span>}
 
         <select
           id={name}
@@ -59,7 +51,7 @@ export default function SelectInput({
             iconRight && "pr-8",
             iconLeft && "pl-1"
           )}
-          {...props}
+          {...rest}
         >
           <option value="" disabled hidden>
             {placeholder}
@@ -67,26 +59,18 @@ export default function SelectInput({
           {children}
         </select>
 
-        {iconRight && (
-          <span className="absolute right-3 text-gray-500 dark:text-gray-400">
-            {iconRight}
-          </span>
-        )}
+        {iconRight && <span className="absolute right-3 text-gray-500 dark:text-gray-400">{iconRight}</span>}
       </div>
 
       {supportText && (
-        <p
-          className={classNames(
-            "mt-1 text-sm",
-            error ? "text-red-500" : "text-gray-500 dark:text-gray-400"
-          )}
-        >
+        <p className={classNames("mt-1 text-sm", error ? "text-red-500" : "text-gray-500 dark:text-gray-400")}>
           {supportText}
         </p>
       )}
     </div>
   );
 }
+
 
 
 // Usage example:
